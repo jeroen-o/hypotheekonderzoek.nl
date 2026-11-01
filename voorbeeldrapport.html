@@ -137,6 +137,8 @@ footer b{color:#fff}
       <div class="ins"><b>Inzicht:</b> u converteert sterk bij starters en doorstromers. Bij ondernemers en senioren blijft u ver achter, terwijl u daar wel vaak wordt doorgerekend.</div></div>
   </div>
   <div class="card" style="margin-top:14px"><h3>Doorlooptijd</h3><p class="sub">Mediaan in werkdagen</p><div class="tw" id="t_dl"></div></div>
+  <div class="card" style="margin-top:14px"><h3>Doorlooptijd per type klant</h3><p class="sub">Mediaan in werkdagen per stap: u, met tussen haakjes de markt</p><div class="tw" id="t_dlt"></div>
+    <div class="ins"><b>Inzicht:</b> de stap van aanvraag naar bindend aanbod duurt bij ondernemers 4,6 werkdagen langer dan in de markt. Dat is de grootste vertraging in uw proces, en het past bij het lagere oordeel van adviseurs over de acceptatie van ondernemers (hoofdstuk 17).</div></div>
 </div></section>
 
 <!-- 4 -->
@@ -177,6 +179,11 @@ footer b{color:#fff}
   <div class="card" style="margin-top:14px"><h3>Klantprofiel in één oogopslag</h3><p class="sub">Uw gemiddelde klant tegenover die van de vergelijkingsgroep (7 regiepartijen, anoniem) en de hele markt, Q3</p><div class="g3" id="persona"></div></div>
   <div class="card" style="margin-top:14px"><h3>Type klant: aandeel, gemiddelde leeftijd en WOZ-waarde</h3><p class="sub">U tegenover de mediaan van de vergelijkingsgroep en de markt, Q3. De WOZ-waarde is de gemiddelde WOZ-waarde van het onderpand. Cijfers van individuele geldverstrekkers tonen we niet.</p><div class="tw" id="t_type"></div>
     <div class="ins"><b>Inzicht:</b> u financiert relatief veel alleenstaande starters met een lagere WOZ-waarde. Bij doorstromers en senioren financiert u gemiddeld duurdere woningen dan de markt, maar uw aandeel daar is kleiner.</div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Inkomen per type klant</h3><p class="sub">Gemiddeld toetsinkomen van het huishouden, bruto per jaar</p><div class="tw" id="t_inc"></div></div>
+    <div class="card"><h3>Dienstverband per type klant (u)</h3><p class="sub">Type inkomen van de hoofdaanvrager, met tussen haakjes de markt</p><div class="tw" id="t_dvt"></div></div>
+  </div>
+  <div class="ins" style="margin-top:14px"><b>Inzicht:</b> uw aanvragers hebben bij alle typen klant een lager inkomen dan de markt, en vaker een vast dienstverband. Bij doorstromers en oversluiters ligt uw aandeel ondernemers ruim onder dat van de markt. Dat past bij het verschil in leencapaciteit voor ondernemers in hoofdstuk 4.</div>
   <div class="card" style="margin-top:14px"><h3>Klantprofiel per type aanbieder</h3><p class="sub">Uw profiel naast dat van groepen aanbieders. Elke groep bestaat uit minstens vijf partijen. Profielen van individuele geldverstrekkers tonen we niet.</p><div class="tw" id="t_prov"></div></div>
   <div class="g2" style="margin-top:14px">
     <div class="card"><h3>Eigen inbreng</h3><p class="sub">Eigen geld als aandeel van de koopsom, per type klant</p><div id="c_eig"></div></div>
@@ -301,9 +308,16 @@ footer b{color:#fff}
 </div></section>
 
 <section class="ch" id="s24"><div class="wrap">
-  <span class="chn"><i>17</i> Oordeel van adviseurs</span>
-  <h2>Hoe adviseurs u beoordelen</h2>
-  <p class="lead">Uit de jaarlijkse adviseursenquête (fictief: 412 respondenten). Scores van 1 tot 10, u tegenover de mediaan van de vergelijkingsgroep. Uitkomsten worden alleen per groep gerapporteerd, nooit per individuele adviseur.</p>
+  <span class="chn"><i>17</i> Oordeel van adviseurs en klanten</span>
+  <h2>Hoe adviseurs en klanten u beoordelen</h2>
+  <div class="g4" id="npskpi"></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>NPS van adviseurs per groep</h3><p class="sub">"Hoe waarschijnlijk is het dat u deze geldverstrekker aanbeveelt bij een collega?" (0–10)</p><div class="tw" id="t_npsadv"></div></div>
+    <div class="card"><h3>NPS van klanten per type klant</h3><p class="sub">"Hoe waarschijnlijk is het dat u deze geldverstrekker aanbeveelt bij vrienden of familie?" (0–10), gemeten 3 maanden na de passering</p><div class="tw" id="t_npskl"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Verdeling promotors, passives en criticasters</h3><div id="c_npsdist"></div><div class="note">NPS = % promotors (9–10) min % criticasters (0–6). Fictief: 412 adviseurs en 1.860 klanten. Uitkomsten worden alleen per groep gerapporteerd, nooit per individuele adviseur of klant. Groepen met minder dan 25 respondenten worden niet getoond.</div></div>
+  <h3 style="margin:22px 0 10px">Beoordeling per onderwerp door adviseurs</h3>
+  <p class="sub">Scores van 1 tot 10, u tegenover de markt</p>
   <div class="card"><div id="c_nps"></div></div>
   <div class="g2" style="margin-top:14px">
     <div class="card"><h3>Wat adviseurs het meest waarderen</h3><ol style="margin:6px 0 0;padding-left:20px;color:var(--mut)"><li>Snelle en duidelijke acceptatie bij starters</li><li>Bereikbaarheid van de acceptant</li><li>Scherpe rente bij 10 jaar vast met NHG</li></ol></div>
@@ -449,9 +463,32 @@ $('c_dv').innerHTML=pair(['Loondienst vast','Loondienst flex','Ondernemer / zzp'
  $('c_woz').innerHTML=pair(['< € 300.000','€ 300.000 – 400.000','€ 400.000 – 500.000','€ 500.000 – 750.000','> € 750.000'],[18,31,25,19,7],[14,27,26,23,10],'%',0,150,460)+'<div class="note">Grijze balk = markt.</div>';
  $('c_agetype').innerHTML=pair(['Starter','Alleenstaand','Samenwonend','Doorstromer','Oversluiter','Senior (60+)'],[30.2,33.4,38.3,41.6,46.8,66.4],[31.4,36.1,40.6,42.9,47.5,67.1],'',1,110,460);
 })();
+
+// inkomen & dienstverband per type klant
+(function(){const eur=v=>'€ '+v.toLocaleString('nl-NL');
+ const I=[['Alleenstaand',54000,56000,58000],['Samenwonend',99000,103000,107000],['Man (hoofdaanvrager)',89000,92000,95000],['Vrouw (hoofdaanvrager)',81000,84000,87000],['Starter',71000,73000,76000],['Doorstromer',104000,108000,112000],['Oversluiter',96000,99000,101000],['Verhoging / verbouwing',98000,101000,104000],['Senior (60+)',63000,66000,68000],['<b>Totaal</b>',86000,89000,92000]];
+ $('t_inc').innerHTML='<table><thead><tr><th>Type klant</th><th class="r">U</th><th class="r">Groep</th><th class="r">Markt</th></tr></thead><tbody>'+I.map(r=>`<tr><td>${r[0]}</td><td class="r"><b>${eur(r[1])}</b></td><td class="r">${eur(r[2])}</td><td class="r">${eur(r[3])}</td></tr>`).join('')+'</tbody></table>';
+ const D=[['Alleenstaand',74,13,9,4,[64,13,16,7]],['Samenwonend',80,7,8,5,[73,8,13,6]],['Starter',82,13,5,0,[75,14,10,1]],['Doorstromer',80,5,13,2,[69,6,22,3]],['Oversluiter',71,6,9,14,[60,7,19,14]],['Senior (60+)',31,2,10,57,[24,2,16,58]],['<b>Totaal</b>',78,9,8,5,[70,9,14,7]]];
+ const cell=(u,m)=>`<span style="white-space:nowrap"><b>${u}%</b> <span style="color:#5b6678;font-size:.8rem">(${m}%)</span></span>`;
+ $('t_dvt').innerHTML='<table><thead><tr><th>Type klant</th><th class="r">Vast</th><th class="r">Flex</th><th class="r">Ondernemer / zzp</th><th class="r">Pensioen</th></tr></thead><tbody>'+D.map(r=>`<tr><td>${r[0]}</td>${[1,2,3,4].map(k=>`<td class="r">${cell(r[k],r[5][k-1])}</td>`).join('')}</tr>`).join('')+'</tbody></table>';
+})();
+
+// doorlooptijd per type klant
+(function(){const T=[['Starter','2,8 (3,1)','6,1 (5,6)','23,4 (23,0)'],['Doorstromer','3,4 (3,6)','6,4 (5,8)','27,9 (27,2)'],['Oversluiter','3,9 (3,5)','7,2 (6,0)','19,8 (19,1)'],['Ondernemer','4,6 (4,1)','11,9 (7,3)','26,2 (24,8)'],['Senior (60+)','4,1 (3,9)','8,8 (6,7)','25,1 (24,6)'],['<b>Totaal</b>','3,1 (3,4)','6,8 (5,9)','24,0 (23,5)']];
+ $('t_dlt').innerHTML=tbl(['Type klant','Berekening → aanvraag','Aanvraag → bindend aanbod','Aanbod → passering'],T,[1,2,3]);})();
+// NPS
+(function(){const k=(l,v,d)=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${d}</div></div>`;
+ $('npskpi').innerHTML=k('NPS adviseurs','+24','<span class="pos">+9</span> t.o.v. groep (+15)')+k('NPS klanten','+31','<span class="pos">+4</span> t.o.v. groep (+27)')+k('Respons adviseurs','412','uit 196 kantoren')+k('Respons klanten','1.860','respons 23%');
+ const sgn=v=>(v>0?'+':v<0?'−':'')+Math.abs(v);
+ const npsrow=(r)=>[r[0],`<b>${sgn(r[1])}</b>`,sgn(r[2]),`<span class="${r[1]-r[2]>=0?'pos':'neg'}">${sgn(r[1]-r[2])}</span>`];
+ $('t_npsadv').innerHTML=tbl(['Groep adviseurs','NPS u','NPS groep','Δ'],[['Klein kantoor (1–3 adviseurs)',29,18],['Middelgroot kantoor (4–10)',24,15],['Groot kantoor / keten (> 10)',17,13],['Specialisme starters',38,21],['Specialisme ondernemers',-6,9],['Specialisme senioren',4,11]].map(npsrow),[1,2,3]);
+ $('t_npskl').innerHTML=tbl(['Type klant','NPS u','NPS groep','Δ'],[['Starter',39,31],['Doorstromer',33,29],['Oversluiter',21,24],['Ondernemer',12,22],['Senior (60+)',18,23],['Alleenstaand',28,25],['Samenwonend',32,28]].map(npsrow),[1,2,3]);
+ const W=640,L=150,rh=34,rows=[['Adviseurs: u',[42,40,18]],['Adviseurs: groep',[37,41,22]],['Klanten: u',[48,35,17]],['Klanten: groep',[45,37,18]]],cols=['#1f8a5b','#cfd6e1','#c0392b'];let sv='';
+ rows.forEach((r,i)=>{let x=L;const y=i*rh+4;sv+=`<text x="0" y="${y+17}" font-size="12" fill="#1b2535">${r[0]}</text>`;r[1].forEach((v,j)=>{const w=(W-L)*v/100;sv+=`<rect x="${x}" y="${y}" width="${w}" height="24" fill="${cols[j]}"/><text x="${x+w/2}" y="${y+16}" text-anchor="middle" font-size="11" font-weight="700" fill="${j==1?'#1b2535':'#fff'}">${v}%</text>`;x+=w;});});
+ $('c_npsdist').innerHTML=`<div class="legend"><span><i style="background:#1f8a5b"></i>Promotors (9–10)</span><span><i style="background:#cfd6e1"></i>Passives (7–8)</span><span><i style="background:#c0392b"></i>Criticasters (0–6)</span></div><svg viewBox="0 0 ${W} ${rows.length*rh+4}" width="100%" style="max-width:860px">${sv}</svg>`;})();
 // klantprofiel per type aanbieder + eigen inbreng + overbrugging
 (function(){const H=['','U','Grootbanken incl. dochters','Regiepartijen','Verzekeraars','Overige banken','Markt'];
- const R=[['Gemiddelde leeftijd','36,8','39,4','37,6','42,1','38,2','39,1'],['Alleenstaand','29%','33%','31%','38%','35%','34%'],['Vrouw (hoofdaanvrager)','41%','36%','39%','37%','38%','37%'],['Starter','42%','31%','37%','24%','35%','33%'],['Doorstromer','33%','34%','32%','28%','31%','32%'],['Oversluiter','14%','19%','18%','29%','20%','21%'],['Gem. WOZ-waarde','€ 431.000','€ 472.000','€ 444.000','€ 461.000','€ 438.000','€ 456.000'],['Gem. hoofdsom','€ 402.000','€ 426.000','€ 409.000','€ 398.000','€ 405.000','€ 418.000'],['Gem. eigen inbreng','€ 38.000','€ 71.000','€ 46.000','€ 62.000','€ 49.000','€ 57.000'],['Met overbrugging','12%','18%','14%','11%','15%','16%'],['Met NHG','44%','31%','39%','33%','41%','36%'],['Label A of beter','53%','49%','48%','42%','46%','47%'],['ORV meegesloten','46%','39%','43%','52%','40%','41%']];
+ const R=[['Gemiddelde leeftijd','36,8','39,4','37,6','42,1','38,2','39,1'],['Alleenstaand','29%','33%','31%','38%','35%','34%'],['Vrouw (hoofdaanvrager)','41%','36%','39%','37%','38%','37%'],['Starter','42%','31%','37%','24%','35%','33%'],['Doorstromer','33%','34%','32%','28%','31%','32%'],['Oversluiter','14%','19%','18%','29%','20%','21%'],['Gem. WOZ-waarde','€ 431.000','€ 472.000','€ 444.000','€ 461.000','€ 438.000','€ 456.000'],['Gem. hoofdsom','€ 402.000','€ 426.000','€ 409.000','€ 398.000','€ 405.000','€ 418.000'],['Gem. toetsinkomen','€ 86.000','€ 97.000','€ 89.000','€ 94.000','€ 88.000','€ 92.000'],['Loondienst vast','78%','74%','72%','63%','71%','70%'],['Ondernemer / zzp','8%','12%','13%','21%','14%','14%'],['Gem. eigen inbreng','€ 38.000','€ 71.000','€ 46.000','€ 62.000','€ 49.000','€ 57.000'],['Met overbrugging','12%','18%','14%','11%','15%','16%'],['Met NHG','44%','31%','39%','33%','41%','36%'],['Label A of beter','53%','49%','48%','42%','46%','47%'],['ORV meegesloten','46%','39%','43%','52%','40%','41%']];
  $('t_prov').innerHTML='<table><thead><tr>'+H.map((h,i)=>`<th class="${i?'r':''}">${h}</th>`).join('')+'</tr></thead><tbody>'+R.map(r=>'<tr>'+r.map((c,i)=>i==0?`<td>${c}</td>`:i==1?`<td class="r"><b>${c}</b></td>`:`<td class="r">${c}</td>`).join('')+'</tr>').join('')+'</tbody></table><div class="note">Indeling: grootbanken inclusief hun dochterlabels, regiepartijen, verzekeraars en overige banken, elk met minstens vijf aanbieders. U valt in de groep regiepartijen, maar wordt daar voor deze vergelijking niet in meegeteld.</div>';
  $('c_eig').innerHTML=pair(['Starter','Alleenstaand','Samenwonend','Doorstromer','Oversluiter','Senior (60+)'],[4,6,9,14,0,22],[6,8,12,17,0,25]);
  $('t_ovb').innerHTML=tbl(['','U','Groep','Markt'],[['Doorstromers met overbrugging','36%','41%','44%'],['Gem. hoogte overbrugging','€ 118.000','€ 131.000','€ 139.000'],['Gem. looptijd (maanden)','7,8','8,4','8,9'],['Overbrugging > 12 maanden','9%','11%','12%']],[1,2,3])+'<div class="note">Een lager aandeel overbrugging kan wijzen op strengere acceptatie van dubbele lasten.</div>';
