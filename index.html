@@ -76,6 +76,12 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 @media(max-width:760px){.method{grid-template-columns:1fr}}
 .method h3{margin:0 0 .3em;font-size:1.02rem}
 .method p{margin:0;color:var(--muted);font-size:.93rem}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto;text-align:left}
+@media(max-width:760px){.people{grid-template-columns:1fr}}
+.person{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:20px}
+.person h3{margin:0 0 8px;font-size:1.05rem;color:#fff}
+.person a{display:block;color:#d5deeb;text-decoration:none;font-size:.92rem;margin-top:4px;word-break:break-all}
+.person a:hover{color:#ffcc00}
 footer{background:var(--navy);color:#b9c5d6;padding:40px 0;font-size:.88rem}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 #contact{background:var(--navy-2);color:#fff;text-align:center}
@@ -274,7 +280,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <div class="wrap">
     <h2>Inzicht in uw positie kopen?</h2>
     <p>Vraag een offerte aan voor een eenmalig rapport, doorlopend inzicht of onderzoek op maat. Dan bespreken we welke inzichten en welke periode u nodig heeft.</p>
-    <a class="btn" href="mailto:info@hypotheekonderzoek.nl?subject=Offerte%20hypotheekonderzoek.nl">Offerte aanvragen</a>
+    <h3 style="margin:0 0 16px;font-size:1rem;color:#ffcc00;letter-spacing:.08em;text-transform:uppercase">Voor meer informatie</h3>
+    <div class="people">
+      <div class="person"><h3>Jos van Driesum</h3><a href="mailto:jos.van.driesum@blinqx.tech?subject=Offerte%20hypotheekonderzoek.nl">jos.van.driesum@blinqx.tech</a><a href="tel:+31644081447">06 44 081 447</a></div>
+      <div class="person"><h3>Dennes Roes</h3><a href="mailto:dennes.roes@blinqx.tech?subject=Offerte%20hypotheekonderzoek.nl">dennes.roes@blinqx.tech</a><a href="tel:+31651117893">06 51 117 893</a></div>
+      <div class="person"><h3>Jeroen Oversteegen</h3><a href="mailto:jeroen.oversteegen@blinqx.tech?subject=Offerte%20hypotheekonderzoek.nl">jeroen.oversteegen@blinqx.tech</a><a href="tel:+31621247257">06 21 247 257</a></div>
+    </div>
   </div>
 </section>
 
