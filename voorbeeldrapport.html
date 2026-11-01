@@ -174,6 +174,18 @@ footer b{color:#fff}
     <div class="card"><h3>Inkomensklasse (bruto per jaar, huishouden)</h3><div id="c_inc"></div></div>
     <div class="card"><h3>Type inkomen</h3><div id="c_dv"></div></div>
   </div>
+  <div class="card" style="margin-top:14px"><h3>Klantprofiel in één oogopslag</h3><p class="sub">Uw gemiddelde klant tegenover die van de vergelijkingsgroep (7 regiepartijen, anoniem) en de hele markt, Q3</p><div class="g3" id="persona"></div></div>
+  <div class="card" style="margin-top:14px"><h3>Type klant: aandeel, gemiddelde leeftijd en WOZ-waarde</h3><p class="sub">U tegenover de mediaan van de vergelijkingsgroep en de markt, Q3. De WOZ-waarde is de gemiddelde WOZ-waarde van het onderpand. Cijfers van individuele geldverstrekkers tonen we niet.</p><div class="tw" id="t_type"></div>
+    <div class="ins"><b>Inzicht:</b> u financiert relatief veel alleenstaande starters met een lagere WOZ-waarde. Bij doorstromers en senioren financiert u gemiddeld duurdere woningen dan de markt, maar uw aandeel daar is kleiner.</div></div>
+  <div class="card" style="margin-top:14px"><h3>Klantprofiel per type aanbieder</h3><p class="sub">Uw profiel naast dat van groepen aanbieders. Elke groep bestaat uit minstens vijf partijen. Profielen van individuele geldverstrekkers tonen we niet.</p><div class="tw" id="t_prov"></div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Eigen inbreng</h3><p class="sub">Eigen geld als aandeel van de koopsom, per type klant</p><div id="c_eig"></div></div>
+    <div class="card"><h3>Overbruggingskrediet</h3><p class="sub">Aandeel doorstromers met een overbrugging, en de gemiddelde hoogte</p><div class="tw" id="t_ovb"></div></div>
+  </div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>WOZ-waarde onderpand</h3><div id="c_woz"></div><div class="note">Gemiddeld € 431.000 bij u, € 444.000 in de vergelijkingsgroep en € 456.000 in de markt.</div></div>
+    <div class="card"><h3>Gemiddelde leeftijd per type klant</h3><p class="sub">Hoofdaanvrager, in jaren</p><div id="c_agetype"></div></div>
+  </div>
 </div></section>
 
 <!-- 7 -->
@@ -418,6 +430,33 @@ $('c_gen').innerHTML=split([['Man','#1e2533','#fff',59],['Vrouw',Y,'#1e2533',41]
 $('c_hh').innerHTML=split([['Samenwonend','#1e2533','#fff',71],['Alleenstaand',Y,'#1e2533',29]],[66,34]);
 $('c_inc').innerHTML=pair(['< € 50.000','€ 50.000 – 75.000','€ 75.000 – 100.000','€ 100.000 – 150.000','> € 150.000'],[14,29,27,21,9],[11,24,27,25,13]);
 $('c_dv').innerHTML=pair(['Loondienst vast','Loondienst flex','Ondernemer / zzp','Pensioen'],[78,9,8,5],[70,9,14,7]);
+
+// type klant
+(function(){const eur=v=>'€ '+v.toLocaleString('nl-NL');
+ const rows=[ // [type, u%, groep%, markt%, lftU, lftG, lftM, wozU, wozG, wozM]
+  ['Alleenstaand',29,31,34,33.4,34.8,36.1,348000,359000,371000],['Samenwonend',71,69,66,38.3,39.5,40.6,463000,481000,498000],
+  ['Man (hoofdaanvrager)',59,61,63,37.5,38.6,39.8,442000,455000,469000],['Vrouw (hoofdaanvrager)',41,39,37,35.8,36.9,38.0,415000,424000,434000],
+  ['Starter',42,37,33,30.2,30.9,31.4,362000,371000,384000],['Doorstromer',33,32,32,41.6,42.3,42.9,511000,497000,503000],
+  ['Oversluiter',14,18,21,46.8,47.0,47.5,472000,480000,489000],['Verhoging / verbouwing',11,13,14,49.1,49.8,50.3,498000,506000,515000],
+  ['Senior (60+)',6,8,9,66.4,66.8,67.1,544000,529000,531000]];
+ const c=(u,g,hiGood)=>{const d=u-g;return d===0?'':`<span class="${(d>0)===hiGood?'pos':'neg'}" style="font-size:.78rem"> ${d>0?'▲':'▼'}</span>`};
+ $('t_type').innerHTML='<table><thead><tr><th rowspan="2">Type klant</th><th class="r" colspan="3">Aandeel</th><th class="r" colspan="3">Gem. leeftijd</th><th class="r" colspan="3">Gem. WOZ-waarde</th></tr><tr><th class="r">U</th><th class="r">Groep</th><th class="r">Markt</th><th class="r">U</th><th class="r">Groep</th><th class="r">Markt</th><th class="r">U</th><th class="r">Groep</th><th class="r">Markt</th></tr></thead><tbody>'+rows.map(r=>`<tr><td>${r[0]}</td><td class="r"><b>${r[1]}%</b>${c(r[1],r[2],true)}</td><td class="r">${r[2]}%</td><td class="r">${r[3]}%</td><td class="r"><b>${nl(r[4],1)}</b></td><td class="r">${nl(r[5],1)}</td><td class="r">${nl(r[6],1)}</td><td class="r"><b>${eur(r[7])}</b></td><td class="r">${eur(r[8])}</td><td class="r">${eur(r[9])}</td></tr>`).join('')+'</tbody></table><div class="note">▲ / ▼: uw aandeel ligt hoger of lager dan de mediaan van de vergelijkingsgroep.</div>';
+ const pc=(t,sub,items,hl)=>`<div class="card" style="${hl?'border:2px solid #e0a800;background:#fff':''}"><div class="kpi"><div class="l">${sub}</div><div class="v" style="font-size:1.25rem">${t}</div></div><table style="margin-top:8px">${items.map(i=>`<tr><td>${i[0]}</td><td class="r"><b>${i[1]}</b></td></tr>`).join('')}</table></div>`;
+ $('persona').innerHTML=
+  pc('Jonge starter, samenwonend','U',[['Meest voorkomend type','Starter (42%)'],['Gemiddelde leeftijd','36,8 jaar'],['Samenwonend / alleenstaand','71% / 29%'],['Man / vrouw','59% / 41%'],['Starter / doorstromer','42% / 33%'],['Gemiddelde WOZ-waarde','€ 431.000'],['Mediane LTV','91%'],['Gem. eigen inbreng','€ 38.000 (8%)'],['Met overbruggingskrediet','12%'],['Gem. hoofdsom','€ 402.000'],['Gem. toetsinkomen','€ 86.000'],['Met NHG','44%'],['10 jaar rentevast','58%'],['ORV meegesloten','46%'],['Label A of beter','53%']],1)+
+  pc('Starter, samenwonend','Vergelijkingsgroep (mediaan)',[['Meest voorkomend type','Starter (37%)'],['Gemiddelde leeftijd','37,9 jaar'],['Samenwonend / alleenstaand','69% / 31%'],['Man / vrouw','61% / 39%'],['Starter / doorstromer','37% / 32%'],['Gemiddelde WOZ-waarde','€ 444.000'],['Mediane LTV','89%'],['Gem. eigen inbreng','€ 46.000 (9%)'],['Met overbruggingskrediet','14%'],['Gem. hoofdsom','€ 409.000'],['Gem. toetsinkomen','€ 89.000'],['Met NHG','39%'],['10 jaar rentevast','54%'],['ORV meegesloten','43%'],['Label A of beter','48%']])+
+  pc('Starter of doorstromer, samenwonend','Markt',[['Meest voorkomend type','Starter (33%)'],['Gemiddelde leeftijd','39,1 jaar'],['Samenwonend / alleenstaand','66% / 34%'],['Man / vrouw','63% / 37%'],['Starter / doorstromer','33% / 32%'],['Gemiddelde WOZ-waarde','€ 456.000'],['Mediane LTV','87%'],['Gem. eigen inbreng','€ 57.000 (11%)'],['Met overbruggingskrediet','16%'],['Gem. hoofdsom','€ 418.000'],['Gem. toetsinkomen','€ 92.000'],['Met NHG','36%'],['10 jaar rentevast','51%'],['ORV meegesloten','41%'],['Label A of beter','47%']]);
+ $('c_woz').innerHTML=pair(['< € 300.000','€ 300.000 – 400.000','€ 400.000 – 500.000','€ 500.000 – 750.000','> € 750.000'],[18,31,25,19,7],[14,27,26,23,10],'%',0,150,460)+'<div class="note">Grijze balk = markt.</div>';
+ $('c_agetype').innerHTML=pair(['Starter','Alleenstaand','Samenwonend','Doorstromer','Oversluiter','Senior (60+)'],[30.2,33.4,38.3,41.6,46.8,66.4],[31.4,36.1,40.6,42.9,47.5,67.1],'',1,110,460);
+})();
+// klantprofiel per type aanbieder + eigen inbreng + overbrugging
+(function(){const H=['','U','Grootbanken incl. dochters','Regiepartijen','Verzekeraars','Overige banken','Markt'];
+ const R=[['Gemiddelde leeftijd','36,8','39,4','37,6','42,1','38,2','39,1'],['Alleenstaand','29%','33%','31%','38%','35%','34%'],['Vrouw (hoofdaanvrager)','41%','36%','39%','37%','38%','37%'],['Starter','42%','31%','37%','24%','35%','33%'],['Doorstromer','33%','34%','32%','28%','31%','32%'],['Oversluiter','14%','19%','18%','29%','20%','21%'],['Gem. WOZ-waarde','€ 431.000','€ 472.000','€ 444.000','€ 461.000','€ 438.000','€ 456.000'],['Gem. hoofdsom','€ 402.000','€ 426.000','€ 409.000','€ 398.000','€ 405.000','€ 418.000'],['Gem. eigen inbreng','€ 38.000','€ 71.000','€ 46.000','€ 62.000','€ 49.000','€ 57.000'],['Met overbrugging','12%','18%','14%','11%','15%','16%'],['Met NHG','44%','31%','39%','33%','41%','36%'],['Label A of beter','53%','49%','48%','42%','46%','47%'],['ORV meegesloten','46%','39%','43%','52%','40%','41%']];
+ $('t_prov').innerHTML='<table><thead><tr>'+H.map((h,i)=>`<th class="${i?'r':''}">${h}</th>`).join('')+'</tr></thead><tbody>'+R.map(r=>'<tr>'+r.map((c,i)=>i==0?`<td>${c}</td>`:i==1?`<td class="r"><b>${c}</b></td>`:`<td class="r">${c}</td>`).join('')+'</tr>').join('')+'</tbody></table><div class="note">Indeling: grootbanken inclusief hun dochterlabels, regiepartijen, verzekeraars en overige banken, elk met minstens vijf aanbieders. U valt in de groep regiepartijen, maar wordt daar voor deze vergelijking niet in meegeteld.</div>';
+ $('c_eig').innerHTML=pair(['Starter','Alleenstaand','Samenwonend','Doorstromer','Oversluiter','Senior (60+)'],[4,6,9,14,0,22],[6,8,12,17,0,25]);
+ $('t_ovb').innerHTML=tbl(['','U','Groep','Markt'],[['Doorstromers met overbrugging','36%','41%','44%'],['Gem. hoogte overbrugging','€ 118.000','€ 131.000','€ 139.000'],['Gem. looptijd (maanden)','7,8','8,4','8,9'],['Overbrugging > 12 maanden','9%','11%','12%']],[1,2,3])+'<div class="note">Een lager aandeel overbrugging kan wijzen op strengere acceptatie van dubbele lasten.</div>';
+})();
+
 
 // 7
 $('c_ltv').innerHTML=pair(['≤ 60%','60–80%','80–90%','90–100%','> 100%'],[9,21,24,41,5],[13,25,22,36,4]);
