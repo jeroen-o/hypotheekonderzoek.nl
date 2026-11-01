@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voorbeeldrapport ORV-verzekeraar</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 26 28%22%3E%3Cpath d=%22M13 0l13 7v14l-13 7L0 21V7z%22 fill=%22%23ffcc00%22/%3E%3Cpath d=%22M11 12l6 9h-3.4l-6-9z%22 fill=%22%231e2533%22/%3E%3C/svg%3E">
+<style>
+:root{--navy:#1e2533;--navy2:#2b3345;--y:#ffcc00;--y2:#e0a800;--ys:#fff5cc;--ink:#1b2535;--mut:#5b6678;--line:#e1e6ee;--bg:#f5f7fa;--pos:#1f8a5b;--neg:#c0392b;--mkt:#9aa6b8}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:15px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.bar-top{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff}
+.bar-top .wrap{display:flex;align-items:center;justify-content:space-between;height:54px;gap:12px}
+.bar-top b span{color:var(--y)}
+.stamp{background:var(--y);color:var(--navy);font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap}
+button.pr{font:inherit;font-weight:700;background:var(--y);color:var(--navy);border:0;border-radius:999px;padding:8px 16px;cursor:pointer}
+.cover{background:linear-gradient(160deg,var(--navy),var(--navy2));color:#fff;padding:64px 0 72px}
+.cover .ey{color:var(--y);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}
+.cover h1{font-size:clamp(2rem,5vw,3rem);line-height:1.08;margin:.3em 0 .3em;letter-spacing:-.02em}
+.cover h1 em{color:var(--y);font-style:normal}
+.cover p{color:#d5deeb;max-width:640px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.meta div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:10px 14px;font-size:.85rem;color:#d5deeb}
+.meta b{display:block;color:#fff;font-size:.95rem}
+.warn{background:var(--ys);border-left:4px solid var(--y2);padding:12px 16px;border-radius:0 10px 10px 0;font-size:.9rem;margin:24px 0 0;color:#4d3b00}
+.toc{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0 0;padding:0;list-style:none;counter-reset:t}
+@media(max-width:760px){.toc{grid-template-columns:1fr}}
+.toc li{counter-increment:t;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.toc li::before{content:counter(t);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:.75rem;font-weight:700;margin-right:8px}
+.toc a{color:var(--ink);text-decoration:none;font-weight:600}
+section.ch{padding:48px 0;border-bottom:1px solid var(--line)}
+section.ch:nth-of-type(even){background:#fff}
+.chn{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a5c00}
+.chn i{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--y);color:var(--navy)}
+h2{font-size:clamp(1.4rem,3vw,1.9rem);margin:.3em 0 .3em;letter-spacing:-.015em;line-height:1.2}
+.lead{color:var(--mut);max-width:760px;margin:0 0 20px}
+h3{font-size:1rem;margin:0 0 2px}
+.sub{font-size:.84rem;color:var(--mut);margin:0 0 12px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+section.ch:nth-of-type(even) .card{background:var(--bg)}
+.kpi .l{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);font-weight:700}
+.kpi .v{font-size:1.7rem;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
+.kpi .d{font-size:.84rem}
+.pos{color:var(--pos)}.neg{color:var(--neg)}
+.find{background:var(--navy);color:#fff;border-radius:14px;padding:20px 22px;margin-top:14px}
+.find h3{color:var(--y);margin-bottom:8px}
+.find ol{margin:0;padding-left:20px}.find li{margin:.35em 0;color:#e3e9f2}
+.note{font-size:.84rem;color:var(--mut);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.ins{font-size:.9rem;margin-top:10px;padding:10px 12px;background:var(--ys);border-radius:10px}
+.ins b{color:#5c4600}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.8rem;color:var(--mut);margin-bottom:6px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);border-bottom:1px solid var(--line);padding:7px 6px;font-weight:700}
+td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:middle}
+.r{text-align:right;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto}
+.mini{height:7px;background:var(--line);border-radius:99px;overflow:hidden;min-width:60px}
+.mini span{display:block;height:100%;background:var(--navy)}
+.pill{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.75rem;font-weight:700}
+.pill.g{background:#e3f4ec;color:var(--pos)}.pill.r{background:#fbe7e5;color:var(--neg)}.pill.n{background:var(--line);color:var(--mut)}
+svg text{font-family:inherit}
+.sc td:nth-child(n+2){text-align:center}
+footer{background:var(--navy);color:#b9c5d6;padding:28px 0;font-size:.85rem}
+footer b{color:#fff}
+@media(max-width:560px){.bar-top a b{display:none}.stamp{font-size:.66rem;padding:3px 8px}button.pr{padding:7px 12px;font-size:.8rem}}
+@media print{.bar-top button{display:none}.bar-top{position:static}section.ch{break-inside:avoid-page}.card{break-inside:avoid}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<div class="bar-top"><div class="wrap">
+  <a href="index.html" style="color:#fff;text-decoration:none"><b>hypotheek<span>onderzoek</span>.nl</b></a>
+  <span class="stamp">Voorbeeld · fictieve cijfers</span>
+  <button class="pr" id="pr" type="button">Afdrukken / PDF</button>
+</div></div>
+
+<div class="cover"><div class="wrap">
+  <div class="ey">Voorbeeldrapport · Overlijdensrisicoverzekeringen bij de hypotheek</div>
+  <h1>ORV-verzekeraar Y<br><em>Q3 2026</em></h1>
+  <p>Dit rapport laat zien wat hypotheekonderzoek.nl voor een ORV-verzekeraar kan maken: positie, conversie in het advies, koppeling met de hypotheek, distributie, klantprofiel, product, premie, acceptatie en groeikansen. Alles staat steeds tegenover de markt en tegenover een anonieme vergelijkingsgroep.</p>
+  <div class="meta">
+    <div><b>Periode</b>jan t/m okt 2026, focus Q3</div>
+    <div><b>Bron</b>ORV-berekeningen, aanvragen en polissen in het Blinqx-netwerk</div>
+    <div><b>Vergelijkingsgroep</b>5 ORV-verzekeraars (anoniem)</div>
+    <div><b>Dekking</b>1.240 adviespraktijken · 3.910 adviseurs · 21.700 ORV-berekeningen · 6.850 ORV-aanvragen (fictief)</div>
+  </div>
+  <div class="warn"><b>Let op: alle cijfers, partijen en kantoren in dit rapport zijn fictief.</b> Ze laten alleen zien welke analyses mogelijk zijn en zeggen niets over werkelijke verzekeraars, geldverstrekkers of adviespraktijken.</div>
+</div></div>
+
+<div class="wrap" style="padding-top:28px"><h3>Inhoud</h3><ol class="toc" id="toc"></ol></div>
+
+<section class="ch" id="o1"><div class="wrap">
+  <span class="chn"><i>1</i> Managementsamenvatting</span>
+  <h2>Uw positie in één oogopslag</h2>
+  <div class="g4" id="kpis"></div>
+  <div class="find"><h3>Vijf belangrijkste bevindingen</h3><ol>
+    <li>Uw <b>aandeel in ORV-aanvragen steeg</b> van 15,8% naar 18,1%, vooral bij starters.</li>
+    <li>Bij <b>alleenstaanden en senioren</b> wordt u wel vaak doorgerekend, maar weinig gekozen. Uw premie ligt daar in het duurste kwart.</li>
+    <li>Bij hypotheken van <b>regiepartijen</b> is uw aandeel twee keer zo hoog als bij grootbanken.</li>
+    <li>Het <b>verzekerde bedrag ligt gemiddeld op 72% van de hoofdsom</b>. Bij alleenstaanden is dat 52%; daar zit een risico op onderverzekering.</li>
+    <li>Van aanvraag tot polis duurt het bij u 9,4 werkdagen, tegen 7,1 in de markt. Adviseurs noemen de <b>acceptatiesnelheid</b> als belangrijkste verbeterpunt.</li>
+  </ol></div>
+</div></section>
+
+<section class="ch" id="o2"><div class="wrap">
+  <span class="chn"><i>2</i> Marktpositie</span>
+  <h2>Aandeel in ORV-aanvragen</h2>
+  <p class="lead">Uw aandeel in alle ORV-aanvragen in het netwerk, per maand, tegenover de mediaan van de vergelijkingsgroep. Het aandeel is gewogen: uw aanvragen gedeeld door het totaal in de periode.</p>
+  <div class="card"><h3>Marktaandeel per maand</h3><div id="c_trend"></div></div>
+  <div class="g3" style="margin-top:14px">
+    <div class="card"><h3>Per kwartaal</h3><div class="tw" id="t_q"></div></div>
+    <div class="card"><h3>Per regio (Q3)</h3><p class="sub">Index 100 = gelijk aan uw landelijke aandeel</p><div class="tw" id="t_reg"></div></div>
+    <div class="card"><h3>Per segment (Q3)</h3><div class="tw" id="t_seg"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o3"><div class="wrap">
+  <span class="chn"><i>3</i> Conversie in het advies</span>
+  <h2>Van premieberekening naar aanvraag naar polis</h2>
+  <div class="g2">
+    <div class="card"><h3>Trechter Q3: u tegenover de markt</h3><p class="sub">Per 100 ORV-berekeningen waarin u voorkomt</p><div id="c_funnel"></div></div>
+    <div class="card"><h3>Conversie per segment</h3><p class="sub">Van berekening naar aanvraag</p><div class="tw" id="t_conv"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Hoe vaak wordt er bij een hypotheek een ORV geadviseerd?</h3><p class="sub">Aandeel hypotheekaanvragen met een ORV-advies, per type klant</p><div id="c_orvrate"></div>
+    <div class="ins"><b>Inzicht:</b> bij 54% van de hypotheekaanvragen in het netwerk komt geen ORV mee. Bij alleenstaanden is dat 69%. Dat is de grootste markt die nog openligt.</div></div>
+</div></section>
+
+<section class="ch" id="o4"><div class="wrap">
+  <span class="chn"><i>4</i> Waarom de aanvraag niet bij u komt</span>
+  <h2>Premie, acceptatie of voorwaarden?</h2>
+  <p class="lead">We vergelijken de ORV-berekeningen waarin u voorkwam met de verzekeraar die werd gekozen. Dat geeft een indicatie van de reden. Naar welke verzekeraar de aanvraag ging, tonen we niet.</p>
+  <div class="g2">
+    <div class="card"><h3>Indicatieve reden van afvallen</h3><div id="c_reason"></div></div>
+    <div class="card"><h3>Uw premie in het duurste kwart</h3><p class="sub">Aandeel berekeningen waarin uw premie in het duurste kwart van de doorgerekende verzekeraars valt</p><div id="c_dear"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o5"><div class="wrap">
+  <span class="chn"><i>5</i> Koppeling met de hypotheek</span>
+  <h2>Uw aandeel per type geldverstrekker</h2>
+  <p class="lead">Bij welke hypotheken wordt u als ORV gekozen? Elke groep geldverstrekkers bestaat uit minstens vijf partijen. Cijfers per individuele geldverstrekker tonen we niet.</p>
+  <div class="g2">
+    <div class="card"><h3>Uw ORV-aandeel per type geldverstrekker</h3><div id="c_lender"></div></div>
+    <div class="card"><h3>Koppelingen</h3><div class="tw" id="t_koppel"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o6"><div class="wrap">
+  <span class="chn"><i>6</i> Distributie</span>
+  <h2>Uw positie bij adviespraktijken</h2>
+  <div class="g2">
+    <div class="card"><h3>Top 10 adviespraktijken (Q3)</h3><div class="tw" id="t_off"></div></div>
+    <div class="card"><h3>Concentratie</h3><div id="c_conc"></div><h3 style="margin-top:16px">Stijgers en dalers</h3><div class="tw" id="t_mov"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o7"><div class="wrap">
+  <span class="chn"><i>7</i> Klantprofiel</span>
+  <h2>Wie verzekert bij u?</h2>
+  <div class="card"><h3>Klantprofiel in één oogopslag</h3><p class="sub">Uw gemiddelde verzekerde tegenover de vergelijkingsgroep en de markt</p><div class="g3" id="persona"></div></div>
+  <div class="card" style="margin-top:14px"><h3>Per type klant</h3><p class="sub">Aandeel, leeftijd, verzekerd bedrag en dekking: u, met tussen haakjes de markt</p><div class="tw" id="t_type"></div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Leeftijd verzekerde(n) bij ingang</h3><div id="c_age"></div></div>
+    <div class="card"><h3>Eén of twee verzekerden</h3><div id="c_cov"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o8"><div class="wrap">
+  <span class="chn"><i>8</i> Product</span>
+  <h2>Wat er wordt verzekerd</h2>
+  <div class="g2">
+    <div class="card"><h3>Dekkingsvorm</h3><div id="c_dekk"></div></div>
+    <div class="card"><h3>Verzekerd bedrag</h3><div id="c_bedr"></div></div>
+    <div class="card"><h3>Looptijd</h3><div id="c_lt"></div></div>
+    <div class="card"><h3>Verzekerd bedrag als aandeel van de hoofdsom</h3><p class="sub">Een lage dekkingsgraad kan wijzen op onderverzekering</p><div id="c_dg"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o9"><div class="wrap">
+  <span class="chn"><i>9</i> Premie</span>
+  <h2>Uw premie tegenover de marktbandbreedte</h2>
+  <p class="lead">Maandpremie voor standaardprofielen, op basis van de premieberekeningen in de adviessoftware, peildatum 30 september 2026. Alleen getoond als bandbreedte en achteraf, zonder premies van individuele concurrenten.</p>
+  <div class="card"><div class="legend"><span><i style="background:#cfd6e1"></i>Laagste – hoogste</span><span><i style="background:#8a97ab"></i>25% – 75%</span><span><i style="background:#1e2533"></i>Mediaan</span><span><i style="background:#e0a800"></i>Uw premie</span></div><div id="c_prem"></div></div>
+</div></section>
+
+<section class="ch" id="o10"><div class="wrap">
+  <span class="chn"><i>10</i> Acceptatie &amp; doorlooptijd</span>
+  <h2>Van aanvraag naar polis</h2>
+  <div class="g2">
+    <div class="card"><h3>Doorlooptijd</h3><p class="sub">Mediaan in werkdagen: u, met tussen haakjes de markt</p><div class="tw" id="t_dl"></div></div>
+    <div class="card"><h3>Uitkomst van de aanvraag</h3><div id="c_acc"></div><div class="note">Alleen geaggregeerd. Wij verwerken geen gezondheidsgegevens; we kijken alleen naar de procesuitkomst zoals die in het dossier staat.</div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o11"><div class="wrap">
+  <span class="chn"><i>11</i> Oordeel van adviseurs en klanten</span>
+  <h2>NPS en beoordeling</h2>
+  <div class="g4" id="npskpi"></div>
+  <div class="card" style="margin-top:14px"><h3>Beoordeling per onderwerp door adviseurs</h3><p class="sub">Scores van 1 tot 10, u tegenover de markt</p><div id="c_score"></div></div>
+</div></section>
+
+<section class="ch" id="o12"><div class="wrap">
+  <span class="chn"><i>12</i> Groeikansen</span>
+  <h2>Waar ligt uw groeiruimte?</h2>
+  <div class="card tw"><table id="t_grow"></table></div>
+</div></section>
+
+<section class="ch" id="o13"><div class="wrap">
+  <span class="chn"><i>13</i> Benchmark</span>
+  <h2>Scorecard tegenover de vergelijkingsgroep</h2>
+  <div class="card tw"><table class="sc" id="t_sc"></table></div>
+</div></section>
+
+<section class="ch" id="o14"><div class="wrap">
+  <span class="chn"><i>14</i> Methodologie &amp; mededinging</span>
+  <h2>Zo komen de cijfers tot stand</h2>
+  <div class="g2">
+    <div class="card"><h3>Bron en definities</h3><ul style="margin:6px 0 0;padding-left:18px;color:var(--mut)"><li>ORV-berekeningen, aanvragen en polissen die zijn vastgelegd in de hypotheekadviessoftware en Blinqx Connect CRM</li><li>Het marktaandeel is uw ORV-aanvragen gedeeld door alle ORV-aanvragen in dezelfde periode</li><li>Premies komen uit de premieberekeningen voor standaardprofielen</li><li>Zie de volledige <a href="methodologie.html">methodologie</a></li></ul></div>
+    <div class="card"><h3>Privacy en mededinging</h3><ul style="margin:6px 0 0;padding-left:18px;color:var(--mut)"><li>Alleen geaggregeerde cijfers; segmenten onder 25 waarnemingen worden niet getoond</li><li>Geen gezondheidsgegevens of andere bijzondere persoonsgegevens</li><li>Vergelijkingsgroepen van minstens 5 partijen, zonder namen</li><li>Premies alleen als bandbreedte en achteraf</li></ul></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><b>hypotheekonderzoek.nl</b> · een activiteit van Blinqx · <b>Voorbeeldrapport met fictieve cijfers</b>, niet bedoeld voor besluitvorming. · <a href="voorbeeldrapport.html" style="color:#ffcc00">Voorbeeldrapport voor geldverstrekkers</a></div></footer>
+
+<script>
+(function(){
+"use strict";
+const nl=(v,d=1)=>v.toLocaleString('nl-NL',{minimumFractionDigits:d,maximumFractionDigits:d});
+const P=(v,d=1)=>nl(v,d)+'%';
+const PP=v=>(v>=0?'+':'−')+nl(Math.abs(v),1)+' pp';
+const $=id=>document.getElementById(id);
+const NAVY='#1e2533',MKT='#9aa6b8',Y='#e0a800';
+const M=['Jan','Feb','Mrt','Apr','Mei','Jun','Jul','Aug','Sep','Okt'];
+
+// TOC
+$('toc').innerHTML=[...document.querySelectorAll('section.ch')].map(s=>`<li><a href="#${s.id}">${s.querySelector('.chn').textContent.replace(/^\s*\d+\s*/,'')}</a></li>`).join('');
+
+// generic line chart
+function line(series,labels,opt={}){
+  const W=760,H=240,L=44,R=14,T=12,B=28;const all=series.flatMap(s=>s.v);const mx=Math.ceil(Math.max(...all)*1.15),mn=opt.min??0;
+  const x=i=>L+i*(W-L-R)/(labels.length-1),y=v=>T+(H-T-B)*(1-(v-mn)/(mx-mn));
+  let g='';for(let k=0;k<=4;k++){const v=mn+(mx-mn)*k/4;g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#e1e6ee"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="#5b6678">${nl(v,opt.dec??0)}${opt.u??'%'}</text>`;}
+  const xl=labels.map((m,i)=>`<text x="${x(i)}" y="${H-8}" text-anchor="middle" font-size="11" fill="#5b6678">${m}</text>`).join('');
+  const ps=series.map(s=>`<path d="${s.v.map((v,i)=>(i?'L':'M')+x(i)+','+y(v)).join('')}" fill="none" stroke="${s.c}" stroke-width="${s.w||2.5}" ${s.dash?'stroke-dasharray="5 4"':''}/>`+s.v.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="${s.c}"><title>${labels[i]}: ${nl(v,1)}${opt.u??'%'}</title></circle>`).join('')).join('');
+  const lg=`<div class="legend">${series.map(s=>`<span><i style="background:${s.c}"></i>${s.n}</span>`).join('')}</div>`;
+  return lg+`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img">${g}${ps}${xl}</svg>`;
+}
+// paired horizontal bars you vs market
+function pair(cats,me,mk,u='%',dec=0,L=118,W=440){
+  const mx=Math.max(...me,...mk),rh=30,H=cats.length*rh+4;
+  let s='';cats.forEach((c,i)=>{const y=i*rh+4,a=(W-L-46)*me[i]/mx,b=(W-L-46)*mk[i]/mx;
+   s+=`<text x="0" y="${y+14}" font-size="12" fill="#1b2535">${c}</text><rect x="${L}" y="${y+2}" width="${a}" height="11" rx="3" fill="${NAVY}"/><rect x="${L}" y="${y+15}" width="${b}" height="8" rx="3" fill="${MKT}"/><text x="${L+a+5}" y="${y+12}" font-size="11" font-weight="700" fill="#1b2535">${nl(me[i],dec)}${u}</text><text x="${L+b+5}" y="${y+23}" font-size="10" fill="#5b6678">${nl(mk[i],dec)}${u}</text>`;});
+  return `<div class="legend"><span><i style="background:${NAVY}"></i>U</span><span><i style="background:${MKT}"></i>Markt</span></div><svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W*1.35}px">${s}</svg>`;
+}
+// single bars
+function bars(cats,vals,u='%',col=NAVY){
+  const mx=Math.max(...vals),W=480,L=200,rh=26,H=cats.length*rh+4;let s='';
+  cats.forEach((c,i)=>{const y=i*rh+4,a=(W-L-46)*vals[i]/mx;s+=`<text x="0" y="${y+14}" font-size="12" fill="#1b2535">${c}</text><rect x="${L}" y="${y+3}" width="${a}" height="14" rx="3" fill="${col}"/><text x="${L+a+5}" y="${y+14}" font-size="11" font-weight="700" fill="#1b2535">${nl(vals[i],0)}${u}</text>`;});
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W*1.35}px">${s}</svg>`;
+}
+// split bar
+function split(parts,mkt){
+  const row=(lbl,vals)=>`<div style="display:grid;grid-template-columns:56px 1fr;gap:8px;align-items:center;margin-bottom:6px;font-size:.84rem;color:#5b6678"><span>${lbl}</span><div style="display:flex;height:28px;border-radius:7px;overflow:hidden;font-size:.78rem;font-weight:700">${vals.map((v,i)=>`<div style="width:${v}%;background:${parts[i][1]};color:${parts[i][2]||'#fff'};display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden">${v>=12?parts[i][0]+' '+nl(v,0)+'%':''}</div>`).join('')}</div></div>`;
+  return row('U',parts.map(p=>p[3]))+row('Markt',mkt)+`<div class="legend" style="margin-top:4px">${parts.map(p=>`<span><i style="background:${p[1]}"></i>${p[0]}</span>`).join('')}</div>`;
+}
+const tbl=(head,rows,rc=[])=>`<table><thead><tr>${head.map((h,i)=>`<th class="${rc.includes(i)?'r':''}">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>`<td class="${rc.includes(i)?'r':''}">${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+const idx=v=>`<span class="pill ${v>=110?'g':v<=90?'r':'n'}">${v}</span>`;
+const dlt=v=>`<span class="${v>0?'pos':v<0?'neg':''}">${PP(v)}</span>`;
+
+// KPIs
+(function(){const k=(l,v,x)=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${x}</div></div>`;
+ $('kpis').innerHTML=k('Aandeel ORV-aanvragen Q3',P(17.4),'<span class="pos">+1,1 pp</span> t.o.v. Q2')+k('Conversie berekening → aanvraag','29%','<span class="pos">+3 pp</span> t.o.v. markt (26%)')+k('Aanvraag → polis','84%','<span class="neg">−4 pp</span> t.o.v. markt (88%)')+k('Gem. verzekerd bedrag','72%','van de hoofdsom (markt 68%)');})();
+// 2
+$('c_trend').innerHTML=line([{n:'Uw aandeel ORV-aanvragen',c:NAVY,v:[15.8,16.1,15.9,16.4,16.6,16.9,17.0,17.3,17.8,18.1]},{n:'Mediaan vergelijkingsgroep',c:Y,dash:1,w:2,v:[14.2,14.0,14.3,14.1,14.4,14.2,14.5,14.3,14.6,14.4]}],M,{dec:0,min:10});
+$('t_q').innerHTML=tbl(['Kwartaal','Aandeel','Δ'],[['Q1',P(15.9),'–'],['Q2',P(16.3),dlt(0.4)],['Q3',P(17.4),dlt(1.1)],['Okt',P(18.1),dlt(0.7)]],[1,2]);
+$('t_reg').innerHTML=tbl(['Regio','Aandeel','Index'],[['Noord',P(15.1),idx(87)],['Oost',P(19.8),idx(114)],['Midden',P(17.9),idx(103)],['Randstad',P(16.2),idx(93)],['Zuid',P(19.0),idx(109)]],[1,2]);
+$('t_seg').innerHTML=tbl(['Segment','U','Δ markt'],[['Starters',P(23.1),dlt(5.2)],['Doorstromers',P(16.8),dlt(0.6)],['Oversluiters',P(14.2),dlt(-1.8)],['Alleenstaanden',P(9.7),dlt(-4.9)],['Senioren 60+',P(6.3),dlt(-5.6)]],[1,2]);
+// 3
+(function(){const W=440,H=200;const st=[['Berekening',100,100],['Aanvraag',29,26],['Polis',24.4,22.9]];let s='';
+ st.forEach((r,i)=>{const y=i*64+6,wm=(W-160)*r[1]/100,wk=(W-160)*r[2]/100;s+=`<text x="0" y="${y+18}" font-size="13" font-weight="700" fill="#1b2535">${r[0]}</text><rect x="110" y="${y}" width="${wm}" height="24" rx="5" fill="${NAVY}"/><text x="${110+wm+6}" y="${y+17}" font-size="12" font-weight="700">${nl(r[1],i==2?1:0)}</text><rect x="110" y="${y+28}" width="${wk}" height="14" rx="4" fill="${MKT}"/><text x="${110+wk+6}" y="${y+40}" font-size="11" fill="#5b6678">${nl(r[2],i==2?1:0)}</text>`;});
+ $('c_funnel').innerHTML=`<div class="legend"><span><i style="background:${NAVY}"></i>U</span><span><i style="background:${MKT}"></i>Markt</span></div><svg viewBox="0 0 ${W} ${H}" width="100%">${s}</svg>`;})();
+$('t_conv').innerHTML=tbl(['Segment','U','Markt','Δ'],[['Starters','37%','28%',dlt(9)],['Doorstromers','29%','27%',dlt(2)],['Oversluiters','22%','25%',dlt(-3)],['Alleenstaanden','15%','24%',dlt(-9)],['Senioren 60+','11%','21%',dlt(-10)]],[1,2,3]);
+$('c_orvrate').innerHTML=bars(['Starter','Samenwonend','Doorstromer','Oversluiter','Alleenstaand','Senior (60+)'],[50,49,41,33,31,14])+'<div class="note">Markt: alle ORV-aanbieders samen.</div>';
+// 4
+$('c_reason').innerHTML=bars(['Premie','Acceptatie / gezondheidsverklaring','Voorwaarden','Koppeling met geldverstrekker','Proces / doorlooptijd'],[41,19,12,17,11]);
+$('c_dear').innerHTML=bars(['Senioren 60+','Alleenstaanden','Oversluiters','Doorstromers','Starters'],[48,39,27,18,9],'%','#8a97ab');
+// 5
+$('c_lender').innerHTML=bars(['Grootbanken incl. dochters','Regiepartijen','Verzekeraars','Overige banken'],[11.2,22.6,14.9,19.3])+'<div class="note">Uw gemiddelde aandeel is 17,4%.</div>';
+$('t_koppel').innerHTML=tbl(['Kenmerk','U','Markt'],[['ORV via dezelfde partij als de hypotheek','9%','14%'],['ORV met verpanding aan geldverstrekker','63%','58%'],['ORV verplicht gesteld door geldverstrekker','21%','24%'],['ORV bij NHG-hypotheek','47%','44%']],[1,2]);
+// 6
+const off=[['Adviespraktijk 04',28.4,163],['Adviespraktijk 17',26.1,150],['Adviespraktijk 09',24.8,143],['Adviespraktijk 22',21.0,121],['Adviespraktijk 13',18.7,107],['Adviespraktijk 01',16.2,93],['Adviespraktijk 30',13.9,80],['Adviespraktijk 08',11.4,66],['Adviespraktijk 25',9.6,55],['Adviespraktijk 14',7.1,41]];
+$('t_off').innerHTML=tbl(['Kantoor','','Uw aandeel','Index'],off.map(o=>[o[0],`<div class="mini"><span style="width:${o[1]/28.4*100}%"></span></div>`,P(o[1]),idx(o[2])]),[2,3]);
+$('c_conc').innerHTML=pair(['Top 3 kantoren','Top 10 kantoren','Top 25 kantoren'],[12,29,49],[9,23,42]);
+$('t_mov').innerHTML=tbl(['Kantoor','Q2','Q3','Δ'],[['Adviespraktijk 22',P(16.4),P(21.0),dlt(4.6)],['Adviespraktijk 13',P(15.2),P(18.7),dlt(3.5)],['Adviespraktijk 08',P(15.0),P(11.4),dlt(-3.6)],['Adviespraktijk 14',P(9.9),P(7.1),dlt(-2.8)]],[1,2,3]);
+// 7
+(function(){const pc=(t,sub,items,hl)=>`<div class="card" style="${hl?'border:2px solid #e0a800;background:#fff':''}"><div class="kpi"><div class="l">${sub}</div><div class="v" style="font-size:1.25rem">${t}</div></div><table style="margin-top:8px">${items.map(i=>`<tr><td>${i[0]}</td><td class="r" style="white-space:nowrap"><b>${i[1]}</b></td></tr>`).join('')}</table></div>`;
+ $('persona').innerHTML=pc('Samenwonende starter','U',[['Meest voorkomend type','Starter (44%)'],['Gem. leeftijd bij ingang','34,1 jaar'],['Samenwonend / alleenstaand','82% / 18%'],['Man / vrouw (verzekerde 1)','56% / 44%'],['Twee verzekerden','71%'],['Gem. verzekerd bedrag','€ 289.000'],['Dekkingsgraad (bedrag / hoofdsom)','72%'],['Annuïtair dalend','58%'],['Gem. looptijd','27,6 jaar'],['Gem. maandpremie','€ 21,40']],1)+
+ pc('Samenwonende starter','Vergelijkingsgroep (mediaan)',[['Meest voorkomend type','Starter (38%)'],['Gem. leeftijd bij ingang','36,0 jaar'],['Samenwonend / alleenstaand','77% / 23%'],['Man / vrouw (verzekerde 1)','58% / 42%'],['Twee verzekerden','66%'],['Gem. verzekerd bedrag','€ 276.000'],['Dekkingsgraad (bedrag / hoofdsom)','69%'],['Annuïtair dalend','52%'],['Gem. looptijd','26,1 jaar'],['Gem. maandpremie','€ 23,10']])+
+ pc('Starter of doorstromer','Markt',[['Meest voorkomend type','Starter (36%)'],['Gem. leeftijd bij ingang','37,2 jaar'],['Samenwonend / alleenstaand','74% / 26%'],['Man / vrouw (verzekerde 1)','59% / 41%'],['Twee verzekerden','63%'],['Gem. verzekerd bedrag','€ 271.000'],['Dekkingsgraad (bedrag / hoofdsom)','68%'],['Annuïtair dalend','49%'],['Gem. looptijd','25,4 jaar'],['Gem. maandpremie','€ 24,60']]);})();
+(function(){const eur=v=>'€ '+v.toLocaleString('nl-NL');const c=(u,m,f)=>`<span style="white-space:nowrap"><b>${f(u)}</b> <span style="color:#5b6678;font-size:.8rem">(${f(m)})</span></span>`;const pc=v=>v+'%';const yr=v=>nl(v,1);
+ const R=[['Alleenstaand',18,26,36.9,38.4,182000,194000,52,55],['Samenwonend',82,74,33.6,36.8,312000,300000,75,71],['Man (verzekerde 1)',56,59,34.8,37.9,296000,280000,73,69],['Vrouw (verzekerde 1)',44,41,33.2,36.3,280000,259000,71,67],['Starter',44,36,30.4,31.6,301000,288000,78,72],['Doorstromer',31,32,40.2,41.8,298000,295000,63,60],['Oversluiter',15,19,44.9,45.6,246000,252000,61,62],['Ondernemer / zzp',7,9,39.8,41.0,322000,309000,66,64],['Senior (60+)',3,4,63.1,63.9,121000,138000,38,41]];
+ $('t_type').innerHTML='<table><thead><tr><th>Type klant</th><th class="r">Aandeel</th><th class="r">Gem. leeftijd</th><th class="r">Gem. verzekerd bedrag</th><th class="r">Dekkingsgraad</th></tr></thead><tbody>'+R.map(r=>`<tr><td>${r[0]}</td><td class="r">${c(r[1],r[2],pc)}</td><td class="r">${c(r[3],r[4],yr)}</td><td class="r">${c(r[5],r[6],eur)}</td><td class="r">${c(r[7],r[8],pc)}</td></tr>`).join('')+'</tbody></table>';})();
+$('c_age').innerHTML=pair(['< 30','30–39','40–49','50–59','60+'],[33,41,16,7,3],[25,38,21,11,5]);
+$('c_cov').innerHTML=split([['Twee verzekerden','#1e2533','#fff',71],['Eén verzekerde',Y,'#1e2533',29]],[63,37]);
+// 8
+$('c_dekk').innerHTML=pair(['Gelijkblijvend','Annuïtair dalend','Lineair dalend'],[31,58,11],[38,49,13]);
+$('c_bedr').innerHTML=pair(['< € 150.000','€ 150.000 – 250.000','€ 250.000 – 350.000','€ 350.000 – 500.000','> € 500.000'],[11,27,34,21,7],[14,29,31,19,7]);
+$('c_lt').innerHTML=pair(['≤ 10 jaar','10 – 20 jaar','20 – 25 jaar','25 – 30 jaar'],[6,14,19,61],[9,17,21,53]);
+$('c_dg').innerHTML=pair(['< 50%','50 – 75%','75 – 100%','100%'],[14,31,29,26],[18,33,27,22]);
+// 9 premie bandbreedte
+(function(){const rows=[['30 jaar · € 250.000 · 30 jr · gelijkblijvend',11.2,12.4,13.6,14.9,17.8,12.1],['30 jaar · € 300.000 · 30 jr · annuïtair dalend',7.9,8.6,9.4,10.3,12.6,8.4],['40 jaar · € 300.000 · 25 jr · annuïtair dalend',13.8,15.1,16.4,17.9,21.3,16.0],['50 jaar · € 200.000 · 15 jr · gelijkblijvend',21.4,23.6,25.9,28.1,33.2,29.4],['60 jaar · € 150.000 · 10 jr · gelijkblijvend',38.6,42.9,46.1,50.3,58.7,54.8]];
+ const W=760,L=280,R=70,rh=40,H=rows.length*rh+28,mn=5,mx=60,x=v=>L+(W-L-R)*(v-mn)/(mx-mn);let s='';
+ for(let v=10;v<=60;v+=10)s+=`<line x1="${x(v)}" x2="${x(v)}" y1="0" y2="${H-22}" stroke="#eef1f5"/><text x="${x(v)}" y="${H-6}" text-anchor="middle" font-size="10" fill="#5b6678">€ ${v}</text>`;
+ rows.forEach((r,i)=>{const y=i*rh+8;const q=r[6]<=r[2]?'pos':r[6]>=r[4]?'neg':'';s+=`<text x="0" y="${y+15}" font-size="11.5" fill="#1b2535">${r[0]}</text><rect x="${x(r[1])}" y="${y+6}" width="${x(r[5])-x(r[1])}" height="10" rx="5" fill="#cfd6e1"/><rect x="${x(r[2])}" y="${y+3}" width="${x(r[4])-x(r[2])}" height="16" rx="4" fill="#8a97ab"/><rect x="${x(r[3])-1.5}" y="${y}" width="3" height="22" fill="${NAVY}"/><circle cx="${x(r[6])}" cy="${y+11}" r="7" fill="${Y}" stroke="#fff" stroke-width="2"/><text x="${W-R+8}" y="${y+15}" font-size="12" font-weight="700" fill="${q=='pos'?'#1f8a5b':q=='neg'?'#c0392b':'#1b2535'}">€ ${nl(r[6],2)}</text>`;});
+ $('c_prem').innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%">${s}</svg><div class="ins"><b>Inzicht:</b> bij jonge verzekerden met een dalende dekking zit u in het goedkoopste kwart. Vanaf 50 jaar zit u in het duurste kwart. Dat verklaart uw lage aandeel bij senioren en oversluiters.</div><div class="note">Standaardprofiel: niet-roker, maandpremie, één verzekerde. De premie is een voorbeeld en geen offerte.</div>`;})();
+// 10
+$('t_dl').innerHTML=tbl(['Stap','U','Markt'],[['Berekening → aanvraag','2,9','3,2'],['Aanvraag → acceptatie','7,6','5,4'],['Acceptatie → polis','1,8','1,7'],['<b>Aanvraag → polis</b>','<b>9,4</b>','<b>7,1</b>']],[1,2]);
+$('c_acc').innerHTML=bars(['Direct geaccepteerd','Geaccepteerd na aanvullende vragen','Geaccepteerd met aangepaste voorwaarden','Niet doorgegaan of ingetrokken'],[71,17,4,8],'%');
+// 11
+(function(){const k=(l,v,d)=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${d}</div></div>`;
+ $('npskpi').innerHTML=k('NPS adviseurs','+12','<span class="neg">−6</span> t.o.v. groep (+18)')+k('NPS klanten','+26','<span class="pos">+2</span> t.o.v. groep (+24)')+k('Respons adviseurs','388','uit 181 kantoren')+k('Respons klanten','1.210','respons 21%');})();
+$('c_score').innerHTML=pair(['Acceptatiesnelheid','Duidelijkheid acceptatie','Premie','Voorwaarden','Digitaal aanvraagproces','Ondersteuning adviseur','Uitkering bij overlijden (reputatie)','Totaaloordeel'],[6.4,7.0,7.8,7.4,6.9,7.2,8.0,7.3],[7.3,7.2,7.4,7.3,7.4,7.3,7.8,7.4],'',1,240,640);
+// 12
+$('t_grow').innerHTML='<thead><tr><th>Doelgroep</th><th class="r">Hypotheken zonder ORV</th><th class="r">Uw aandeel</th><th>Kans</th></tr></thead><tbody>'+[['Alleenstaanden met kinderen','58%',P(8.1),'g'],['Alleenstaanden zonder kinderen','74%',P(9.4),'n'],['Ondernemers en zzp','47%',P(12.6),'g'],['Senioren 60+ met hypotheek','86%',P(6.3),'g'],['Samengestelde gezinnen','41%',P(15.2),'n'],['Oversluiters zonder bestaande ORV','52%',P(14.2),'g']].map(r=>`<tr><td>${r[0]}</td><td class="r">${r[1]}</td><td class="r">${r[2]}</td><td><span class="pill ${r[3]}">${r[3]=='g'?'hoog':'gemiddeld'}</span></td></tr>`).join('')+'</tbody>';
+// 13
+const sc=[['Aandeel ORV-aanvragen',P(17.4),P(14.4),1],['Conversie berekening → aanvraag','29%','26%',1],['Aanvraag → polis','84%','88%',4],['Doorlooptijd aanvraag → polis','9,4 d','7,1 d',4],['Premiepositie < 40 jaar (percentiel)','P20','P50',1],['Premiepositie ≥ 50 jaar (percentiel)','P85','P50',4],['Dekkingsgraad','72%','69%',2],['NPS adviseurs','+12','+18',3],['Concentratie top 10 kantoren','29%','25%',3]];
+$('t_sc').innerHTML='<thead><tr><th>Indicator</th><th>U</th><th>Mediaan groep</th><th>Kwartiel</th></tr></thead><tbody>'+sc.map(r=>`<tr><td>${r[0]}</td><td><b>${r[1]}</b></td><td>${r[2]}</td><td><span class="pill ${r[3]==1?'g':r[3]==4?'r':'n'}">${r[3]}</span></td></tr>`).join('')+'</tbody>';
+
+// print via window.open (werkt ook in iframes)
+$('pr').addEventListener('click',()=>{
+  const w=window.open('','_blank');if(!w){alert('Sta pop-ups toe om af te drukken.');return;}
+  w.document.write('<!doctype html><html lang="nl"><head><meta charset="utf-8"><title>Voorbeeldrapport ORV-verzekeraar Y Q3 2026</title>'+document.querySelector('style').outerHTML+'<style>.bar-top button{display:none}.bar-top{position:static}@page{size:A4;margin:12mm}</style></head><body>'+document.body.innerHTML.replace(/<script[\s\S]*<\/script>/,'')+'</body></html>');
+  w.document.close();setTimeout(()=>{try{w.focus();w.print();}catch(e){}},500);
+});
+})();
+</script>
+</body>
+</html>
