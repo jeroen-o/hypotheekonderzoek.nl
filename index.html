@@ -68,6 +68,9 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 .cat ul{margin:0;padding-left:18px;color:var(--muted);font-size:.9rem}
 .cat li{margin:.3em 0}
 .cat.wide{grid-column:1/-1}
+.cats.q{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1000px){.cats.q{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cats.q{grid-template-columns:1fr}}
 .cat.wide ul{columns:2;column-gap:32px}
 @media(max-width:760px){.cat.wide ul{columns:1}}
 .flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap}
@@ -127,12 +130,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <a class="logo" href="#" aria-label="hypotheekonderzoek.nl, een activiteit van Blinqx"><svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true" style="vertical-align:-7px;margin-right:8px"><path d="M13 0l13 7v14l-13 7L0 21V7z" fill="#ffcc00"/><path d="M11 12l6 9h-3.4l-6-9z" fill="#1e2533"/></svg>hypotheek<span>onderzoek</span>.nl</a>
     <nav>
       <a href="#inzichten">Inzichten</a>
+      <a href="#vragen">Uw vragen</a>
       <a href="#bron">Onze data</a>
       <a href="#rapportages">Rapportages</a>
       <a href="#rente">Rentedata</a>
             <a href="#aanbod">Aanbod</a>
       <a href="#esg">ESG</a>
-      <a href="#eba">EBA-richtlijnen</a>
       <a href="#whitepaper">Whitepaper</a>
       <a href="#contact" class="btn">Offerte aanvragen</a>
     </nav>
@@ -144,7 +147,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <span class="eyebrow">Marktinformatie voor geldverstrekkers en overige productaanbieders</span>
     <h1>Dé plek waar u alles vindt over de hypotheekmarkt.</h1>
     <p class="lead" style="color:#fff;font-weight:600;margin-bottom:12px">Hier doet u volledig benchmarkonderzoek en analyses: zie waar u staat, per maand, per adviespraktijk en per klantprofiel.</p>
-    <p class="lead"><strong style="color:#ffcc00">Wij hebben direct inzicht in de berekeningen en aanvragen bij geldverstrekkers</strong>, omdat die ontstaan in de adviessoftware van Blinqx. Hypotheekonderzoek.nl is het onderzoeksbureau van Blinqx, met een grote dataset aan hypotheek- en verzekeringsaanvragen uit het intermediaire kanaal. Wij maken daar stuurinformatie van: een eenmalig rapport, doorlopend inzicht of onderzoek op maat, inclusief data voor uw ESG-rapportage.</p>
+    <p class="lead"><strong style="color:#ffcc00">Wij hebben direct inzicht in de berekeningen, aanvragen en passeringen bij geldverstrekkers</strong>, omdat het merendeel van de Nederlandse hypotheekadviseurs werkt met de adviessoftware en het CRM van Blinqx. Hypotheekonderzoek.nl is het onderzoeksbureau van Blinqx, met een grote dataset aan hypotheek- en verzekeringsaanvragen uit het intermediaire kanaal. Wij maken daar stuurinformatie van: een eenmalig rapport, doorlopend inzicht of onderzoek op maat, inclusief data voor uw ESG-rapportage.</p>
     <div class="ctas">
       <a href="#aanbod" class="btn">Bekijk het aanbod</a>
       <a href="#contact" class="btn ghost">Neem contact op</a>
@@ -184,23 +187,46 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   </div>
 </section>
 
+<section id="vragen">
+  <div class="wrap">
+    <span class="eyebrow">Uw vragen</span>
+    <h2>Wat wilt u als geldverstrekker allemaal weten?</h2>
+    <p class="intro">Dit zijn de vragen die wij voor geldverstrekkers beantwoorden, steeds voor uw eigen positie en afgezet tegen de markt.</p>
+    <div class="cats q">
+      <div class="card cat"><h3>Commercieel</h3><ul><li>Groeit of krimpt mijn marktaandeel, en in welke maanden?</li><li>Waar win en waar verlies ik ten opzichte van de markt?</li><li>Hoe vaak word ik doorgerekend, en hoe vaak leidt dat tot een aanvraag en een passering?</li><li>In welke fase haken klanten af: na de berekening, na de offerte of na de aanvraag?</li></ul></div>
+      <div class="card cat"><h3>Distributie</h3><ul><li>Bij welke adviespraktijken ben ik sterk, en waar zit groeiruimte?</li><li>Hoe afhankelijk ben ik van een klein aantal kantoren?</li><li>Welke kantoren stijgen of dalen in mijn aanvragen?</li><li>Hoe sta ik ervoor per regio?</li></ul></div>
+      <div class="card cat"><h3>Klant &amp; doelgroep</h3><ul><li>Wie zijn mijn aanvragers: leeftijd, huishouden, inkomen, starter of doorstromer?</li><li>Bereik ik starters, alleenstaanden en ondernemers net zo goed als de markt?</li><li>Is er een verschil tussen mannen en vrouwen in mijn aanvragen?</li><li>Welke doelgroepen groeien in het advies?</li></ul></div>
+      <div class="card cat"><h3>Product &amp; prijs</h3><ul><li>Hoe verhoudt mijn gepubliceerde rente zich tot de marktbandbreedte?</li><li>Wat deed mijn laatste rentewijziging met mijn aandeel, achteraf gezien?</li><li>Welke rentevaste periodes, aflosvormen en LTV-klassen kiezen klanten bij mij en in de markt?</li><li>Hoe vaak wordt een ORV of woonlastenbescherming meegesloten?</li></ul></div>
+      <div class="card cat"><h3>Risico &amp; portefeuille</h3><ul><li>Hoe ziet mijn nieuwe instroom eruit naar LTV, loan-to-income en NHG?</li><li>Hoeveel risico zit er in mijn instroom vergeleken met de markt?</li><li>Wat gebeurt er in het advies met klanten die een aflossingsvrije hypotheek hebben?</li><li>Waar vertrekken mijn bestaande klanten naartoe bij oversluiten?</li></ul></div>
+      <div class="card cat"><h3>ESG &amp; regelgeving</h3><ul><li>Hoe groen is mijn nieuwe productie naar energielabel, en hoe is de trend?</li><li>Hoeveel klanten financieren energiebesparende maatregelen mee?</li><li>Welke referentiedata kan ik gebruiken voor Pillar 3, EBA-monitoring en de DNB-rapportage?</li><li>Laat mijn instroom tekenen van vertekening zien die ik moet onderzoeken?</li></ul></div>
+    </div>
+    <p style="margin:20px 0 0"><a class="btn" href="#contact">Stel uw vraag</a></p>
+  </div>
+</section>
+
 <section id="bron">
   <div class="wrap">
     <span class="eyebrow">Data uit de bron</span>
-    <h2>Direct inzicht in berekeningen en aanvragen</h2>
-    <p class="intro">Hypotheekonderzoek.nl is een activiteit van Blinqx, dat de adviessoftware levert waarin hypotheekadvies ontstaat. Daardoor zien we de berekeningen en aanvragen bij geldverstrekkers direct in de bron, en niet pas achteraf. Wat u ontvangt is altijd geaggregeerd en laat uw eigen positie tegenover de markt zien. We zien wat er gebeurt voordat een aanvraag bij een geldverstrekker binnenkomt, en ook wat er naast de hypotheek wordt afgesloten.</p>
+    <h2>Direct inzicht in berekeningen, aanvragen en passeringen</h2>
+    <p class="intro">Hypotheekonderzoek.nl is een activiteit van Blinqx. Het merendeel van de Nederlandse hypotheekadviseurs werkt met de hypotheekadviessoftware en met Blinqx Connect CRM. Daardoor komt de data over berekeningen, aanvragen en passeringen realtime binnen, direct uit de bron en niet pas achteraf. We zien wat er gebeurt voordat een aanvraag bij een geldverstrekker binnenkomt, wat er uiteindelijk passeert, en wat er naast de hypotheek wordt afgesloten. Wat u ontvangt is altijd geaggregeerd en laat uw eigen positie tegenover de markt zien.</p>
     <div class="flow" aria-label="Van klant tot geldverstrekker">
       <div class="step">Klant</div><div class="arr">→</div>
       <div class="step">Adviesgesprek</div><div class="arr">→</div>
-      <div class="step hl">Adviessoftware<small>hier ontstaat de data</small></div><div class="arr">→</div>
+      <div class="step hl">Adviessoftware &amp; CRM<small>hier ontstaat de data</small></div><div class="arr">→</div>
       <div class="step">Aanvraag</div><div class="arr">→</div>
-      <div class="step">Geldverstrekker<small>ziet alleen eigen aanvragen</small></div>
+      <div class="step">Geldverstrekker<small>ziet alleen eigen aanvragen</small></div><div class="arr">→</div>
+      <div class="step">Passering<small>ook in beeld</small></div>
     </div>
     <div class="cats" style="margin-top:24px">
       <div class="card cat"><h3>Welke berekeningen worden gemaakt</h3><ul><li>Maximale hypotheek en woonlastenberekeningen</li><li>Scenario's en vergelijkingen die de adviseur doorrekent</li><li>Welke producten en voorwaarden in de berekening worden meegenomen</li></ul></div>
       <div class="card cat"><h3>Welke aanvragen niet naar u gaan</h3><ul><li>Hoe vaak u wel in een berekening of vergelijking zat, maar de aanvraag niet bij u terechtkwam</li><li>In welke segmenten en bij welke kantoren dat gebeurt</li><li>Geaggregeerd, zonder te tonen naar welke concurrent de aanvraag ging</li></ul></div>
       <div class="card cat"><h3>Uw marktaandeel in het hele netwerk</h3><ul><li>Gemeten over alle geldverstrekkers en verzekeraars in het netwerk</li><li>Per maand, kwartaal en jaar</li><li>Per segment, regio en adviespraktijk, tegenover de markt of een anonieme groep vergelijkbare partijen</li></ul></div>
       <div class="card cat"><h3>Wat er nog meer wordt afgesloten</h3><ul><li>Overlijdensrisico-, woonlasten- en inkomensbescherming</li><li>Andere diensten en producten bij de hypotheek</li><li>Combinaties van hypotheek en verzekering per klantprofiel</li></ul></div>
+    </div>
+    <h3 style="margin:32px 0 6px;font-size:1.15rem">Wat wij meer weten dan u als geldverstrekker zelf</h3>
+    <p style="color:var(--muted);margin:0 0 12px;max-width:760px">Een geldverstrekker ziet alleen wat er bij hem binnenkomt. Wij zien ook wat er vóór de aanvraag gebeurt en wat er naar de rest van de markt gaat.</p>
+    <div class="tablewrap">
+    <table class="eba"><thead><tr><th>Onderwerp</th><th>Wat u zelf ziet</th><th>Wat hypotheekonderzoek.nl ziet</th></tr></thead><tbody><tr><td>Berekeningen</td><td>Niets: u ziet een klant pas als er een aanvraag komt</td><td>Elke berekening en vergelijking waarin u wel of niet voorkomt</td></tr><tr><td>Verloren aanvragen</td><td>Niets: een klant die elders aanvraagt, ziet u nooit</td><td>Hoe vaak u wel in beeld was, maar de aanvraag niet bij u terechtkwam (geaggregeerd)</td></tr><tr><td>Marktaandeel</td><td>Alleen uw eigen volume, zonder noemer</td><td>Uw aandeel in het hele netwerk, per maand, segment, regio en kantoor</td></tr><tr><td>Van aanvraag tot passering</td><td>Alleen uw eigen pijplijn</td><td>De verhouding tussen berekening, aanvraag en passering bij u en in de markt</td></tr><tr><td>Adviespraktijken</td><td>Uw volume per kantoor</td><td>Uw aandeel bij elk kantoor, dus ook het deel dat naar de markt gaat</td></tr><tr><td>Klantprofiel</td><td>Alleen de klanten die bij u aanvragen</td><td>Uw klanten naast alle klanten in het advies: leeftijd, huishouden, inkomen, energielabel</td></tr><tr><td>Verzekeringen</td><td>Alleen uw eigen producten</td><td>Welke ORV en woonlastenbescherming bij uw hypotheken en in de markt worden afgesloten</td></tr><tr><td>Rente</td><td>Uw eigen tarieven</td><td>Uw gepubliceerde rente tegenover de bandbreedte van alle aanbieders</td></tr></tbody></table>
     </div>
     <h3 style="margin:32px 0 6px;font-size:1.15rem">Aanvullend op publieke bronnen</h3>
     <p style="color:var(--muted);margin:0 0 12px;max-width:760px">DNB en het Kadaster publiceren waardevolle cijfers over de woninghypotheekmarkt. Die laten de markt als geheel zien. Hypotheekonderzoek.nl gaat een niveau dieper: per partij, per adviespraktijk en per klantprofiel.</p>
