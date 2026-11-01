@@ -338,9 +338,35 @@ footer b{color:#fff}
   <div class="card tw"><table id="t_niche"></table></div>
 </div></section>
 
+<section class="ch" id="s26"><div class="wrap">
+  <span class="chn"><i>19</i> Fairness &amp; bias</span>
+  <h2>Behandelt uw acceptatie groepen gelijk?</h2>
+  <p class="lead">Een onafhankelijke toets of conversie en acceptatie verschillen tussen groepen, gecorrigeerd voor inkomen, LTV en type klant. Een verschil is geen bewijs van discriminatie, maar een aanleiding om criteria en modellen te toetsen (EBA/GL/2020/06 § 54–55, AI Act).</p>
+  <div class="card"><h3>Verschil in acceptatie na correctie</h3><p class="sub">Verschil in de kans op acceptatie tegenover de referentiegroep, na correctie voor inkomen, LTV, LTI en type klant. Tussen haakjes de markt.</p><div class="tw" id="t_fair"></div>
+    <div class="note">Methode: logistische regressie op geaggregeerde cellen van minstens 25 aanvragen. "Signaal" betekent een verschil van meer dan 3 procentpunt dat statistisch significant is (p &lt; 0,05). Leeftijd en type inkomen zijn toegestane risicofactoren; het signaal vraagt wel om een onderbouwing.</div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Waar zit het verschil?</h3><p class="sub">Bijdrage van de factoren aan het verschil voor ondernemers (uitlegbaarheid)</p><div id="c_shap"></div></div>
+    <div class="card"><h3>Aanbevolen vervolgstappen</h3><ol style="margin:6px 0 0;padding-left:20px;color:var(--mut)"><li>Toets de inkomensbepaling voor ondernemers met minder dan 3 jaar historie</li><li>Leg de onderbouwing vast van de leeftijdsgrens voor de looptijd bij 60-plussers</li><li>Herhaal de toets elk halfjaar en rapporteer de uitkomst aan het risicocomité</li></ol></div>
+  </div>
+</div></section>
+
+<section class="ch" id="s27"><div class="wrap">
+  <span class="chn"><i>20</i> AI-analyse</span>
+  <h2>Wat AI uit open antwoorden en voorwaarden haalt</h2>
+  <p class="lead">Alle tekst in dit hoofdstuk is door AI voorbereid en door een onderzoeker gecontroleerd. Waar AI is gebruikt, staat dat erbij.</p>
+  <div class="g2">
+    <div class="card"><h3>Thema's in open antwoorden van adviseurs</h3><p class="sub">Automatisch gegroepeerd uit 412 antwoorden; aandeel van de antwoorden en sentiment</p><div class="tw" id="t_themes"></div></div>
+    <div class="card"><h3>Wijzigingen in voorwaarden in Q3</h3><p class="sub">Door AI gesignaleerd in productvoorwaarden van alle aanbieders (geaggregeerd)</p><div class="tw" id="t_condchg"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Vraag het de data (voorbeeld)</h3>
+    <div style="background:var(--bg);border-radius:10px;padding:12px 14px;margin:8px 0"><b>Vraag:</b> Waarom daalde ons aandeel bij oversluiters in Q3?</div>
+    <div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px"><b>Antwoord (AI, gecontroleerd):</b> uw aandeel bij oversluiters daalde van 7,4% naar 5,2%. Drie factoren vallen samen. Uw rente bij 20 jaar vast zonder NHG zit in het duurste kwart van de markt (hoofdstuk 8). Oversluiters kiezen in Q3 vaker voor 20 jaar vast (+4 pp). En de stap van aanvraag naar bindend aanbod duurt bij oversluiters 1,2 werkdagen langer dan in de markt.<br><span class="note" style="display:block;border:0;padding:0;margin-top:6px">Bronnen: hoofdstuk 2, 7, 8 en 3 van dit rapport. Geen informatie over individuele concurrenten.</span></div>
+  </div>
+</div></section>
+
 <!-- 13 -->
 <section class="ch" id="s13"><div class="wrap">
-  <span class="chn"><i>19</i> Benchmark</span>
+  <span class="chn"><i>21</i> Benchmark</span>
   <h2>Scorecard tegenover de vergelijkingsgroep</h2>
   <p class="lead">U tegenover een anonieme groep van 7 regiepartijen. Een kwartiel geeft aan waar u staat binnen de groep (1 = beste kwart).</p>
   <div class="card tw"><table class="sc" id="t_sc"></table></div>
@@ -348,7 +374,7 @@ footer b{color:#fff}
 
 <!-- 14 -->
 <section class="ch" id="s14"><div class="wrap">
-  <span class="chn"><i>20</i> Methodologie &amp; mededinging</span>
+  <span class="chn"><i>22</i> Methodologie &amp; mededinging</span>
   <h2>Zo komen de cijfers tot stand</h2>
   <div class="g2">
     <div class="card"><h3>Bron en definities</h3><ul style="margin:6px 0 0;padding-left:18px;color:var(--mut)">
@@ -571,6 +597,12 @@ $('c_cond').innerHTML=pair(['Renteafslag energielabel','Meeneemregeling','Rentem
 $('c_nps').innerHTML=pair(['Acceptatiesnelheid','Duidelijkheid acceptatiebeleid','Bereikbaarheid acceptant','Prijs / rente','Productvoorwaarden','Digitaal aanvraagproces','Accountmanagement','Totaaloordeel'],[7.9,7.4,8.1,7.6,7.2,6.8,7.0,7.5],[7.3,7.1,7.4,7.4,7.3,7.2,7.1,7.2],'',1,220,620);
 // niches
 $('t_niche').innerHTML='<thead><tr><th>Doelgroep</th><th class="r">Aandeel in berekeningen markt</th><th class="r">Daarvan aanvraag</th><th class="r">Uw aandeel</th><th>Kans</th></tr></thead><tbody>'+[['Verzilverhypotheek / senioren 65+','4,1%','38%','2,2%','g'],['Flexwerkers en zzp met korte historie','6,3%','41%','3,1%','g'],['Expats (tijdelijke verblijfsvergunning)','1,8%','52%','0,0%','g'],['Erfpachtwoningen','3,2%','61%','6,9%','n'],['Verduurzamingshypotheek (los van aankoop)','2,7%','44%','8,8%','n'],['Tweede woning / recreatie','0,9%','33%','0,0%','n']].map(r=>`<tr><td>${r[0]}</td><td class="r">${r[1]}</td><td class="r">${r[2]}</td><td class="r">${r[3]}</td><td><span class="pill ${r[4]}">${r[4]=='g'?'hoog':'gemiddeld'}</span></td></tr>`).join('')+'</tbody>';
+
+// fairness & AI
+$('t_fair').innerHTML=tbl(['Groep','Referentie','Verschil u','Verschil markt','Signaal'],[['Vrouw','Man','−0,8 pp','−0,6 pp','<span class="pill n">geen</span>'],['Alleenstaand','Samenwonend','−1,4 pp','−1,1 pp','<span class="pill n">geen</span>'],['30–39 jaar','< 30 jaar','+0,3 pp','+0,2 pp','<span class="pill n">geen</span>'],['60+','< 30 jaar','−6,9 pp','−3,1 pp','<span class="pill r">onderzoeken</span>'],['Ondernemer / zzp','Loondienst vast','−8,4 pp','−4,2 pp','<span class="pill r">onderzoeken</span>'],['Flexibel inkomen','Loondienst vast','−2,7 pp','−2,9 pp','<span class="pill n">geen</span>']],[2,3]);
+$('c_shap').innerHTML=bars(['Inkomenshistorie < 3 jaar','Inkomensbepaling (gemiddelde over jaren)','LTV','Regio','Overig'],[46,31,12,6,5]);
+$('t_themes').innerHTML=tbl(['Thema','Aandeel','Sentiment'],[['Snelheid acceptatie starters','24%','<span class="pill g">positief</span>'],['Inkomensbepaling ondernemers','19%','<span class="pill r">negatief</span>'],['Bereikbaarheid acceptant','16%','<span class="pill g">positief</span>'],['Digitaal aanvraagportaal','13%','<span class="pill r">negatief</span>'],['Rente bij lange rentevaste periode','11%','<span class="pill n">gemengd</span>'],['Overig','17%','<span class="pill n">gemengd</span>']],[1]);
+$('t_condchg').innerHTML=tbl(['Wijziging','Aantal aanbieders'],[['Renteafslag op energielabel verruimd','6'],['Boetevrij aflossen verhoogd naar 15% of meer','4'],['Bouwdepot verlengd naar 24 maanden','3'],['Nieuwe regeling voor tijdelijk dubbele lasten','2'],['Verhuisregeling beperkt','1']],[1])+'<div class="note">Alleen het aantal aanbieders, zonder namen.</div>';
 // 13 scorecard
 const sc=[['Marktaandeel (groei)',P(7.4),P(6.0),1],['Conversie berekening → aanvraag','31%','27%',1],['Passeringsratio','78%','75%',2],['Doorlooptijd aanvraag → aanbod','6,8 d','6,1 d',4],['Leencapaciteit (berekeningen > 2% onder markt)','16%','12%',3],['Rentepositie 10 jaar NHG (percentiel, laag = goedkoop)','P20','P50',1],['Label A of beter','53%','48%',1],['Concentratie top 10 kantoren','31%','24%',4],['ORV meegesloten','46%','42%',2]];
 $('t_sc').innerHTML='<thead><tr><th>Indicator</th><th>U</th><th>Mediaan groep</th><th>Kwartiel</th></tr></thead><tbody>'+sc.map(r=>`<tr><td>${r[0]}</td><td><b>${r[1]}</b></td><td>${r[2]}</td><td><span class="pill ${r[3]==1?'g':r[3]==4?'r':'n'}">${r[3]}</span></td></tr>`).join('')+'</tbody>';

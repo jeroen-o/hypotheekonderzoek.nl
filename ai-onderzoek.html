@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-onderzoek</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 26 28%22%3E%3Cpath d=%22M13 0l13 7v14l-13 7L0 21V7z%22 fill=%22%23ffcc00%22/%3E%3Cpath d=%22M11 12l6 9h-3.4l-6-9z%22 fill=%22%231e2533%22/%3E%3C/svg%3E">
+<link rel="canonical" href="https://hypotheekonderzoek.nl/ai-onderzoek.html">
+<meta name="theme-color" content="#1e2533">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="hypotheekonderzoek.nl">
+<meta property="og:title" content="AI-onderzoek | hypotheekonderzoek.nl">
+<meta property="og:description" content="Hoe hypotheekonderzoek.nl AI verantwoord inzet: in het onderzoek, als product zoals de bias- en fairnessbenchmark, en als onderzoeksonderwerp.">
+<meta property="og:url" content="https://hypotheekonderzoek.nl/ai-onderzoek.html">
+<meta property="og:image" content="https://jeroen-o.github.io/hypotheekonderzoek.nl/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jeroen-o.github.io/hypotheekonderzoek.nl/og.png">
+
+<meta name="description" content="Hoe hypotheekonderzoek.nl AI verantwoord inzet: in het onderzoek, als product zoals de bias- en fairnessbenchmark, en als onderzoeksonderwerp.">
+<style>
+:root{
+  --navy:#1e2533; --navy-2:#2b3345; --orange:#ffcc00; --orange-soft:#fff5cc;
+  --ink:#1b2535; --muted:#5b6678; --line:#e1e6ee; --bg:#f5f7fa; --card:#fff;
+  --pos:#1f8a5b; --neg:#c0392b; --c2:#8da9c4;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+a{color:var(--navy-2)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+header.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:10}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font-weight:800;letter-spacing:-.01em;font-size:1.1rem;color:#fff;text-decoration:none}
+.logo span{color:var(--orange)}
+nav a{color:#cfd8e6;text-decoration:none;margin-left:20px;font-size:.92rem}
+nav a:hover{color:#fff}
+nav{white-space:nowrap}
+nav a:not(.btn){margin-left:14px;font-size:.88rem}
+.logo{white-space:nowrap}
+@media(max-width:1240px){nav a:not(.btn){display:none}}
+@media(max-width:400px){header.top .btn{padding:7px 10px!important;font-size:.76rem!important}.logo{font-size:.88rem!important}}
+@media(max-width:480px){header.top .btn{padding:8px 12px;font-size:.82rem;margin-left:8px}header.top .wrap{gap:8px}.logo{font-size:.98rem}.logo svg{width:20px;height:22px;margin-right:6px!important}}
+.btn{display:inline-block;background:var(--orange);color:var(--navy) !important;padding:10px 18px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:.95rem}
+.btn.ghost{background:transparent;border:1.5px solid currentColor}
+.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:72px 0 88px}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7a5c00}
+.hero .eyebrow,#contact .eyebrow,.kern .eyebrow{color:var(--orange)}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--orange);color:var(--navy);padding:10px 16px;border-radius:8px;font-weight:700}
+.skip:focus{left:16px}
+:focus-visible{outline:3px solid #e0a800;outline-offset:2px;border-radius:4px}
+.hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;margin:.4em 0 .35em;letter-spacing:-.02em;max-width:820px}
+.hero p.lead{font-size:1.15rem;color:#d5deeb;max-width:680px;margin:0 0 28px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .ctas .ghost{color:#fff !important}
+.aud{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-48px}
+@media(max-width:1000px){.aud{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.aud{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.aud .card{box-shadow:0 8px 28px rgba(30,37,51,.10)}
+.aud h3{margin:.2em 0 .3em;font-size:1.1rem}
+.aud p{margin:0;color:var(--muted);font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--orange-soft);color:#6b5200;padding:3px 9px;border-radius:999px}
+section{padding:72px 0}
+section h2{font-size:clamp(1.6rem,3.4vw,2.2rem);letter-spacing:-.015em;margin:.25em 0 .4em;line-height:1.15}
+section p.intro{color:var(--muted);max-width:720px;margin:0 0 32px;font-size:1.05rem}
+.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.grid6{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid6{grid-template-columns:1fr}}
+.feat .num{width:34px;height:34px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;margin-bottom:10px}
+.feat h3{margin:0 0 .3em;font-size:1.05rem}
+.feat p{margin:0;color:var(--muted);font-size:.94rem}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th{text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);padding:8px 6px}
+td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.tablewrap{overflow-x:auto}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1000px){.cats{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cats{grid-template-columns:1fr}}
+.cat{border-top:4px solid var(--orange)}
+.cat h3{margin:0 0 .5em;font-size:1.02rem}
+.cat ul{margin:0;padding-left:18px;color:var(--muted);font-size:.9rem}
+.cat li{margin:.3em 0}
+.cat.wide{grid-column:1/-1}
+.cats.q{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1000px){.cats.q{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cats.q{grid-template-columns:1fr}}
+.cat.wide ul{columns:2;column-gap:32px}
+@media(max-width:760px){.cat.wide ul{columns:1}}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap}
+.flow .step{flex:1 1 120px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center;font-weight:700;color:var(--navy);display:flex;flex-direction:column;justify-content:center}
+.flow .step small{display:block;font-weight:500;color:var(--muted);font-size:.78rem;margin-top:4px}
+.flow .step.hl{background:var(--orange);border-color:var(--orange)}
+.flow .step.hl small{color:var(--navy)}
+.flow .arr{align-self:center;color:var(--muted);font-size:1.3rem}
+@media(max-width:760px){.flow{flex-direction:column}.flow .arr{transform:rotate(90deg)}}
+/* offer */
+.offer{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1180px){.offer{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:1000px){.offer{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.offer{grid-template-columns:1fr}}
+@media(max-width:960px){.offer{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.offer{grid-template-columns:1fr}}
+.offer .card h3{margin:.3em 0}
+.offer ul{padding-left:18px;margin:.6em 0 0;color:var(--muted)}
+.offer li{margin:.25em 0}
+.offer .card.hl{border:2px solid var(--orange)}
+
+.checks{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:760px){.checks{grid-template-columns:1fr}}
+.checks li{padding-left:28px;position:relative;font-weight:600}
+.checks li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:var(--orange)}
+.checks li::after{content:"";position:absolute;left:6px;top:7px;width:5px;height:9px;border:solid var(--navy);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.wp{display:grid;grid-template-columns:1.6fr 1fr;gap:28px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px;border-top:4px solid var(--orange)}
+@media(max-width:860px){.wp{grid-template-columns:1fr;padding:22px}}
+.wp-cta{background:var(--orange-soft);border-radius:12px;padding:22px;align-self:start}
+.checks.one{grid-template-columns:1fr}
+.checks.one li{font-weight:500;color:var(--ink)}
+.mission{margin-top:48px;text-align:center}
+.mission p{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;letter-spacing:-.015em;color:var(--navy);margin:.3em auto 0;max-width:820px;line-height:1.25}
+.kern{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;background:var(--navy);color:#fff;border-radius:var(--r);padding:28px;margin-bottom:16px}
+@media(max-width:860px){.kern{grid-template-columns:1fr}}
+.kern h3{margin:.4em 0 .3em;font-size:1.4rem;color:#fff}
+.kern p{margin:0;color:#d5deeb}
+.funnel{display:flex;flex-direction:column;gap:8px;align-items:center}
+.funnel>div{background:var(--orange);color:var(--navy);font-weight:800;text-align:center;padding:12px;border-radius:10px}
+.funnel small{display:block;font-weight:500;font-size:.78rem}
+.funnel .f1{width:100%}.funnel .f2{width:78%}.funnel .f3{width:56%}
+footer a{color:#ffcc00}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700;color:var(--navy)}
+.faq details p{margin:.6em 0 0;color:var(--muted)}
+/* EBA */
+@media(min-width:700px){.eba td:first-child{white-space:nowrap}}
+.eba td:first-child{font-weight:600;color:var(--navy)}
+.callout{border-left:4px solid var(--orange);background:#fff;padding:14px 18px;border-radius:0 10px 10px 0;margin-top:18px;font-size:.92rem;color:var(--muted)}
+.method{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.method{grid-template-columns:1fr}}
+.method h3{margin:0 0 .3em;font-size:1.02rem}
+.method p{margin:0;color:var(--muted);font-size:.93rem}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto;text-align:left}
+@media(max-width:760px){.people{grid-template-columns:1fr}}
+.person{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:20px}
+.person h3{margin:0 0 8px;font-size:1.05rem;color:#fff}
+.person a{display:block;color:#d5deeb;text-decoration:none;font-size:.92rem;margin-top:4px;word-break:break-all}
+.person a:hover{color:#ffcc00}
+footer{background:var(--navy);color:#b9c5d6;padding:40px 0;font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+#contact{background:var(--navy-2);color:#fff;text-align:center}
+#contact p{color:#d5deeb;max-width:640px;margin:0 auto 24px}
+</style>
+<style>
+.doc{max-width:820px;margin:0 auto;padding:40px 16px 64px}
+.doc h2{margin-top:1.8em;font-size:1.45rem}
+.doc h3{margin:1.4em 0 .3em;font-size:1.08rem}
+.doc p,.doc li{color:#2c3647}
+.doc table{margin:12px 0}
+.doc .box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:16px 0}
+.doc .ph{background:var(--orange-soft);padding:0 4px;border-radius:4px}
+.doc .toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.doc .toc ol{margin:6px 0 0;padding-left:20px}
+.doc .src{font-size:.88rem;color:var(--muted)}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.team{grid-template-columns:1fr!important}}
+.team .card{text-align:center}
+#werkwijze .card{text-align:left}
+.team .av{width:72px;height:72px;border-radius:50%;object-fit:cover;background:var(--orange-soft);display:grid;place-items:center;margin:0 auto 10px;font-weight:800;color:var(--navy);font-size:1.3rem}
+@media print{header.top,footer,.skip{display:none}.doc{padding:0}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Naar de inhoud</a>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="hypotheekonderzoek.nl, een activiteit van Blinqx"><svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true" style="vertical-align:-7px;margin-right:8px"><path d="M13 0l13 7v14l-13 7L0 21V7z" fill="#ffcc00"/><path d="M11 12l6 9h-3.4l-6-9z" fill="#1e2533"/></svg>hypotheek<span>onderzoek</span>.nl</a>
+    <nav>
+      <a href="index.html#vragen">Uw vragen</a>
+      <a href="index.html#bron">Onze data</a>
+      <a href="index.html#rapportages">Rapportages</a>
+      <a href="index.html#rente">Rentedata</a>
+      <a href="index.html#aanbod">Aanbod</a>
+      <a href="regelgeving.html">Regelgeving</a>
+      <a href="index.html#monitor">Monitor</a>
+      <a href="index.html#contact" class="btn">Offerte aanvragen</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="hero" style="padding:56px 0 64px">
+  <div class="wrap">
+    <span class="eyebrow">AI-onderzoek</span>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem)">AI in onderzoek, product en markt</h1>
+    <p class="lead" style="margin:0">We zetten AI op drie manieren in: om ons eigen onderzoek sneller en dieper te maken, als product voor geldverstrekkers en productaanbieders, en als onderwerp van onderzoek. Steeds verantwoord en binnen de AI Act, de AVG en onze mededingingswaarborgen.</p>
+  </div>
+</div>
+
+<article class="doc">
+  <div class="toc"><strong>Inhoud</strong><ol>
+    <li><a href="#a1">AI in ons onderzoek</a></li><li><a href="#a2">AI als product</a></li><li><a href="#a3">AI als onderzoeksonderwerp</a></li><li><a href="#a4">Zo zetten wij AI verantwoord in</a></li>
+  </ol></div>
+
+  <h2 id="a1">1. AI in ons onderzoek</h2>
+  <p>AI maakt ons onderzoek sneller, completer en consistenter. Een onderzoeker controleert altijd de uitkomst.</p>
+  <div class="tablewrap"><table class="eba">
+    <thead><tr><th>Toepassing</th><th>Wat het oplevert</th></tr></thead>
+    <tbody>
+      <tr><td>Rentestaten en voorwaarden uitlezen</td><td>Een taalmodel zet PDF-rentestaten en productvoorwaarden om naar gestructureerde data en signaleert wijzigingen op de dag van publicatie.</td></tr>
+      <tr><td>Voorwaarden inhoudelijk vergelijken</td><td>We vergelijken de inhoud van voorwaarden tussen aanbieders, zoals de meeneemregeling, boetevrij aflossen, verhuisregeling en bouwdepot, niet alleen de rente.</td></tr>
+      <tr><td>Open antwoorden analyseren</td><td>Thema's en sentiment uit de adviseursenquête en het klantonderzoek, automatisch gegroepeerd en geteld.</td></tr>
+      <tr><td>Duiding in rapporten</td><td>Een eerste versie van de belangrijkste bevindingen per hoofdstuk, die een onderzoeker controleert en aanvult.</td></tr>
+      <tr><td>Ontbrekende energielabels schatten</td><td>Een indicatief label op basis van bouwjaar, woningtype en regio, altijd als "geschat" gemarkeerd en apart gerapporteerd.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="a2">2. AI als product</h2>
+  <div class="team" style="grid-template-columns:repeat(2,1fr)" id="werkwijze">
+    <div class="card cat"><h3>Bias- en fairnessbenchmark</h3><ul><li>Een onafhankelijke toets of acceptatie en conversie verschillen tussen groepen, zoals man/vrouw, leeftijd, huishouden en type inkomen</li><li>Afgezet tegen de markt en de vergelijkingsgroep</li><li>Ondersteunt EBA/GL/2020/06 § 54–55 en de verplichtingen onder de AI Act</li><li><a href="voorbeeldrapport.html#s26">Bekijk het voorbeeld</a></li></ul></div>
+    <div class="card cat"><h3>Voorspellingsmodellen</h3><ul><li>Een prognose van uw instroom en pijplijn</li><li>De verwachte uitval na het aanbod en de verwachte passeringen</li><li>Uitlegbaar, getoetst aan de werkelijke uitkomsten (backtesting), en alleen op portefeuilleniveau</li></ul></div>
+    <div class="card cat"><h3>Vraag het de data</h3><ul><li>Een AI-analist in uw dashboard: stel vragen in gewone taal, zoals "waarom daalde mijn aandeel bij starters in Q3?"</li><li>Antwoorden komen alleen uit geaggregeerde data, met bronvermelding</li><li>Nooit informatie over individuele concurrenten of over toekomstige prijzen</li></ul></div>
+    <div class="card cat"><h3>Waar dossiers vastlopen</h3><ul><li>Analyse van de tijdstempels van berekening tot passering</li><li>Welke stappen vertragen, per type klant en per adviespraktijk</li><li>Direct bruikbaar voor first time right en kortere doorlooptijden</li></ul></div>
+  </div>
+
+  <h2 id="a3">3. AI als onderzoeksonderwerp</h2>
+  <ul>
+    <li><b>AI in het hypotheekadvies.</b> Hoeveel adviseurs gebruiken AI, en waarvoor? Wat doet het met de doorlooptijd, met first time right en met de kwaliteit van het advies?</li>
+    <li><b>Vertrouwen van consumenten.</b> Hoe staan kopers tegenover advies dat deels met AI tot stand komt, en wat hebben ze nodig om het te vertrouwen?</li>
+    <li><b>Geautomatiseerde acceptatie.</b> Hoe ver zijn geldverstrekkers met geautomatiseerde acceptatie, en wat merken adviseurs en klanten daarvan?</li>
+  </ul>
+  <p>De uitkomsten publiceren we geaggregeerd, bijvoorbeeld in de <a href="index.html#monitor">Hypotheekmonitor</a>.</p>
+
+  <h2 id="a4">4. Zo zetten wij AI verantwoord in</h2>
+  <div class="tablewrap"><table class="eba">
+    <thead><tr><th>Kader</th><th>Onze werkwijze</th></tr></thead>
+    <tbody>
+      <tr><td>AI Act</td><td>AI voor de beoordeling van de kredietwaardigheid van consumenten is een hoogrisicotoepassing. Onze modellen werken daarom op markt-, portefeuille- en procesniveau en geven geen beslissing of score over individuele consumenten. Elk AI-product krijgt voor de lancering een AI Act-toets.</td></tr>
+      <tr><td>AVG</td><td>Geen geautomatiseerde besluiten of profilering over individuele personen (art. 22). Dossierdata gaat niet naar externe AI-diensten zonder verwerkersovereenkomst en hosting in de EU, en mag niet worden gebruikt om modellen van derden te trainen.</td></tr>
+      <tr><td>Mededinging</td><td>Onze AI voorspelt of adviseert geen prijzen van concurrenten, en raadt geen renteaanpassingen aan. Zo voorkomen we algoritmische afstemming.</td></tr>
+      <tr><td>Menselijk toezicht</td><td>Elke AI-uitkomst in een rapport wordt gecontroleerd door een onderzoeker. AI-gegenereerde tekst en geschatte waarden worden als zodanig gemarkeerd.</td></tr>
+      <tr><td>Transparantie</td><td>Per AI-toepassing beschrijven we het doel, de data, de beperkingen en de manier van toetsen in onze <a href="methodologie.html">methodologie</a>.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Dit overzicht is informatief en geen juridisch advies. De verplichtingen voor hoogrisico-AI onder de AI Act en de ingangsdata daarvan kunnen nog wijzigen.</p>
+  <p><a class="btn" href="index.html#contact">Bespreek AI-onderzoek met ons</a></p>
+</article>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div><strong style="color:#fff">hypotheekonderzoek.nl</strong><br>Marktinformatie voor geldverstrekkers en overige productaanbieders<br>Een activiteit van <strong style="color:#ffcc00">Blinqx</strong></div>
+    <div class="colofon">
+      <strong style="color:#fff">Colofon</strong><br>
+      Blinqx (waaronder Blinqx Verzekering &amp; Hypotheek en het cloudplatform eBlinqx)<br>Hullenbergweg 109, 1101 CL Amsterdam<br>
+      KvK 84045132<br>
+      <a href="privacy.html">Privacyverklaring</a> · <a href="index.html#methode">Methode &amp; mededinging</a> · <a href="regelgeving.html">Regelgeving</a> · <a href="whitepaper.html">Whitepaper</a> · <a href="voorbeeldrapport.html">Voorbeeldrapport</a> · <a href="voorbeeldrapport-orv.html">Voorbeeldrapport ORV</a> · <a href="methodologie.html">Methodologie</a> · <a href="over-ons.html">Over ons</a> · <a href="onderzoek-bieden-met-zekerheid.html">Bieden met zekerheid</a> · <a href="ai-onderzoek.html">AI-onderzoek</a><br>
+      <span style="font-size:.8rem">Deze site is geen juridisch of regelgevend advies.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
