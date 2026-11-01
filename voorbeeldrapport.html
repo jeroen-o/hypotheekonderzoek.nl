@@ -89,6 +89,7 @@ footer b{color:#fff}
     <div><b>Periode</b>jan t/m okt 2026, focus Q3</div>
     <div><b>Bron</b>berekeningen, aanvragen en passeringen in het Blinqx-netwerk</div>
     <div><b>Vergelijkingsgroep</b>7 regiepartijen (anoniem)</div>
+    <div><b>Dekking</b>1.240 adviespraktijken · 3.910 adviseurs · 58.300 berekeningen · 14.900 aanvragen (fictief)</div>
     <div><b>Versie</b>voorbeeld 1.0</div>
   </div>
   <div class="warn"><b>Let op: alle cijfers, partijen en kantoren in dit rapport zijn fictief.</b> Ze laten alleen zien welke analyses mogelijk zijn en zeggen niets over werkelijke geldverstrekkers, verzekeraars of adviespraktijken.</div>
@@ -206,6 +207,12 @@ footer b{color:#fff}
     <div class="card"><h3>Aflosvorm en NHG</h3><div id="c_afl"></div><div id="c_nhg" style="margin-top:12px"></div></div>
   </div>
   <div class="card" style="margin-top:14px"><h3>Verzekeringen bij de hypotheek</h3><p class="sub">Hoe vaak een product wordt meegesloten bij uw hypotheken, tegenover de markt</p><div id="c_ins"></div></div>
+  <div class="card" style="margin-top:14px"><h3>Verzekeringen per type klant</h3><p class="sub">Aandeel aanvragen waarbij het product wordt meegesloten: u, met tussen haakjes de markt. Q3.</p><div class="tw" id="t_inst"></div>
+    <div class="ins"><b>Inzicht:</b> bij alleenstaanden wordt woonlastenbescherming bij u vaker meegesloten dan in de markt, terwijl ORV bij hen achterblijft. Bij samenwonende starters ligt het ORV-aandeel juist hoog. Ondernemers sluiten bij u zelden een arbeidsongeschiktheidsverzekering mee.</div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Gemiddeld verzekerd bedrag ORV</h3><p class="sub">Als aandeel van de hoofdsom</p><div id="c_orvb"></div></div>
+    <div class="card"><h3>Geen enkele woonlastenverzekering</h3><p class="sub">Aandeel aanvragen zonder ORV, woonlasten-, AO- of WW-dekking</p><div id="c_noins"></div></div>
+  </div>
 </div></section>
 
 <!-- 8 -->
@@ -486,6 +493,14 @@ $('c_dv').innerHTML=pair(['Loondienst vast','Loondienst flex','Ondernemer / zzp'
  const W=640,L=150,rh=34,rows=[['Adviseurs: u',[42,40,18]],['Adviseurs: groep',[37,41,22]],['Klanten: u',[48,35,17]],['Klanten: groep',[45,37,18]]],cols=['#1f8a5b','#cfd6e1','#c0392b'];let sv='';
  rows.forEach((r,i)=>{let x=L;const y=i*rh+4;sv+=`<text x="0" y="${y+17}" font-size="12" fill="#1b2535">${r[0]}</text>`;r[1].forEach((v,j)=>{const w=(W-L)*v/100;sv+=`<rect x="${x}" y="${y}" width="${w}" height="24" fill="${cols[j]}"/><text x="${x+w/2}" y="${y+16}" text-anchor="middle" font-size="11" font-weight="700" fill="${j==1?'#1b2535':'#fff'}">${v}%</text>`;x+=w;});});
  $('c_npsdist').innerHTML=`<div class="legend"><span><i style="background:#1f8a5b"></i>Promotors (9–10)</span><span><i style="background:#cfd6e1"></i>Passives (7–8)</span><span><i style="background:#c0392b"></i>Criticasters (0–6)</span></div><svg viewBox="0 0 ${W} ${rows.length*rh+4}" width="100%" style="max-width:860px">${sv}</svg>`;})();
+
+// verzekeringen per type klant
+(function(){const R=[['Alleenstaand',[22,31],[26,19],[12,13],[9,8],[1890,'']],['Samenwonend',[56,49],[16,14],[11,12],[7,8]],['Man (hoofdaanvrager)',[48,43],[18,15],[12,13],[7,8]],['Vrouw (hoofdaanvrager)',[43,38],[19,16],[10,11],[8,8]],['Starter',[58,50],[22,18],[9,10],[10,10]],['Doorstromer',[44,41],[15,14],[13,13],[6,7]],['Oversluiter',[31,33],[11,12],[10,11],[4,5]],['Ondernemer / zzp',[39,37],[8,10],[6,21],[0,0]],['Senior (60+)',[12,14],[4,5],[0,1],[0,1]],['<b>Totaal</b>',[46,41],[18,15],[11,12],[7,8]]];
+ const cell=a=>`<span style="white-space:nowrap"><b>${a[0]}%</b> <span style="color:#5b6678;font-size:.8rem">(${a[1]}%)</span></span>`;
+ $('t_inst').innerHTML='<table><thead><tr><th>Type klant</th><th class="r">ORV</th><th class="r">Woonlastenbescherming</th><th class="r">Arbeidsongeschiktheid</th><th class="r">Werkloosheid</th></tr></thead><tbody>'+R.map(r=>`<tr><td>${r[0]}</td>${[1,2,3,4].map(k=>`<td class="r">${cell(r[k])}</td>`).join('')}</tr>`).join('')+'</tbody></table>';
+ $('c_orvb').innerHTML=pair(['Starter','Samenwonend','Alleenstaand','Doorstromer','Ondernemer / zzp'],[78,71,52,63,66],[72,68,55,60,64]);
+ $('c_noins').innerHTML=pair(['Alleenstaand','Samenwonend','Starter','Doorstromer','Oversluiter','Senior (60+)'],[48,32,27,41,58,84],[52,38,34,45,56,82]);
+})();
 // klantprofiel per type aanbieder + eigen inbreng + overbrugging
 (function(){const H=['','U','Grootbanken incl. dochters','Regiepartijen','Verzekeraars','Overige banken','Markt'];
  const R=[['Gemiddelde leeftijd','36,8','39,4','37,6','42,1','38,2','39,1'],['Alleenstaand','29%','33%','31%','38%','35%','34%'],['Vrouw (hoofdaanvrager)','41%','36%','39%','37%','38%','37%'],['Starter','42%','31%','37%','24%','35%','33%'],['Doorstromer','33%','34%','32%','28%','31%','32%'],['Oversluiter','14%','19%','18%','29%','20%','21%'],['Gem. WOZ-waarde','€ 431.000','€ 472.000','€ 444.000','€ 461.000','€ 438.000','€ 456.000'],['Gem. hoofdsom','€ 402.000','€ 426.000','€ 409.000','€ 398.000','€ 405.000','€ 418.000'],['Gem. toetsinkomen','€ 86.000','€ 97.000','€ 89.000','€ 94.000','€ 88.000','€ 92.000'],['Loondienst vast','78%','74%','72%','63%','71%','70%'],['Ondernemer / zzp','8%','12%','13%','21%','14%','14%'],['Gem. eigen inbreng','€ 38.000','€ 71.000','€ 46.000','€ 62.000','€ 49.000','€ 57.000'],['Met overbrugging','12%','18%','14%','11%','15%','16%'],['Met NHG','44%','31%','39%','33%','41%','36%'],['Label A of beter','53%','49%','48%','42%','46%','47%'],['ORV meegesloten','46%','39%','43%','52%','40%','41%']];
