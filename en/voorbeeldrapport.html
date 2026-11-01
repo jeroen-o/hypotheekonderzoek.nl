@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<style id="gate-css">html.locked body>*:not(#gate){display:none!important}html.locked body{background:#1e2533!important}#gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:linear-gradient(160deg,#1e2533,#2b3345);padding:16px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}#gate form{width:100%;max-width:380px;background:#fff;border-radius:16px;padding:28px;box-shadow:0 20px 50px rgba(0,0,0,.3);color:#1b2535}#gate .gl{display:flex;align-items:center;gap:10px;font-size:1.1rem;margin-bottom:18px}#gate .gl span{color:#e0a800}#gate .tm{font-size:.55em;vertical-align:super;line-height:0}#gate h1{font-size:1.35rem;margin:0 0 6px}#gate p{margin:0 0 14px;color:#5b6678;font-size:.92rem}#gate label{display:block;font-size:.8rem;font-weight:700;color:#5b6678;margin-bottom:6px}#gate input{width:100%;font:inherit;padding:11px 12px;border:1px solid #cfd6e1;border-radius:10px;margin-bottom:12px;box-sizing:border-box}#gate button{width:100%;font:inherit;font-weight:700;background:#ffcc00;color:#1e2533;border:0;border-radius:999px;padding:11px;cursor:pointer}#gateerr{color:#c0392b!important;font-weight:600;min-height:1.2em;margin:10px 0 0!important}</style>
+<script src="../gate.js"></script>
+
+<title>Sample Report Market Position</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 26 28%22%3E%3Cpath d=%22M13 0l13 7v14l-13 7L0 21V7z%22 fill=%22%23ffcc00%22/%3E%3Cpath d=%22M11 12l6 9h-3.4l-6-9z%22 fill=%22%231e2533%22/%3E%3C/svg%3E">
+<style>
+:root{--navy:#1e2533;--navy2:#2b3345;--y:#ffcc00;--y2:#e0a800;--ys:#fff5cc;--ink:#1b2535;--mut:#5b6678;--line:#e1e6ee;--bg:#f5f7fa;--pos:#1f8a5b;--neg:#c0392b;--mkt:#9aa6b8}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:15px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.bar-top{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff}
+.bar-top .wrap{display:flex;align-items:center;justify-content:space-between;height:54px;gap:12px}
+.bar-top b span{color:var(--y)}
+.stamp{background:var(--y);color:var(--navy);font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap}
+button.pr{font:inherit;font-weight:700;background:var(--y);color:var(--navy);border:0;border-radius:999px;padding:8px 16px;cursor:pointer}
+.cover{background:linear-gradient(160deg,var(--navy),var(--navy2));color:#fff;padding:64px 0 72px}
+.cover .ey{color:var(--y);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}
+.cover h1{font-size:clamp(2rem,5vw,3rem);line-height:1.08;margin:.3em 0 .3em;letter-spacing:-.02em}
+.cover h1 em{color:var(--y);font-style:normal}
+.cover p{color:#d5deeb;max-width:640px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.meta div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:10px 14px;font-size:.85rem;color:#d5deeb}
+.meta b{display:block;color:#fff;font-size:.95rem}
+.warn{background:var(--ys);border-left:4px solid var(--y2);padding:12px 16px;border-radius:0 10px 10px 0;font-size:.9rem;margin:24px 0 0;color:#4d3b00}
+.toc{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0 0;padding:0;list-style:none;counter-reset:t}
+@media(max-width:760px){.toc{grid-template-columns:1fr}}
+.toc li{counter-increment:t;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.toc li::before{content:counter(t);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:.75rem;font-weight:700;margin-right:8px}
+.toc a{color:var(--ink);text-decoration:none;font-weight:600}
+section.ch{padding:48px 0;border-bottom:1px solid var(--line)}
+section.ch:nth-of-type(even){background:#fff}
+.chn{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a5c00}
+.chn i{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--y);color:var(--navy)}
+h2{font-size:clamp(1.4rem,3vw,1.9rem);margin:.3em 0 .3em;letter-spacing:-.015em;line-height:1.2}
+.lead{color:var(--mut);max-width:760px;margin:0 0 20px}
+h3{font-size:1rem;margin:0 0 2px}
+.sub{font-size:.84rem;color:var(--mut);margin:0 0 12px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+section.ch:nth-of-type(even) .card{background:var(--bg)}
+.kpi .l{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);font-weight:700}
+.kpi .v{font-size:1.7rem;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
+.kpi .d{font-size:.84rem}
+.pos{color:var(--pos)}.neg{color:var(--neg)}
+.find{background:var(--navy);color:#fff;border-radius:14px;padding:20px 22px;margin-top:14px}
+.find h3{color:var(--y);margin-bottom:8px}
+.find ol{margin:0;padding-left:20px}.find li{margin:.35em 0;color:#e3e9f2}
+.note{font-size:.84rem;color:var(--mut);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.ins{font-size:.9rem;margin-top:10px;padding:10px 12px;background:var(--ys);border-radius:10px}
+.ins b{color:#5c4600}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.8rem;color:var(--mut);margin-bottom:6px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);border-bottom:1px solid var(--line);padding:7px 6px;font-weight:700}
+td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:middle}
+.r{text-align:right;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto}
+.mini{height:7px;background:var(--line);border-radius:99px;overflow:hidden;min-width:60px}
+.mini span{display:block;height:100%;background:var(--navy)}
+.pill{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.75rem;font-weight:700}
+.pill.g{background:#e3f4ec;color:var(--pos)}.pill.r{background:#fbe7e5;color:var(--neg)}.pill.n{background:var(--line);color:var(--mut)}
+svg text{font-family:inherit}
+.sc td:nth-child(n+2){text-align:center}
+footer{background:var(--navy);color:#b9c5d6;padding:28px 0;font-size:.85rem}
+footer b{color:#fff}
+@media(max-width:560px){.bar-top a b{display:none}.stamp{font-size:.66rem;padding:3px 8px}button.pr{padding:7px 12px;font-size:.8rem}}
+@media print{.bar-top button{display:none}.bar-top{position:static}section.ch{break-inside:avoid-page}.card{break-inside:avoid}body{background:#fff}}
+</style>
+<style id="homebtn">html{scroll-padding-top:68px}.btn.home{background:transparent;color:#fff!important;border:1.5px solid rgba(255,255,255,.45);margin-left:12px}.btn.home:hover{border-color:#ffcc00;color:#ffcc00!important}@media(max-width:480px){.btn.home{padding:7px 10px!important;font-size:.76rem!important;margin-left:6px!important}}@media(max-width:560px){header.top .logo{font-size:0!important}header.top .logo svg{margin-right:0!important;width:26px!important;height:28px!important}header.top .wrap{gap:6px}.bar-top .stamp{font-size:.58rem!important;padding:3px 6px!important;letter-spacing:.04em}.bar-top .btn.home{padding:6px 10px!important;font-size:.75rem!important}.bar-top button.pr{padding:6px 10px!important;font-size:.75rem!important}}@media(max-width:560px){header.top .logo{font-size:0!important}header.top .logo svg{margin-right:0!important;width:26px!important;height:28px!important}header.top .wrap{gap:6px}.bar-top .stamp{font-size:.58rem!important;padding:3px 6px!important;letter-spacing:.04em}.bar-top .btn.home{padding:6px 10px!important;font-size:.75rem!important}.bar-top button.pr{padding:6px 10px!important;font-size:.75rem!important}}.g2>*,.g3>*,.g4>*{min-width:0}.kpi .l{overflow-wrap:break-word}h1,h2,h3{overflow-wrap:break-word;hyphens:auto}@media(max-width:560px){#persona td{white-space:normal!important;font-size:.84rem}#persona .card{padding:14px}}@media(max-width:560px){.bar-top .wrap{gap:6px;padding:0 10px}.bar-top button.pr{font-size:0!important;padding:6px 10px!important}.bar-top button.pr::after{content:"PDF";font-size:.75rem}}</style>
+<style>.tm{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-weight:600}</style>
+<link rel="alternate" hreflang="nl" href="https://hypotheekonderzoek.nl/voorbeeldrapport.html">
+<link rel="alternate" hreflang="en" href="https://hypotheekonderzoek.nl/en/voorbeeldrapport.html">
+<link rel="alternate" hreflang="x-default" href="https://hypotheekonderzoek.nl/voorbeeldrapport.html">
+<style id="langcss">.lang{display:inline-block;margin-left:10px;padding:7px 11px;border-radius:999px;border:1.5px solid rgba(255,255,255,.45);color:#fff!important;font-weight:700;font-size:.8rem;text-decoration:none;letter-spacing:.04em}.lang:hover{border-color:#ffcc00;color:#ffcc00!important}@media(max-width:480px){.lang{margin-left:6px;padding:6px 8px;font-size:.72rem}}@media(max-width:380px){.lang{padding:5px 7px}}header.top nav a.lang{display:inline-block!important}@media(max-width:420px){header.top .wrap{gap:4px}header.top nav a.lang{margin-left:4px!important;padding:5px 7px!important;font-size:.7rem!important}header.top .btn.home{margin-left:4px!important}.menu-btn{margin-left:4px!important}}@media(max-width:360px){header.top .btn.home{display:none!important}}@media(max-width:400px){.bar-top .stamp{display:none}}</style>
+</head>
+<body>
+
+<div class="bar-top"><div class="wrap">
+  <a href="index.html" style="color:#fff;text-decoration:none"><b>Hypotheek<span>onderzoek</span>.nl<sup class="tm">™</sup></b></a>
+  <span class="stamp">Sample · fictitious figures</span>
+  <span style="display:flex;gap:8px;align-items:center"><a href="index.html" class="btn home" style="display:inline-block;padding:7px 14px;border-radius:999px;font-weight:700;font-size:.85rem;text-decoration:none;margin:0">Home</a><a href="../voorbeeldrapport.html" class="lang" hreflang="nl" lang="nl" aria-label="Nederlandse versie">NL</a><button class="pr" id="pr" type="button">Print / PDF</button></span>
+</div></div>
+
+<div class="cover"><div class="wrap">
+  <div class="ey">Sample report · Market position &amp; conversion in advice</div>
+  <h1>Lender X<br><em>Q3 2026</em></h1>
+  <p>This report shows what Hypotheekonderzoek.nl<sup class="tm">™</sup> can produce for a lender: market position, conversion in advice, distribution, customer profile, product, interest rates, ESG and risk. Every figure is set against the market and against an anonymous peer group.</p>
+  <div class="meta">
+    <div><b>Period</b>Jan to Oct 2026, focus on Q3</div>
+    <div><b>Source</b>calculations, applications and completions in the Blinqx network</div>
+    <div><b>Peer group</b>7 mortgage fund managers (regiepartijen, anonymous)</div>
+    <div><b>Coverage</b>1.240 advisory firms · 3.910 advisers · 58.300 calculations · 14.900 applications (fictitious)</div>
+    <div><b>Version</b>sample 1.0</div>
+  </div>
+  <div class="warn"><b>Please note: all figures, parties and firms in this report are fictitious.</b> They only illustrate which analyses are possible and say nothing about actual lenders, insurers or advisory firms.</div>
+</div></div>
+
+<div class="wrap" style="padding-top:28px">
+  <h3>Contents</h3>
+  <ol class="toc" id="toc"></ol>
+</div>
+
+<!-- 1 -->
+<section class="ch" id="s1"><div class="wrap">
+  <span class="chn"><i>1</i> Executive summary</span>
+  <h2>Your position at a glance</h2>
+  <div class="g4" id="kpis"></div>
+  <div class="find"><h3>Five key findings</h3><ol>
+    <li>Your <b>market share rose</b> from 6,1% in January to 8,1% in October. That is faster than the peer group (+0,9 percentage points).</li>
+    <li>You are often included in calculations, but <b>with self-employed and senior clients you lose out on borrowing capacity</b>. In 34% and 29% of those calculations respectively, your maximum mortgage is more than 2% below the market.</li>
+    <li><b>Three advisory firms together account for 14% of your applications.</b> Your concentration is higher than in the market.</li>
+    <li>Your rate for a 10-year fixed period with NHG is <b>below the market median</b>. For 20-year fixed without NHG you are in the most expensive quartile.</li>
+    <li>Your new business is <b>greener than the market</b>: 53% has label A or better, against 47% in the market. The share of customers with labels E–G who include energy-saving measures in their mortgage lags behind.</li>
+  </ol></div>
+</div></section>
+
+<!-- 2 -->
+<section class="ch" id="s2"><div class="wrap">
+  <span class="chn"><i>2</i> Market position</span>
+  <h2>Market share and trend</h2>
+  <p class="lead">Your share of mortgage applications in the network, per month, against the peer group median. The share is weighted: your applications divided by the total in the period.</p>
+  <div class="card"><h3>Market share per month</h3><p class="sub">You versus the peer group median</p><div id="c_trend"></div></div>
+  <div class="g3" style="margin-top:14px">
+    <div class="card"><h3>Per quarter</h3><div class="tw" id="t_q"></div></div>
+    <div class="card"><h3>Per region (Q3)</h3><p class="sub">Your share versus your national share (index 100 = equal)</p><div class="tw" id="t_reg"></div></div>
+    <div class="card"><h3>Per segment (Q3)</h3><div class="tw" id="t_seg"></div></div>
+  </div>
+</div></section>
+
+<!-- 3 -->
+<section class="ch" id="s3"><div class="wrap">
+  <span class="chn"><i>3</i> Conversion in advice</span>
+  <h2>From calculation to application to completion</h2>
+  <p class="lead">This key metric starts at the calculation stage. How often are you included in a calculation, how often does that lead to an application, and how often does that application reach completion?</p>
+  <div class="g2">
+    <div class="card"><h3>Funnel Q3: you versus the market</h3><p class="sub">Per 100 calculations in which you appear</p><div id="c_funnel"></div></div>
+    <div class="card"><h3>Conversion per segment</h3><p class="sub">From calculation to application, in percent</p><div class="tw" id="t_conv"></div>
+      <div class="ins"><b>Insight:</b> you convert strongly with first-time buyers and next-time buyers. With self-employed clients and seniors you lag well behind, even though you are often included in calculations for them.</div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Lead time</h3><p class="sub">Median in working days</p><div class="tw" id="t_dl"></div></div>
+  <div class="card" style="margin-top:14px"><h3>Lead time per customer type</h3><p class="sub">Median in working days per step: you, with the market in brackets</p><div class="tw" id="t_dlt"></div>
+    <div class="ins"><b>Insight:</b> for self-employed clients, the step from application to binding offer takes 4,6 working days longer than in the market. That is the biggest delay in your process, and it is consistent with advisers' lower rating of your underwriting of self-employed clients (chapter 17).</div></div>
+</div></section>
+
+<!-- 4 -->
+<section class="ch" id="s4"><div class="wrap">
+  <span class="chn"><i>4</i> Why applications do not come to you</span>
+  <h2>Interest rate, borrowing capacity or terms?</h2>
+  <p class="lead">We compare the calculations in which you appeared with the provider the application eventually went to. This gives an indication of the reason. We deliberately do not show which competitor the application went to.</p>
+  <div class="g2">
+    <div class="card"><h3>Indicative reason for losing out (Q3)</h3><p class="sub">Share of calculations in which you appeared but that did not lead to an application with you</p><div id="c_reason"></div></div>
+    <div class="card"><h3>How often is your maximum mortgage lower than the market?</h3><p class="sub">Share of calculations in which your maximum mortgage is more than 2% below the market median</p><div id="c_gap"></div>
+      <div class="ins"><b>Insight:</b> with self-employed clients (34%) and seniors (29%), your borrowing capacity costs you applications. This is probably a matter of lending criteria and policy, not of price.</div></div>
+  </div>
+</div></section>
+
+<!-- 5 -->
+<section class="ch" id="s5"><div class="wrap">
+  <span class="chn"><i>5</i> Distribution</span>
+  <h2>Your position with advisory firms</h2>
+  <div class="g2">
+    <div class="card"><h3>Top 10 advisory firms (Q3)</h3><p class="sub">Your share at the firm and the index against your market share</p><div class="tw" id="t_off"></div></div>
+    <div class="card"><h3>Concentration</h3><p class="sub">Share of applications coming from the largest firms</p><div id="c_conc"></div>
+      <h3 style="margin-top:16px">Risers and fallers (Q3 versus Q2)</h3><div class="tw" id="t_mov"></div></div>
+  </div>
+</div></section>
+
+<!-- 6 -->
+<section class="ch" id="s6"><div class="wrap">
+  <span class="chn"><i>6</i> Customer profile</span>
+  <h2>Who applies with you?</h2>
+  <div class="g2">
+    <div class="card"><h3>Age of main applicant</h3><div id="c_age"></div><div class="note">Average of 36,8 years for you, against 39,1 years in the market.</div></div>
+    <div class="card"><h3>Buyer type</h3><div id="c_type"></div></div>
+    <div class="card"><h3>Male / female (main applicant)</h3><div id="c_gen"></div><div class="note">A difference is a signal for further investigation, not proof of bias.</div></div>
+    <div class="card"><h3>Household</h3><div id="c_hh"></div></div>
+    <div class="card"><h3>Income band (gross per year, household)</h3><div id="c_inc"></div></div>
+    <div class="card"><h3>Income type</h3><div id="c_dv"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Customer profile at a glance</h3><p class="sub">Your average customer versus that of the peer group (7 mortgage fund managers, anonymous) and the market as a whole, Q3</p><div class="g3" id="persona"></div></div>
+  <div class="card" style="margin-top:14px"><h3>Customer type: share, average age and WOZ value</h3><p class="sub">You versus the peer group median and the market, Q3. The WOZ value (municipal valuation) is the average WOZ value of the property. We do not show figures for individual lenders.</p><div class="tw" id="t_type"></div>
+    <div class="ins"><b>Insight:</b> you finance a relatively large number of single first-time buyers with a lower WOZ value. With next-time buyers and seniors you finance more expensive homes on average than the market, but your share there is smaller.</div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Income per customer type</h3><p class="sub">Average household assessment income, gross per year</p><div class="tw" id="t_inc"></div></div>
+    <div class="card"><h3>Employment type per customer type (you)</h3><p class="sub">Income type of the main applicant, with the market in brackets</p><div class="tw" id="t_dvt"></div></div>
+  </div>
+  <div class="ins" style="margin-top:14px"><b>Insight:</b> across all customer types, your applicants have a lower income than the market and more often a permanent employment contract. Among next-time buyers and remortgagers, your share of self-employed applicants is well below the market. This is consistent with the gap in borrowing capacity for self-employed clients in chapter 4.</div>
+  <div class="card" style="margin-top:14px"><h3>Customer profile per provider type</h3><p class="sub">Your profile alongside that of provider groups. Each group consists of at least five parties. We do not show profiles of individual lenders.</p><div class="tw" id="t_prov"></div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Own contribution (deposit)</h3><p class="sub">Own funds as a share of the purchase price, per customer type</p><div id="c_eig"></div></div>
+    <div class="card"><h3>Bridging loan</h3><p class="sub">Share of next-time buyers with a bridging loan, and the average amount</p><div class="tw" id="t_ovb"></div></div>
+  </div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>WOZ value of the property</h3><div id="c_woz"></div><div class="note">Average of € 431.000 for you, € 444.000 in the peer group and € 456.000 in the market.</div></div>
+    <div class="card"><h3>Average age per customer type</h3><p class="sub">Main applicant, in years</p><div id="c_agetype"></div></div>
+  </div>
+</div></section>
+
+<!-- 7 -->
+<section class="ch" id="s7"><div class="wrap">
+  <span class="chn"><i>7</i> Mortgage &amp; product</span>
+  <h2>What is being applied for</h2>
+  <div class="g2">
+    <div class="card"><h3>LTV bands</h3><div id="c_ltv"></div></div>
+    <div class="card"><h3>Loan-to-income bands</h3><div id="c_lti"></div></div>
+    <div class="card"><h3>Fixed-rate period</h3><div id="c_rvp"></div></div>
+    <div class="card"><h3>Repayment type and NHG</h3><div id="c_afl"></div><div id="c_nhg" style="margin-top:12px"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Insurance taken out with the mortgage</h3><p class="sub">How often a product is taken out alongside your mortgages, versus the market</p><div id="c_ins"></div></div>
+  <div class="card" style="margin-top:14px"><h3>Insurance per customer type</h3><p class="sub">Share of applications in which the product is taken out: you, with the market in brackets. Q3.</p><div class="tw" id="t_inst"></div>
+    <div class="ins"><b>Insight:</b> among single applicants, mortgage payment protection is taken out more often with you than in the market, while ORV lags behind for this group. Among cohabiting first-time buyers, by contrast, the ORV share is high. Self-employed clients rarely take out disability insurance with you.</div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Average ORV sum insured</h3><p class="sub">As a share of the principal</p><div id="c_orvb"></div></div>
+    <div class="card"><h3>No payment protection cover at all</h3><p class="sub">Share of applications without ORV, mortgage payment protection, disability or unemployment cover</p><div id="c_noins"></div></div>
+  </div>
+</div></section>
+
+<!-- 8 -->
+<section class="ch" id="s8"><div class="wrap">
+  <span class="chn"><i>8</i> Interest rates &amp; terms</span>
+  <h2>Your published rate versus the market range</h2>
+  <p class="lead">Based on publicly published rate sheets, reference date 30 September 2026, annuity. The bar runs from the lowest to the highest rate in the market; the dark section covers the 25th to 75th percentile. We do not show the rates of individual competitors.</p>
+  <div class="card"><div class="legend"><span><i style="background:#cfd6e1"></i>Lowest – highest</span><span><i style="background:#8a97ab"></i>25% – 75%</span><span><i style="background:#1e2533"></i>Median</span><span><i style="background:#e0a800"></i>Your rate</span></div><div id="c_rate"></div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Effect of your rate change, in hindsight</h3><p class="sub">Your rate cut of 0,15 percentage points on 10-year fixed with NHG, effective 1 July 2026</p><div class="tw" id="t_eff"></div></div>
+    <div class="card"><h3>From product comparison to choice behaviour</h3><p class="sub">Which factor was decisive in the calculations in which you appeared (Q3)</p><div id="c_drv"></div></div>
+  </div>
+</div></section>
+
+<!-- 9 -->
+<section class="ch" id="s9"><div class="wrap">
+  <span class="chn"><i>9</i> Collateral &amp; ESG</span>
+  <h2>Energy label, sustainability improvements and indicative CO₂</h2>
+  <div class="g2">
+    <div class="card"><h3>Energy label of the property</h3><div id="c_lab"></div></div>
+    <div class="card"><h3>Label A or better, per quarter</h3><div id="c_green"></div></div>
+    <div class="card"><h3>Energy-saving measures included in the financing</h3><p class="sub">Share of applications with a budget for energy-saving measures, per label group</p><div id="c_ebv"></div></div>
+    <div class="card"><h3>Indicative financed CO₂ emissions (PCAF)</h3><div class="tw" id="t_co2"></div><div class="note">This is an indication based on energy labels. Actual consumption can vary widely within a single label class (CBS/PCAF, 2020). The report is suitable as a reference for Pillar 3 template D 02.00.</div></div>
+  </div>
+</div></section>
+
+<!-- 10 -->
+<section class="ch" id="s10"><div class="wrap">
+  <span class="chn"><i>10</i> Existing customers</span>
+  <h2>Remortgaging, fixed-rate period and interest-only</h2>
+  <div class="g2">
+    <div class="card"><h3>Customers with an expiring fixed-rate period in advice</h3><p class="sub">Where do your customers end up when they seek advice at their rate reset (Q3)?</p><div id="c_ret"></div></div>
+    <div class="card"><h3>Advice on interest-only mortgages</h3><p class="sub">Which solution is calculated, per age band</p><div class="tw" id="t_av"></div></div>
+  </div>
+</div></section>
+
+<!-- 11 -->
+<section class="ch" id="s11"><div class="wrap">
+  <span class="chn"><i>11</i> Risk &amp; regulation</span>
+  <h2>Segmentation for monitoring and accountability</h2>
+  <div class="g2">
+    <div class="card"><h3>Vulnerable groups in new business</h3><p class="sub">Share of your new applications versus the market</p><div class="tw" id="t_vul"></div></div>
+    <div class="card"><h3>Signals for further investigation into bias</h3><p class="sub">Conversion per group, as a signal for EBA/GL/2020/06 § 54(a)</p><div class="tw" id="t_bias"></div>
+      <div class="note">A difference does not automatically indicate discrimination. It is a reason to review your acceptance criteria and models.</div></div>
+  </div>
+</div></section>
+
+<!-- 12 -->
+<section class="ch" id="s12"><div class="wrap">
+  <span class="chn"><i>12</i> Marketing &amp; target groups</span>
+  <h2>Where is your growth potential?</h2>
+  <div class="g2">
+    <div class="card"><h3>Growth potential per target group</h3><p class="sub">Size in the market and your share</p><div class="tw" id="t_grow"></div></div>
+    <div class="card"><h3>Timing: applications per month in the market</h3><p class="sub">Index, average month = 100</p><div id="c_seas"></div></div>
+  </div>
+</div></section>
+
+<!-- new -->
+<section class="ch" id="s20"><div class="wrap">
+  <span class="chn"><i>13</i> Pipeline &amp; forecast</span>
+  <h2>What is coming?</h2>
+  <p class="lead">Calculations precede applications, and applications precede completions. That is why we can forecast your inflow for the coming months, as input for treasury, funding and capacity planning. The forecast covers only your own inflow.</p>
+  <div class="card"><h3>Applications per month: actual and forecast</h3><p class="sub">Index, January = 100. The shaded area is the range within which the forecast falls with 80% confidence.</p><div id="c_fc"></div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Outstanding pipeline (reference date 30-09-2026)</h3><div class="tw" id="t_pipe"></div></div>
+    <div class="card"><h3>Expected completions per month</h3><p class="sub">Based on outstanding offers and the historical completion ratio</p><div id="c_pass"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="s21"><div class="wrap">
+  <span class="chn"><i>14</i> Drop-out after the offer</span>
+  <h2>Binding offer issued, but not signed</h2>
+  <div class="g3">
+    <div class="card kpi"><div class="l">Offer not signed</div><div class="v">14%</div><div class="d"><span class="neg">+3 pp</span> vs market (11%)</div></div>
+    <div class="card kpi"><div class="l">Offer extended</div><div class="v">19%</div><div class="d">market 17%</div></div>
+    <div class="card kpi"><div class="l">Avg. validity period used</div><div class="v">71 days</div><div class="d">market 66 days</div></div>
+  </div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Indicative reason for drop-out</h3><p class="sub">What happened in the file after your offer was not signed</p><div id="c_drop"></div></div>
+    <div class="card"><h3>Drop-out per segment</h3><div class="tw" id="t_drop"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="s22"><div class="wrap">
+  <span class="chn"><i>15</i> Value, valuation &amp; lending standards</span>
+  <h2>Overbidding, valuation, NHG limit and lending standards</h2>
+  <div class="g2">
+    <div class="card"><h3>Valuation below purchase price</h3><p class="sub">Share of applications, per region</p><div id="c_tax"></div></div>
+    <div class="card"><h3>Overbidding</h3><p class="sub">Average purchase price above the asking price, per region</p><div id="c_over"></div></div>
+    <div class="card"><h3>Around the NHG cost limit</h3><p class="sub">Distribution of applications relative to the cost limit</p><div id="c_nhgg"></div><div class="ins"><b>Insight:</b> 11% of applications without NHG are up to 10% above the limit. That is an opportunity for a product just above the NHG limit.</div></div>
+    <div class="card"><h3>Use of lending standards</h3><p class="sub">How much of the maximum housing-cost ratio (Nibud standards) is used</p><div id="c_norm"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="s23"><div class="wrap">
+  <span class="chn"><i>16</i> Use of product terms</span>
+  <h2>Do your terms really make a difference?</h2>
+  <div class="card"><h3>How often a term is used in advice</h3><p class="sub">Share of applications in which the term features in the calculation or the advice, versus comparable terms in the market</p><div id="c_cond"></div>
+    <div class="ins"><b>Insight:</b> your rate discount for energy label A or better features in 38% of applications, against 29% in the market. Your moving arrangement is hardly used.</div></div>
+</div></section>
+
+<section class="ch" id="s24"><div class="wrap">
+  <span class="chn"><i>17</i> Adviser and customer ratings</span>
+  <h2>How advisers and customers rate you</h2>
+  <div class="g4" id="npskpi"></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Adviser NPS per group</h3><p class="sub">"How likely is it that you would recommend this lender to a colleague?" (0–10)</p><div class="tw" id="t_npsadv"></div></div>
+    <div class="card"><h3>Customer NPS per customer type</h3><p class="sub">"How likely is it that you would recommend this lender to friends or family?" (0–10), measured 3 months after completion</p><div class="tw" id="t_npskl"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Distribution of promoters, passives and detractors</h3><div id="c_npsdist"></div><div class="note">NPS = % promoters (9–10) minus % detractors (0–6). Fictitious: 412 advisers and 1.860 customers. Results are reported only per group, never per individual adviser or customer. Groups with fewer than 25 respondents are not shown.</div></div>
+  <h3 style="margin:22px 0 10px">Rating per topic by advisers</h3>
+  <p class="sub">Scores from 1 to 10, you versus the market</p>
+  <div class="card"><div id="c_nps"></div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>What advisers value most</h3><ol style="margin:6px 0 0;padding-left:20px;color:var(--mut)"><li>Fast and clear underwriting for first-time buyers</li><li>Accessibility of the underwriter</li><li>Competitive rate for 10-year fixed with NHG</li></ol></div>
+    <div class="card"><h3>Main areas for improvement</h3><ol style="margin:6px 0 0;padding-left:20px;color:var(--mut)"><li>Underwriting of self-employed clients (income assessment)</li><li>Lead time from application to binding offer</li><li>Borrowing capacity for seniors</li></ol></div>
+  </div>
+</div></section>
+
+<section class="ch" id="s25"><div class="wrap">
+  <span class="chn"><i>18</i> Target groups with growth potential</span>
+  <h2>Demand in advice that is currently being lost</h2>
+  <div class="card tw"><table id="t_niche"></table></div>
+</div></section>
+
+<section class="ch" id="s26"><div class="wrap">
+  <span class="chn"><i>19</i> Fairness &amp; bias</span>
+  <h2>Does your underwriting treat groups equally?</h2>
+  <p class="lead">An independent test of whether conversion and acceptance differ between groups, adjusted for income, LTV and customer type. A difference is not proof of discrimination, but a reason to review criteria and models (EBA/GL/2020/06 § 54–55, AI Act).</p>
+  <div class="card"><h3>Difference in acceptance after adjustment</h3><p class="sub">Difference in the probability of acceptance versus the reference group, after adjustment for income, LTV, LTI and customer type. Market in brackets.</p><div class="tw" id="t_fair"></div>
+    <div class="note">Method: logistic regression on aggregated cells of at least 25 applications. "Signal" means a difference of more than 3 percentage points that is statistically significant (p &lt; 0,05). Age and income type are permitted risk factors; the signal does, however, call for a justification.</div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Where does the difference lie?</h3><p class="sub">Contribution of each factor to the difference for self-employed clients (explainability)</p><div id="c_shap"></div></div>
+    <div class="card"><h3>Recommended next steps</h3><ol style="margin:6px 0 0;padding-left:20px;color:var(--mut)"><li>Review the income assessment for self-employed clients with less than 3 years of trading history</li><li>Document the rationale for the age limit on the loan term for over-60s</li><li>Repeat the test every six months and report the outcome to the risk committee</li></ol></div>
+  </div>
+</div></section>
+
+<section class="ch" id="s27"><div class="wrap">
+  <span class="chn"><i>20</i> AI analysis</span>
+  <h2>What AI extracts from open responses and product terms</h2>
+  <p class="lead">All text in this chapter was prepared by AI and checked by a researcher. Where AI has been used, this is stated.</p>
+  <div class="g2">
+    <div class="card"><h3>Themes in advisers' open responses</h3><p class="sub">Automatically grouped from 412 responses; share of responses and sentiment</p><div class="tw" id="t_themes"></div></div>
+    <div class="card"><h3>Changes to terms in Q3</h3><p class="sub">Flagged by AI in the product terms of all providers (aggregated)</p><div class="tw" id="t_condchg"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>Ask the data (example)</h3>
+    <div style="background:var(--bg);border-radius:10px;padding:12px 14px;margin:8px 0"><b>Question:</b> Why did our share among remortgagers fall in Q3?</div>
+    <div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px"><b>Answer (AI, checked):</b> your share among remortgagers fell from 7,4% to 5,2%. Three factors coincide. Your rate for 20-year fixed without NHG is in the most expensive quartile of the market (chapter 8). In Q3, remortgagers chose 20-year fixed more often (+4 pp). And for remortgagers, the step from application to binding offer takes 1,2 working days longer than in the market.<br><span class="note" style="display:block;border:0;padding:0;margin-top:6px">Sources: chapters 2, 7, 8 and 3 of this report. No information on individual competitors.</span></div>
+  </div>
+</div></section>
+
+<!-- 13 -->
+<section class="ch" id="s13"><div class="wrap">
+  <span class="chn"><i>21</i> Benchmark</span>
+  <h2>Scorecard versus the peer group</h2>
+  <p class="lead">You versus an anonymous group of 7 mortgage fund managers. The quartile shows where you stand within the group (1 = best quartile).</p>
+  <div class="card tw"><table class="sc" id="t_sc"></table></div>
+</div></section>
+
+<!-- 14 -->
+<section class="ch" id="s14"><div class="wrap">
+  <span class="chn"><i>22</i> Methodology &amp; competition law</span>
+  <h2>How the figures are compiled</h2>
+  <div class="g2">
+    <div class="card"><h3>Source and definitions</h3><ul style="margin:6px 0 0;padding-left:18px;color:var(--mut)">
+      <li>Calculations, applications and completions recorded in the mortgage advice software and Blinqx Connect CRM</li>
+      <li>Market share is weighted: your applications divided by the total in the same period</li>
+      <li>Interest rates come from publicly published rate sheets (reference date stated)</li>
+      <li>The energy label is the registered label of the property</li>
+      <li>Figures relate to the Blinqx network, not to the Dutch market as a whole</li></ul></div>
+    <div class="card"><h3>Privacy and competition law</h3><ul style="margin:6px 0 0;padding-left:18px;color:var(--mut)">
+      <li>Aggregated figures only, not traceable to individual consumers or advisers</li>
+      <li>Segments with fewer than 25 observations are not shown</li>
+      <li>Peer groups consist of at least 5 parties, without names</li>
+      <li>No figures for individual competitors and no future or non-public prices</li>
+      <li>Interest rates are shown only after the fact and as a range</li></ul></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><b>Hypotheekonderzoek.nl<sup class="tm">™</sup></b> · an activity of Blinqx · <b>Sample report with fictitious figures</b>, not intended for decision-making. · <a href="voorbeeldrapport-orv.html" style="color:#ffcc00">Sample report for ORV insurers</a></div></footer>
+
+<script>
+(function(){
+"use strict";
+const nl=(v,d=1)=>v.toLocaleString('nl-NL',{minimumFractionDigits:d,maximumFractionDigits:d});
+const P=(v,d=1)=>nl(v,d)+'%';
+const PP=v=>(v>=0?'+':'−')+nl(Math.abs(v),1)+' pp';
+const $=id=>document.getElementById(id);
+const NAVY='#1e2533',MKT='#9aa6b8',Y='#e0a800';
+const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'];
+
+// TOC
+$('toc').innerHTML=[...document.querySelectorAll('section.ch')].map(s=>`<li><a href="#${s.id}">${s.querySelector('.chn').textContent.replace(/^\s*\d+\s*/,'')}</a></li>`).join('');
+
+// KPIs
+const kpi=(l,v,d)=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${d}</div></div>`;
+$('kpis').innerHTML=
+ kpi('Market share Q3',P(7.4),'<span class="pos">'+PP(0.6)+'</span> vs Q2')+
+ kpi('Conversion calculation → application',P(31,0),'<span class="pos">+5 pp</span> vs market (26%)')+
+ kpi('Completion ratio',P(78,0),'<span class="pos">+4 pp</span> vs market (74%)')+
+ kpi('Label A or better',P(53,0),'<span class="pos">+6 pp</span> vs market (47%)');
+
+// generic line chart
+function line(series,labels,opt={}){
+  const W=760,H=240,L=44,R=14,T=12,B=28;const all=series.flatMap(s=>s.v);const mx=Math.ceil(Math.max(...all)*1.15),mn=opt.min??0;
+  const x=i=>L+i*(W-L-R)/(labels.length-1),y=v=>T+(H-T-B)*(1-(v-mn)/(mx-mn));
+  let g='';for(let k=0;k<=4;k++){const v=mn+(mx-mn)*k/4;g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#e1e6ee"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="#5b6678">${nl(v,opt.dec??0)}${opt.u??'%'}</text>`;}
+  const xl=labels.map((m,i)=>`<text x="${x(i)}" y="${H-8}" text-anchor="middle" font-size="11" fill="#5b6678">${m}</text>`).join('');
+  const ps=series.map(s=>`<path d="${s.v.map((v,i)=>(i?'L':'M')+x(i)+','+y(v)).join('')}" fill="none" stroke="${s.c}" stroke-width="${s.w||2.5}" ${s.dash?'stroke-dasharray="5 4"':''}/>`+s.v.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="${s.c}"><title>${labels[i]}: ${nl(v,1)}${opt.u??'%'}</title></circle>`).join('')).join('');
+  const lg=`<div class="legend">${series.map(s=>`<span><i style="background:${s.c}"></i>${s.n}</span>`).join('')}</div>`;
+  return lg+`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img">${g}${ps}${xl}</svg>`;
+}
+// paired horizontal bars you vs market
+function pair(cats,me,mk,u='%',dec=0,L=118,W=440){
+  const mx=Math.max(...me,...mk),rh=30,H=cats.length*rh+4;
+  let s='';cats.forEach((c,i)=>{const y=i*rh+4,a=(W-L-46)*me[i]/mx,b=(W-L-46)*mk[i]/mx;
+   s+=`<text x="0" y="${y+14}" font-size="12" fill="#1b2535">${c}</text><rect x="${L}" y="${y+2}" width="${a}" height="11" rx="3" fill="${NAVY}"/><rect x="${L}" y="${y+15}" width="${b}" height="8" rx="3" fill="${MKT}"/><text x="${L+a+5}" y="${y+12}" font-size="11" font-weight="700" fill="#1b2535">${nl(me[i],dec)}${u}</text><text x="${L+b+5}" y="${y+23}" font-size="10" fill="#5b6678">${nl(mk[i],dec)}${u}</text>`;});
+  return `<div class="legend"><span><i style="background:${NAVY}"></i>You</span><span><i style="background:${MKT}"></i>Market</span></div><svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W*1.35}px">${s}</svg>`;
+}
+// single bars
+function bars(cats,vals,u='%',col=NAVY){
+  const mx=Math.max(...vals),W=480,L=200,rh=26,H=cats.length*rh+4;let s='';
+  cats.forEach((c,i)=>{const y=i*rh+4,a=(W-L-46)*vals[i]/mx;s+=`<text x="0" y="${y+14}" font-size="12" fill="#1b2535">${c}</text><rect x="${L}" y="${y+3}" width="${a}" height="14" rx="3" fill="${col}"/><text x="${L+a+5}" y="${y+14}" font-size="11" font-weight="700" fill="#1b2535">${nl(vals[i],0)}${u}</text>`;});
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W*1.35}px">${s}</svg>`;
+}
+// split bar
+function split(parts,mkt){
+  const row=(lbl,vals)=>`<div style="display:grid;grid-template-columns:56px 1fr;gap:8px;align-items:center;margin-bottom:6px;font-size:.84rem;color:#5b6678"><span>${lbl}</span><div style="display:flex;height:28px;border-radius:7px;overflow:hidden;font-size:.78rem;font-weight:700">${vals.map((v,i)=>`<div style="width:${v}%;background:${parts[i][1]};color:${parts[i][2]||'#fff'};display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden">${v>=12?parts[i][0]+' '+nl(v,0)+'%':''}</div>`).join('')}</div></div>`;
+  return row('You',parts.map(p=>p[3]))+row('Market',mkt)+`<div class="legend" style="margin-top:4px">${parts.map(p=>`<span><i style="background:${p[1]}"></i>${p[0]}</span>`).join('')}</div>`;
+}
+const tbl=(head,rows,rc=[])=>`<table><thead><tr>${head.map((h,i)=>`<th class="${rc.includes(i)?'r':''}">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>`<td class="${rc.includes(i)?'r':''}">${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+const idx=v=>`<span class="pill ${v>=110?'g':v<=90?'r':'n'}">${v}</span>`;
+const dlt=v=>`<span class="${v>0?'pos':v<0?'neg':''}">${PP(v)}</span>`;
+
+// 2
+$('c_trend').innerHTML=line([{n:'Your market share',c:NAVY,v:[6.1,6.3,6.0,6.6,6.9,7.2,7.0,7.4,7.8,8.1]},{n:'Peer group median',c:Y,dash:1,w:2,v:[5.4,5.5,5.3,5.6,5.8,5.9,5.8,6.0,6.2,6.3]}],M,{dec:0});
+$('t_q').innerHTML=tbl(['Quarter','Share','Δ'],[['Q1',P(6.1),'–'],['Q2',P(6.8),dlt(0.7)],['Q3',P(7.4),dlt(0.6)],['Oct',P(8.1),dlt(0.7)]],[1,2]);
+$('t_reg').innerHTML=tbl(['Region','Share','Index'],[['North',P(9.6),idx(130)],['East',P(8.4),idx(114)],['Central',P(7.1),idx(96)],['Randstad',P(6.2),idx(84)],['South',P(7.6),idx(103)]],[1,2]);
+$('t_seg').innerHTML=tbl(['Segment','You','Δ market'],[['First-time buyers',P(9.8),dlt(2.4)],['Next-time buyers',P(8.1),dlt(0.7)],['Remortgagers',P(5.2),dlt(-2.2)],['Self-employed',P(3.4),dlt(-4.0)],['Seniors 60+',P(4.1),dlt(-3.3)]],[1,2]);
+
+// 3 funnel
+(function(){const W=440,H=200;const st=[['Calculation',100,100],['Application',31,26],['Completion',24.2,19.2]];let s='';
+ st.forEach((r,i)=>{const y=i*64+6,wm=(W-160)*r[1]/100,wk=(W-160)*r[2]/100;s+=`<text x="0" y="${y+18}" font-size="13" font-weight="700" fill="#1b2535">${r[0]}</text><rect x="110" y="${y}" width="${wm}" height="24" rx="5" fill="${NAVY}"/><text x="${110+wm+6}" y="${y+17}" font-size="12" font-weight="700">${nl(r[1],i==2?1:0)}</text><rect x="110" y="${y+28}" width="${wk}" height="14" rx="4" fill="${MKT}"/><text x="${110+wk+6}" y="${y+40}" font-size="11" fill="#5b6678">${nl(r[2],i==2?1:0)}</text>`;});
+ $('c_funnel').innerHTML=`<div class="legend"><span><i style="background:${NAVY}"></i>You</span><span><i style="background:${MKT}"></i>Market</span></div><svg viewBox="0 0 ${W} ${H}" width="100%">${s}</svg><div class="note">Of every 100 calculations in which you appear, 31 lead to an application with you and 24,2 reach completion. In the market, these figures are 26 and 19,2.</div>`;})();
+$('t_conv').innerHTML=tbl(['Segment','You','Market','Δ'],[['First-time buyers','38%','29%',dlt(9)],['Next-time buyers','34%','28%',dlt(6)],['Remortgagers','24%','25%',dlt(-1)],['Self-employed','14%','22%',dlt(-8)],['Seniors 60+','17%','24%',dlt(-7)]],[1,2,3]);
+$('t_dl').innerHTML=tbl(['Step','You','Market','Peer group'],[['Calculation → application','3,1','3,4','3,2'],['Application → binding offer','6,8','5,9','6,1'],['Offer → completion','24,0','23,5','23,8']],[1,2,3]);
+
+// 4
+$('c_reason').innerHTML=bars(['Interest rate','Borrowing capacity','Terms / underwriting','Lead time / process','Other'],[34,29,21,10,6]);
+$('c_gap').innerHTML=bars(['Self-employed','Seniors 60+','First-time buyers','Next-time buyers','All employed'],[34,29,15,11,12],'%','#8a97ab');
+
+// 5
+const off=[['Advisory firm 07',14.2,192],['Advisory firm 12',12.8,173],['Advisory firm 03',11.9,161],['Advisory firm 21',9.1,123],['Advisory firm 15',8.0,108],['Advisory firm 02',6.9,93],['Advisory firm 18',5.4,73],['Advisory firm 09',4.8,65],['Advisory firm 26',4.1,55],['Advisory firm 11',3.2,43]];
+$('t_off').innerHTML=tbl(['Firm','','Your share','Index'],off.map(o=>[o[0],`<div class="mini"><span style="width:${o[1]/14.2*100}%"></span></div>`,P(o[1]),idx(o[2])]),[2,3]);
+$('c_conc').innerHTML=pair(['Top 3 firms','Top 10 firms','Top 25 firms'],[14,31,52],[9,22,41]);
+$('t_mov').innerHTML=tbl(['Firm','Q2','Q3','Δ'],[['Advisory firm 21',P(6.2),P(9.1),dlt(2.9)],['Advisory firm 15',P(6.3),P(8.0),dlt(1.7)],['Advisory firm 09',P(7.5),P(4.8),dlt(-2.7)],['Advisory firm 11',P(5.1),P(3.2),dlt(-1.9)]],[1,2,3]);
+
+// 6
+$('c_age').innerHTML=pair(['< 30','30–39','40–49','50–59','60+'],[31,36,17,10,6],[24,34,20,13,9]);
+$('c_type').innerHTML=pair(['First-time buyer','Next-time buyer','Remortgager','Advance/renovation'],[42,33,14,11],[33,32,21,14]);
+$('c_gen').innerHTML=split([['Male','#1e2533','#fff',59],['Female',Y,'#1e2533',41]],[63,37]);
+$('c_hh').innerHTML=split([['Cohabiting','#1e2533','#fff',71],['Single',Y,'#1e2533',29]],[66,34]);
+$('c_inc').innerHTML=pair(['< € 50.000','€ 50.000 – 75.000','€ 75.000 – 100.000','€ 100.000 – 150.000','> € 150.000'],[14,29,27,21,9],[11,24,27,25,13]);
+$('c_dv').innerHTML=pair(['Permanent job','Flexible job','Self-employed','Pension'],[78,9,8,5],[70,9,14,7]);
+
+// customer type
+(function(){const eur=v=>'€ '+v.toLocaleString('nl-NL');
+ const rows=[ // [type, u%, groep%, markt%, lftU, lftG, lftM, wozU, wozG, wozM]
+  ['Single',29,31,34,33.4,34.8,36.1,348000,359000,371000],['Cohabiting',71,69,66,38.3,39.5,40.6,463000,481000,498000],
+  ['Male (main applicant)',59,61,63,37.5,38.6,39.8,442000,455000,469000],['Female (main applicant)',41,39,37,35.8,36.9,38.0,415000,424000,434000],
+  ['First-time buyer',42,37,33,30.2,30.9,31.4,362000,371000,384000],['Next-time buyer',33,32,32,41.6,42.3,42.9,511000,497000,503000],
+  ['Remortgager',14,18,21,46.8,47.0,47.5,472000,480000,489000],['Further advance / renovation',11,13,14,49.1,49.8,50.3,498000,506000,515000],
+  ['Senior (60+)',6,8,9,66.4,66.8,67.1,544000,529000,531000]];
+ const c=(u,g,hiGood)=>{const d=u-g;return d===0?'':`<span class="${(d>0)===hiGood?'pos':'neg'}" style="font-size:.78rem"> ${d>0?'▲':'▼'}</span>`};
+ $('t_type').innerHTML='<table><thead><tr><th rowspan="2">Customer type</th><th class="r" colspan="3">Share</th><th class="r" colspan="3">Avg. age</th><th class="r" colspan="3">Avg. WOZ value</th></tr><tr><th class="r">You</th><th class="r">Group</th><th class="r">Market</th><th class="r">You</th><th class="r">Group</th><th class="r">Market</th><th class="r">You</th><th class="r">Group</th><th class="r">Market</th></tr></thead><tbody>'+rows.map(r=>`<tr><td>${r[0]}</td><td class="r"><b>${r[1]}%</b>${c(r[1],r[2],true)}</td><td class="r">${r[2]}%</td><td class="r">${r[3]}%</td><td class="r"><b>${nl(r[4],1)}</b></td><td class="r">${nl(r[5],1)}</td><td class="r">${nl(r[6],1)}</td><td class="r"><b>${eur(r[7])}</b></td><td class="r">${eur(r[8])}</td><td class="r">${eur(r[9])}</td></tr>`).join('')+'</tbody></table><div class="note">▲ / ▼: your share is higher or lower than the peer group median.</div>';
+ const pc=(t,sub,items,hl)=>`<div class="card" style="${hl?'border:2px solid #e0a800;background:#fff':''}"><div class="kpi"><div class="l">${sub}</div><div class="v" style="font-size:1.25rem">${t}</div></div><table style="margin-top:8px">${items.map(i=>`<tr><td>${i[0]}</td><td class="r" style="white-space:nowrap"><b>${i[1]}</b></td></tr>`).join('')}</table></div>`;
+ $('persona').innerHTML=
+  pc('Young first-time buyer, cohabiting','You',[['Most common type','First-time buyer (42%)'],['Average age','36,8 years'],['Cohabiting / single','71% / 29%'],['Male / female','59% / 41%'],['First-time / next-time buyer','42% / 33%'],['Average WOZ value','€ 431.000'],['Median LTV','91%'],['Avg. own contribution','€ 38.000 (8%)'],['With bridging loan','12%'],['Avg. principal','€ 402.000'],['Avg. assessment income','€ 86.000'],['With NHG','44%'],['10-year fixed rate','58%'],['ORV (term life insurance) taken out','46%'],['Label A or better','53%']],1)+
+  pc('First-time buyer, cohabiting','Peer group (median)',[['Most common type','First-time buyer (37%)'],['Average age','37,9 years'],['Cohabiting / single','69% / 31%'],['Male / female','61% / 39%'],['First-time / next-time buyer','37% / 32%'],['Average WOZ value','€ 444.000'],['Median LTV','89%'],['Avg. own contribution','€ 46.000 (9%)'],['With bridging loan','14%'],['Avg. principal','€ 409.000'],['Avg. assessment income','€ 89.000'],['With NHG','39%'],['10-year fixed rate','54%'],['ORV taken out','43%'],['Label A or better','48%']])+
+  pc('First-time or next-time buyer, cohabiting','Market',[['Most common type','First-time buyer (33%)'],['Average age','39,1 years'],['Cohabiting / single','66% / 34%'],['Male / female','63% / 37%'],['First-time / next-time buyer','33% / 32%'],['Average WOZ value','€ 456.000'],['Median LTV','87%'],['Avg. own contribution','€ 57.000 (11%)'],['With bridging loan','16%'],['Avg. principal','€ 418.000'],['Avg. assessment income','€ 92.000'],['With NHG','36%'],['10-year fixed rate','51%'],['ORV taken out','41%'],['Label A or better','47%']]);
+ $('c_woz').innerHTML=pair(['< € 300.000','€ 300.000 – 400.000','€ 400.000 – 500.000','€ 500.000 – 750.000','> € 750.000'],[18,31,25,19,7],[14,27,26,23,10],'%',0,150,460)+'<div class="note">Grey bar = market.</div>';
+ $('c_agetype').innerHTML=pair(['First-time buyer','Single','Cohabiting','Next-time buyer','Remortgager','Senior (60+)'],[30.2,33.4,38.3,41.6,46.8,66.4],[31.4,36.1,40.6,42.9,47.5,67.1],'',1,110,460);
+})();
+
+// income & employment per customer type
+(function(){const eur=v=>'€ '+v.toLocaleString('nl-NL');
+ const I=[['Single',54000,56000,58000],['Cohabiting',99000,103000,107000],['Male (main applicant)',89000,92000,95000],['Female (main applicant)',81000,84000,87000],['First-time buyer',71000,73000,76000],['Next-time buyer',104000,108000,112000],['Remortgager',96000,99000,101000],['Further advance / renovation',98000,101000,104000],['Senior (60+)',63000,66000,68000],['<b>Total</b>',86000,89000,92000]];
+ $('t_inc').innerHTML='<table><thead><tr><th>Customer type</th><th class="r">You</th><th class="r">Group</th><th class="r">Market</th></tr></thead><tbody>'+I.map(r=>`<tr><td>${r[0]}</td><td class="r"><b>${eur(r[1])}</b></td><td class="r">${eur(r[2])}</td><td class="r">${eur(r[3])}</td></tr>`).join('')+'</tbody></table>';
+ const D=[['Single',74,13,9,4,[64,13,16,7]],['Cohabiting',80,7,8,5,[73,8,13,6]],['First-time buyer',82,13,5,0,[75,14,10,1]],['Next-time buyer',80,5,13,2,[69,6,22,3]],['Remortgager',71,6,9,14,[60,7,19,14]],['Senior (60+)',31,2,10,57,[24,2,16,58]],['<b>Total</b>',78,9,8,5,[70,9,14,7]]];
+ const cell=(u,m)=>`<span style="white-space:nowrap"><b>${u}%</b> <span style="color:#5b6678;font-size:.8rem">(${m}%)</span></span>`;
+ $('t_dvt').innerHTML='<table><thead><tr><th>Customer type</th><th class="r">Permanent</th><th class="r">Flexible</th><th class="r">Self-employed / freelance</th><th class="r">Pension</th></tr></thead><tbody>'+D.map(r=>`<tr><td>${r[0]}</td>${[1,2,3,4].map(k=>`<td class="r">${cell(r[k],r[5][k-1])}</td>`).join('')}</tr>`).join('')+'</tbody></table>';
+})();
+
+// lead time per customer type
+(function(){const T=[['First-time buyer','2,8 (3,1)','6,1 (5,6)','23,4 (23,0)'],['Next-time buyer','3,4 (3,6)','6,4 (5,8)','27,9 (27,2)'],['Remortgager','3,9 (3,5)','7,2 (6,0)','19,8 (19,1)'],['Self-employed','4,6 (4,1)','11,9 (7,3)','26,2 (24,8)'],['Senior (60+)','4,1 (3,9)','8,8 (6,7)','25,1 (24,6)'],['<b>Total</b>','3,1 (3,4)','6,8 (5,9)','24,0 (23,5)']];
+ $('t_dlt').innerHTML=tbl(['Customer type','Calculation → application','Application → binding offer','Offer → completion'],T,[1,2,3]);})();
+// NPS
+(function(){const k=(l,v,d)=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${d}</div></div>`;
+ $('npskpi').innerHTML=k('Adviser NPS','+24','<span class="pos">+9</span> vs group (+15)')+k('Customer NPS','+31','<span class="pos">+4</span> vs group (+27)')+k('Adviser responses','412','from 196 firms')+k('Customer responses','1.860','response rate 23%');
+ const sgn=v=>(v>0?'+':v<0?'−':'')+Math.abs(v);
+ const npsrow=(r)=>[r[0],`<b>${sgn(r[1])}</b>`,sgn(r[2]),`<span class="${r[1]-r[2]>=0?'pos':'neg'}">${sgn(r[1]-r[2])}</span>`];
+ $('t_npsadv').innerHTML=tbl(['Adviser group','NPS you','NPS group','Δ'],[['Small firm (1–3 advisers)',29,18],['Medium-sized firm (4–10)',24,15],['Large firm / chain (> 10)',17,13],['Specialising in first-time buyers',38,21],['Specialising in self-employed',-6,9],['Specialising in seniors',4,11]].map(npsrow),[1,2,3]);
+ $('t_npskl').innerHTML=tbl(['Customer type','NPS you','NPS group','Δ'],[['First-time buyer',39,31],['Next-time buyer',33,29],['Remortgager',21,24],['Self-employed',12,22],['Senior (60+)',18,23],['Single',28,25],['Cohabiting',32,28]].map(npsrow),[1,2,3]);
+ const W=640,L=150,rh=34,rows=[['Advisers: you',[42,40,18]],['Advisers: group',[37,41,22]],['Customers: you',[48,35,17]],['Customers: group',[45,37,18]]],cols=['#1f8a5b','#cfd6e1','#c0392b'];let sv='';
+ rows.forEach((r,i)=>{let x=L;const y=i*rh+4;sv+=`<text x="0" y="${y+17}" font-size="12" fill="#1b2535">${r[0]}</text>`;r[1].forEach((v,j)=>{const w=(W-L)*v/100;sv+=`<rect x="${x}" y="${y}" width="${w}" height="24" fill="${cols[j]}"/><text x="${x+w/2}" y="${y+16}" text-anchor="middle" font-size="11" font-weight="700" fill="${j==1?'#1b2535':'#fff'}">${v}%</text>`;x+=w;});});
+ $('c_npsdist').innerHTML=`<div class="legend"><span><i style="background:#1f8a5b"></i>Promoters (9–10)</span><span><i style="background:#cfd6e1"></i>Passives (7–8)</span><span><i style="background:#c0392b"></i>Detractors (0–6)</span></div><svg viewBox="0 0 ${W} ${rows.length*rh+4}" width="100%" style="max-width:860px">${sv}</svg>`;})();
+
+// insurance per customer type
+(function(){const R=[['Single',[22,31],[26,19],[12,13],[9,8],[1890,'']],['Cohabiting',[56,49],[16,14],[11,12],[7,8]],['Male (main applicant)',[48,43],[18,15],[12,13],[7,8]],['Female (main applicant)',[43,38],[19,16],[10,11],[8,8]],['First-time buyer',[58,50],[22,18],[9,10],[10,10]],['Next-time buyer',[44,41],[15,14],[13,13],[6,7]],['Remortgager',[31,33],[11,12],[10,11],[4,5]],['Self-employed / freelance',[39,37],[8,10],[6,21],[0,0]],['Senior (60+)',[12,14],[4,5],[0,1],[0,1]],['<b>Total</b>',[46,41],[18,15],[11,12],[7,8]]];
+ const cell=a=>`<span style="white-space:nowrap"><b>${a[0]}%</b> <span style="color:#5b6678;font-size:.8rem">(${a[1]}%)</span></span>`;
+ $('t_inst').innerHTML='<table><thead><tr><th>Customer type</th><th class="r">ORV</th><th class="r">Mortgage payment protection</th><th class="r">Disability</th><th class="r">Unemployment</th></tr></thead><tbody>'+R.map(r=>`<tr><td>${r[0]}</td>${[1,2,3,4].map(k=>`<td class="r">${cell(r[k])}</td>`).join('')}</tr>`).join('')+'</tbody></table>';
+ $('c_orvb').innerHTML=pair(['First-time buyer','Cohabiting','Single','Next-time buyer','Self-employed'],[78,71,52,63,66],[72,68,55,60,64]);
+ $('c_noins').innerHTML=pair(['Single','Cohabiting','First-time buyer','Next-time buyer','Remortgager','Senior (60+)'],[48,32,27,41,58,84],[52,38,34,45,56,82]);
+})();
+// customer profile per provider type + own contribution + bridging loan
+(function(){const H=['','You','Major banks incl. subsidiaries','Mortgage fund managers','Insurers','Other banks','Market'];
+ const R=[['Average age','36,8','39,4','37,6','42,1','38,2','39,1'],['Single','29%','33%','31%','38%','35%','34%'],['Female (main applicant)','41%','36%','39%','37%','38%','37%'],['First-time buyer','42%','31%','37%','24%','35%','33%'],['Next-time buyer','33%','34%','32%','28%','31%','32%'],['Remortgager','14%','19%','18%','29%','20%','21%'],['Avg. WOZ value','€ 431.000','€ 472.000','€ 444.000','€ 461.000','€ 438.000','€ 456.000'],['Avg. principal','€ 402.000','€ 426.000','€ 409.000','€ 398.000','€ 405.000','€ 418.000'],['Avg. assessment income','€ 86.000','€ 97.000','€ 89.000','€ 94.000','€ 88.000','€ 92.000'],['Permanent employee','78%','74%','72%','63%','71%','70%'],['Self-employed / freelance','8%','12%','13%','21%','14%','14%'],['Avg. own contribution','€ 38.000','€ 71.000','€ 46.000','€ 62.000','€ 49.000','€ 57.000'],['With bridging loan','12%','18%','14%','11%','15%','16%'],['With NHG','44%','31%','39%','33%','41%','36%'],['Label A or better','53%','49%','48%','42%','46%','47%'],['ORV taken out','46%','39%','43%','52%','40%','41%']];
+ $('t_prov').innerHTML='<table><thead><tr>'+H.map((h,i)=>`<th class="${i?'r':''}">${h}</th>`).join('')+'</tr></thead><tbody>'+R.map(r=>'<tr>'+r.map((c,i)=>i==0?`<td>${c}</td>`:i==1?`<td class="r"><b>${c}</b></td>`:`<td class="r">${c}</td>`).join('')+'</tr>').join('')+'</tbody></table><div class="note">Classification: major banks including their subsidiary labels, mortgage fund managers (regiepartijen), insurers and other banks, each with at least five providers. You belong to the mortgage fund manager group, but are excluded from it for this comparison.</div>';
+ $('c_eig').innerHTML=pair(['First-time buyer','Single','Cohabiting','Next-time buyer','Remortgager','Senior (60+)'],[4,6,9,14,0,22],[6,8,12,17,0,25]);
+ $('t_ovb').innerHTML=tbl(['','You','Group','Market'],[['Next-time buyers with bridging loan','36%','41%','44%'],['Avg. bridging loan amount','€ 118.000','€ 131.000','€ 139.000'],['Avg. term (months)','7,8','8,4','8,9'],['Bridging loan > 12 months','9%','11%','12%']],[1,2,3])+'<div class="note">A lower share of bridging loans may point to stricter acceptance of double housing costs.</div>';
+})();
+
+
+// 7
+$('c_ltv').innerHTML=pair(['≤ 60%','60–80%','80–90%','90–100%','> 100%'],[9,21,24,41,5],[13,25,22,36,4]);
+$('c_lti').innerHTML=pair(['< 3','3 – 4','4 – 5','5 – 6','> 6'],[6,19,38,29,8],[9,22,35,26,8]);
+$('c_rvp').innerHTML=pair(['≤ 5 years','10 years','15 years','20 years','30 years'],[12,58,9,16,5],[16,51,10,17,6]);
+$('c_afl').innerHTML=pair(['Annuity','Linear','Interest-only (part)'],[86,6,8],[81,7,12]);
+$('c_nhg').innerHTML=split([['With NHG','#1e2533','#fff',44],['Without NHG','#cfd6e1','#1e2533',56]],[36,64]);
+$('c_ins').innerHTML=pair(['ORV (term life)','Payment protection','Disability','Unemployment'],[46,18,11,7],[41,15,12,8]);
+
+// 8 rate bandwidth
+(function(){const rows=[['5 years NHG',3.18,3.31,3.39,3.48,3.69,3.29],['10 years NHG',3.41,3.55,3.64,3.74,3.95,3.53],['10 years ≤ 80% LTV',3.62,3.77,3.86,3.97,4.21,3.84],['10 years ≤ 100% LTV',3.88,4.02,4.12,4.24,4.49,4.18],['20 years NHG',3.71,3.86,3.96,4.06,4.29,4.02],['20 years ≤ 100% LTV',4.12,4.28,4.39,4.51,4.78,4.55]];
+ const W=760,L=150,R=60,rh=40,H=rows.length*rh+28,mn=3.1,mx=4.85,x=v=>L+(W-L-R)*(v-mn)/(mx-mn);let s='';
+ for(let v=3.25;v<=4.75;v+=0.25)s+=`<line x1="${x(v)}" x2="${x(v)}" y1="0" y2="${H-22}" stroke="#eef1f5"/><text x="${x(v)}" y="${H-6}" text-anchor="middle" font-size="10" fill="#5b6678">${nl(v,2)}%</text>`;
+ rows.forEach((r,i)=>{const y=i*rh+8;const q=r[6]<=r[2]?'pos':r[6]>=r[4]?'neg':'';s+=`<text x="0" y="${y+15}" font-size="12" fill="#1b2535">${r[0]}</text><rect x="${x(r[1])}" y="${y+6}" width="${x(r[5])-x(r[1])}" height="10" rx="5" fill="#cfd6e1"/><rect x="${x(r[2])}" y="${y+3}" width="${x(r[4])-x(r[2])}" height="16" rx="4" fill="#8a97ab"/><rect x="${x(r[3])-1.5}" y="${y}" width="3" height="22" fill="${NAVY}"/><circle cx="${x(r[6])}" cy="${y+11}" r="7" fill="${Y}" stroke="#fff" stroke-width="2"><title>Your rate ${nl(r[6],2)}%</title></circle><text x="${W-R+8}" y="${y+15}" font-size="12" font-weight="700" fill="${q=='pos'?'#1f8a5b':q=='neg'?'#c0392b':'#1b2535'}">${nl(r[6],2)}%</text>`;});
+ $('c_rate').innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%">${s}</svg><div class="ins"><b>Insight:</b> for 5 and 10 years with NHG you are in the cheapest quartile. For 20 years without NHG you are in the most expensive quartile. This partly explains your low share among remortgagers, who more often choose a long fixed-rate period.</div>`;})();
+$('t_eff').innerHTML=tbl(['','4 weeks before','4 weeks after','Δ'],[['Conversion calculation → application','27%','33%',dlt(6)],['Share 10 years NHG',P(8.2),P(10.1),dlt(1.9)],['Share other products',P(6.4),P(6.5),dlt(0.1)]],[1,2,3])+'<div class="note">This is a retrospective analysis of your own change, without information on how competitors responded.</div>';
+$('c_drv').innerHTML=bars(['Interest rate','Maximum mortgage','Underwriting / terms','Lead time','Adviser preference / experience'],[38,27,18,9,8],'%','#8a97ab');
+
+// 9
+$('c_lab').innerHTML=pair(['A++++ to A+','A','B','C','D','E – G'],[24,29,15,14,9,9],[21,26,15,15,11,12]);
+$('c_green').innerHTML=line([{n:'You',c:NAVY,v:[48,50,53]},{n:'Market',c:MKT,v:[44,45,47]}],['Q1','Q2','Q3'],{min:30,dec:0});
+$('c_ebv').innerHTML=pair(['Label A or better','Label B – C','Label D','Label E – G'],[6,19,27,31],[5,18,29,38]);
+$('t_co2').innerHTML=tbl(['Label group','Share','kg CO₂/m²/year'],[['A++++ to A+','24%','4'],['A','29%','11'],['B – C','29%','19'],['D','9%','27'],['E – G','9%','38'],['<b>Weighted average</b>','','<b>15,2</b> (market 16,9)']],[1,2]);
+
+// 10
+$('c_ret').innerHTML=bars(['Stays with you (rate renewal)','Remortgages to another provider','Advance / change with you','No choice made yet'],[54,27,11,8]);
+$('t_av').innerHTML=tbl(['Age','Extra repayment','Convert to annuity','Equity release / sell','No action'],[['< 50','31%','47%','4%','18%'],['50 – 59','38%','33%','9%','20%'],['60 – 69','29%','17%','24%','30%'],['70+','12%','6%','41%','41%']],[1,2,3,4]);
+
+// 11
+$('t_vul').innerHTML=tbl(['Group','You','Market','Δ'],[['First-time buyers with LTV > 95%','24%','19%',dlt(5)],['LTI > 5','37%','34%',dlt(3)],['Single and LTV > 90%','13%','14%',dlt(-1)],['Flexible income','9%','9%',dlt(0)]],[1,2,3]);
+$('t_bias').innerHTML=tbl(['Group','Conversion you','Conversion market','Signal'],[['Male','31%','27%','<span class="pill n">none</span>'],['Female','30%','25%','<span class="pill n">none</span>'],['Single','24%','23%','<span class="pill n">none</span>'],['Self-employed','14%','22%','<span class="pill r">investigate</span>'],['60+','17%','24%','<span class="pill r">investigate</span>']],[1,2,3]);
+
+// 12
+$('t_grow').innerHTML=tbl(['Target group','Market size','Your share','Growth potential'],[['Remortgagers','21%',P(5.2),'<span class="pill g">high</span>'],['Seniors 60+','9%',P(4.1),'<span class="pill g">high</span>'],['Self-employed','14%',P(3.4),'<span class="pill g">high</span>'],['Energy-efficiency improvers (EBV)','22%',P(7.9),'<span class="pill n">medium</span>'],['First-time buyers','33%',P(9.8),'<span class="pill r">low</span>']],[1,2,3]);
+$('c_seas').innerHTML=line([{n:'Market applications (index)',c:NAVY,v:[88,93,104,101,107,109,96,92,106,104]}],M,{min:80,u:'',dec:0});
+
+
+// new: pipeline & forecast
+(function(){const lab=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb'];
+ const act=[100,104,99,108,113,118,115,121,128,133];const fc=[131,124,118,126],lo=[122,113,105,111],hi=[140,135,131,141];
+ const W=760,H=250,L=44,R=14,T=12,B=28,mn=80,mx=150,n=lab.length,x=i=>L+i*(W-L-R)/(n-1),y=v=>T+(H-T-B)*(1-(v-mn)/(mx-mn));
+ let g='';for(let k=0;k<=7;k++){const v=mn+10*k;g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#e1e6ee"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="#5b6678">${v}</text>`;}
+ const band='M'+[9,...[10,11,12,13]].map((i,k)=>x(i)+','+y(k?hi[k-1]:act[9])).join('L')+'L'+[13,12,11,10,9].map((i,k)=>x(i)+','+y(k<4?lo[3-k]:act[9])).join('L')+'Z';
+ const pa=act.map((v,i)=>(i?'L':'M')+x(i)+','+y(v)).join('');const pf='M'+x(9)+','+y(act[9])+fc.map((v,k)=>'L'+x(10+k)+','+y(v)).join('');
+ const xl=lab.map((m,i)=>`<text x="${x(i)}" y="${H-8}" text-anchor="middle" font-size="11" fill="#5b6678">${m}</text>`).join('');
+ $('c_fc').innerHTML=`<div class="legend"><span><i style="background:${NAVY}"></i>Actual</span><span><i style="background:${Y}"></i>Forecast</span><span><i style="background:#fff0b3"></i>80% range</span></div><svg viewBox="0 0 ${W} ${H}" width="100%">${g}<path d="${band}" fill="#fff0b3"/><line x1="${x(9.5)}" x2="${x(9.5)}" y1="${T}" y2="${H-B}" stroke="#9aa6b8" stroke-dasharray="3 3"/><path d="${pa}" fill="none" stroke="${NAVY}" stroke-width="2.5"/><path d="${pf}" fill="none" stroke="${Y}" stroke-width="2.5" stroke-dasharray="6 4"/>${xl}</svg><div class="ins"><b>Insight:</b> the number of calculations in which you appear fell by 6% in September. This points to a seasonal dip in November and December, followed by a recovery in January.</div>`;})();
+$('t_pipe').innerHTML=tbl(['Stage','Number (index)','Expected completion'],[['Calculations in the last 30 days','100','–'],['Applications in progress','31','78%'],['Binding offer issued','22','86%'],['Offer signed, not yet completed','17','97%']],[1,2]);
+$('c_pass').innerHTML=bars(['October','November','December','January'],[100,94,81,88],'');
+// drop-out
+$('c_drop').innerHTML=bars(['Lost after new calculation','Purchase falls through','Valuation lower than expected','Customer postpones','Other'],[46,24,14,10,6]);
+$('t_drop').innerHTML=tbl(['Segment','You','Market','Δ'],[['First-time buyers','11%','9%',dlt(2)],['Next-time buyers','13%','11%',dlt(2)],['Remortgagers','22%','15%',dlt(7)],['Self-employed','19%','16%',dlt(3)]],[1,2,3]);
+// value
+$('c_tax').innerHTML=pair(['North','East','Central','Randstad','South'],[6,8,11,17,9],[7,9,12,18,10]);
+$('c_over').innerHTML=bars(['Randstad','Central','South','East','North'],[7.8,5.9,4.6,4.1,3.2],'%','#8a97ab');
+$('c_nhgg').innerHTML=bars(['Well below the limit (> 10%)','Up to 10% below the limit','Up to 10% above the limit','Well above the limit (> 10%)'],[31,13,11,45],'%');
+$('c_norm').innerHTML=pair(['< 80% used','80 – 95%','95 – 100%','Maximum (100%)'],[22,26,29,23],[26,27,26,21]);
+// terms
+$('c_cond').innerHTML=pair(['Energy label rate discount','Porting arrangement','Rate averaging','Penalty-free overpayment > 10%','Moving arrangement','Construction deposit extension'],[38,21,9,14,3,7],[29,24,8,11,6,9],'%',0,230,620);
+// adviser ratings
+$('c_nps').innerHTML=pair(['Underwriting speed','Clarity of lending policy','Underwriter accessibility','Price / interest rate','Product terms','Digital application process','Account management','Overall rating'],[7.9,7.4,8.1,7.6,7.2,6.8,7.0,7.5],[7.3,7.1,7.4,7.4,7.3,7.2,7.1,7.2],'',1,220,620);
+// niches
+$('t_niche').innerHTML='<thead><tr><th>Target group</th><th class="r">Share of market calculations</th><th class="r">Of which application</th><th class="r">Your share</th><th>Opportunity</th></tr></thead><tbody>'+[['Equity release mortgage / seniors 65+','4,1%','38%','2,2%','g'],['Flexible workers and freelancers with short history','6,3%','41%','3,1%','g'],['Expats (temporary residence permit)','1,8%','52%','0,0%','g'],['Leasehold properties','3,2%','61%','6,9%','n'],['Sustainability mortgage (separate from purchase)','2,7%','44%','8,8%','n'],['Second home / holiday home','0,9%','33%','0,0%','n']].map(r=>`<tr><td>${r[0]}</td><td class="r">${r[1]}</td><td class="r">${r[2]}</td><td class="r">${r[3]}</td><td><span class="pill ${r[4]}">${r[4]=='g'?'high':'medium'}</span></td></tr>`).join('')+'</tbody>';
+
+// fairness & AI
+$('t_fair').innerHTML=tbl(['Group','Reference','Difference you','Difference market','Signal'],[['Female','Male','−0,8 pp','−0,6 pp','<span class="pill n">none</span>'],['Single','Cohabiting','−1,4 pp','−1,1 pp','<span class="pill n">none</span>'],['30–39 years','< 30 years','+0,3 pp','+0,2 pp','<span class="pill n">none</span>'],['60+','< 30 years','−6,9 pp','−3,1 pp','<span class="pill r">investigate</span>'],['Self-employed / freelance','Permanent employee','−8,4 pp','−4,2 pp','<span class="pill r">investigate</span>'],['Flexible income','Permanent employee','−2,7 pp','−2,9 pp','<span class="pill n">none</span>']],[2,3]);
+$('c_shap').innerHTML=bars(['Income history < 3 years','Multi-year income averaging','LTV','Region','Other'],[46,31,12,6,5]);
+$('t_themes').innerHTML=tbl(['Theme','Share','Sentiment'],[['Underwriting speed for first-time buyers','24%','<span class="pill g">positive</span>'],['Income assessment for self-employed','19%','<span class="pill r">negative</span>'],['Underwriter accessibility','16%','<span class="pill g">positive</span>'],['Digital application portal','13%','<span class="pill r">negative</span>'],['Rate for long fixed-rate periods','11%','<span class="pill n">mixed</span>'],['Other','17%','<span class="pill n">mixed</span>']],[1]);
+$('t_condchg').innerHTML=tbl(['Change','Number of providers'],[['Energy label rate discount extended','6'],['Penalty-free repayment raised to 15% or more','4'],['Construction deposit extended to 24 months','3'],['New arrangement for temporary double housing costs','2'],['Moving arrangement restricted','1']],[1])+'<div class="note">Number of providers only, without names.</div>';
+// 13 scorecard
+const sc=[['Market share (growth)',P(7.4),P(6.0),1],['Conversion calculation → application','31%','27%',1],['Completion ratio','78%','75%',2],['Lead time application → offer','6,8 d','6,1 d',4],['Borrowing capacity (calculations > 2% below market)','16%','12%',3],['Rate position 10 years NHG (percentile, low = cheap)','P20','P50',1],['Label A or better','53%','48%',1],['Concentration top 10 firms','31%','24%',4],['ORV taken out','46%','42%',2]];
+$('t_sc').innerHTML='<thead><tr><th>Indicator</th><th>You</th><th>Group median</th><th>Quartile</th></tr></thead><tbody>'+sc.map(r=>`<tr><td>${r[0]}</td><td><b>${r[1]}</b></td><td>${r[2]}</td><td><span class="pill ${r[3]==1?'g':r[3]==4?'r':'n'}">${r[3]}</span></td></tr>`).join('')+'</tbody>';
+
+// print via window.open (also works in iframes)
+$('pr').addEventListener('click',()=>{
+  const w=window.open('','_blank');if(!w){alert('Please allow pop-ups to print.');return;}
+  w.document.write('<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Sample report Lender X Q3 2026</title>'+document.querySelector('style').outerHTML+'<style>.bar-top button{display:none}.bar-top{position:static}@page{size:A4;margin:12mm}</style></head><body>'+document.body.innerHTML.replace(/<script[\s\S]*<\/script>/,'')+'</body></html>');
+  w.document.close();setTimeout(()=>{try{w.focus();w.print();}catch(e){}},500);
+});
+})();
+</script>
+</body>
+</html>
