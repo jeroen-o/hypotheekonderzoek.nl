@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<style id="gate-css">html.locked body>*:not(#gate){display:none!important}html.locked body{background:#1e2533!important}#gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:linear-gradient(160deg,#1e2533,#2b3345);padding:16px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}#gate form{width:100%;max-width:380px;background:#fff;border-radius:16px;padding:28px;box-shadow:0 20px 50px rgba(0,0,0,.3);color:#1b2535}#gate .gl{display:flex;align-items:center;gap:10px;font-size:1.1rem;margin-bottom:18px}#gate .gl span{color:#e0a800}#gate .tm{font-size:.55em;vertical-align:super;line-height:0}#gate h1{font-size:1.35rem;margin:0 0 6px}#gate p{margin:0 0 14px;color:#5b6678;font-size:.92rem}#gate label{display:block;font-size:.8rem;font-weight:700;color:#5b6678;margin-bottom:6px}#gate input{width:100%;font:inherit;padding:11px 12px;border:1px solid #cfd6e1;border-radius:10px;margin-bottom:12px;box-sizing:border-box}#gate button{width:100%;font:inherit;font-weight:700;background:#ffcc00;color:#1e2533;border:0;border-radius:999px;padding:11px;cursor:pointer}#gateerr{color:#c0392b!important;font-weight:600;min-height:1.2em;margin:10px 0 0!important}</style>
+<script src="../gate.js"></script>
+
+<title>Sample report: term life insurer</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 26 28%22%3E%3Cpath d=%22M13 0l13 7v14l-13 7L0 21V7z%22 fill=%22%23ffcc00%22/%3E%3Cpath d=%22M11 12l6 9h-3.4l-6-9z%22 fill=%22%231e2533%22/%3E%3C/svg%3E">
+<style>
+:root{--navy:#1e2533;--navy2:#2b3345;--y:#ffcc00;--y2:#e0a800;--ys:#fff5cc;--ink:#1b2535;--mut:#5b6678;--line:#e1e6ee;--bg:#f5f7fa;--pos:#1f8a5b;--neg:#c0392b;--mkt:#9aa6b8}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:15px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.bar-top{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff}
+.bar-top .wrap{display:flex;align-items:center;justify-content:space-between;height:54px;gap:12px}
+.bar-top b span{color:var(--y)}
+.stamp{background:var(--y);color:var(--navy);font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap}
+button.pr{font:inherit;font-weight:700;background:var(--y);color:var(--navy);border:0;border-radius:999px;padding:8px 16px;cursor:pointer}
+.cover{background:linear-gradient(160deg,var(--navy),var(--navy2));color:#fff;padding:64px 0 72px}
+.cover .ey{color:var(--y);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}
+.cover h1{font-size:clamp(2rem,5vw,3rem);line-height:1.08;margin:.3em 0 .3em;letter-spacing:-.02em}
+.cover h1 em{color:var(--y);font-style:normal}
+.cover p{color:#d5deeb;max-width:640px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.meta div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:10px 14px;font-size:.85rem;color:#d5deeb}
+.meta b{display:block;color:#fff;font-size:.95rem}
+.warn{background:var(--ys);border-left:4px solid var(--y2);padding:12px 16px;border-radius:0 10px 10px 0;font-size:.9rem;margin:24px 0 0;color:#4d3b00}
+.toc{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0 0;padding:0;list-style:none;counter-reset:t}
+@media(max-width:760px){.toc{grid-template-columns:1fr}}
+.toc li{counter-increment:t;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.9rem}
+.toc li::before{content:counter(t);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:.75rem;font-weight:700;margin-right:8px}
+.toc a{color:var(--ink);text-decoration:none;font-weight:600}
+section.ch{padding:48px 0;border-bottom:1px solid var(--line)}
+section.ch:nth-of-type(even){background:#fff}
+.chn{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a5c00}
+.chn i{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--y);color:var(--navy)}
+h2{font-size:clamp(1.4rem,3vw,1.9rem);margin:.3em 0 .3em;letter-spacing:-.015em;line-height:1.2}
+.lead{color:var(--mut);max-width:760px;margin:0 0 20px}
+h3{font-size:1rem;margin:0 0 2px}
+.sub{font-size:.84rem;color:var(--mut);margin:0 0 12px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:860px){.g2,.g3{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+section.ch:nth-of-type(even) .card{background:var(--bg)}
+.kpi .l{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);font-weight:700}
+.kpi .v{font-size:1.7rem;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
+.kpi .d{font-size:.84rem}
+.pos{color:var(--pos)}.neg{color:var(--neg)}
+.find{background:var(--navy);color:#fff;border-radius:14px;padding:20px 22px;margin-top:14px}
+.find h3{color:var(--y);margin-bottom:8px}
+.find ol{margin:0;padding-left:20px}.find li{margin:.35em 0;color:#e3e9f2}
+.note{font-size:.84rem;color:var(--mut);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.ins{font-size:.9rem;margin-top:10px;padding:10px 12px;background:var(--ys);border-radius:10px}
+.ins b{color:#5c4600}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.8rem;color:var(--mut);margin-bottom:6px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);border-bottom:1px solid var(--line);padding:7px 6px;font-weight:700}
+td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:middle}
+.r{text-align:right;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto}
+.mini{height:7px;background:var(--line);border-radius:99px;overflow:hidden;min-width:60px}
+.mini span{display:block;height:100%;background:var(--navy)}
+.pill{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.75rem;font-weight:700}
+.pill.g{background:#e3f4ec;color:var(--pos)}.pill.r{background:#fbe7e5;color:var(--neg)}.pill.n{background:var(--line);color:var(--mut)}
+svg text{font-family:inherit}
+.sc td:nth-child(n+2){text-align:center}
+footer{background:var(--navy);color:#b9c5d6;padding:28px 0;font-size:.85rem}
+footer b{color:#fff}
+@media(max-width:560px){.bar-top a b{display:none}.stamp{font-size:.66rem;padding:3px 8px}button.pr{padding:7px 12px;font-size:.8rem}}
+@media print{.bar-top button{display:none}.bar-top{position:static}section.ch{break-inside:avoid-page}.card{break-inside:avoid}body{background:#fff}}
+</style>
+<style id="homebtn">html{scroll-padding-top:68px}.btn.home{background:transparent;color:#fff!important;border:1.5px solid rgba(255,255,255,.45);margin-left:12px}.btn.home:hover{border-color:#ffcc00;color:#ffcc00!important}@media(max-width:480px){.btn.home{padding:7px 10px!important;font-size:.76rem!important;margin-left:6px!important}}@media(max-width:560px){header.top .logo{font-size:0!important}header.top .logo svg{margin-right:0!important;width:26px!important;height:28px!important}header.top .wrap{gap:6px}.bar-top .stamp{font-size:.58rem!important;padding:3px 6px!important;letter-spacing:.04em}.bar-top .btn.home{padding:6px 10px!important;font-size:.75rem!important}.bar-top button.pr{padding:6px 10px!important;font-size:.75rem!important}}@media(max-width:560px){header.top .logo{font-size:0!important}header.top .logo svg{margin-right:0!important;width:26px!important;height:28px!important}header.top .wrap{gap:6px}.bar-top .stamp{font-size:.58rem!important;padding:3px 6px!important;letter-spacing:.04em}.bar-top .btn.home{padding:6px 10px!important;font-size:.75rem!important}.bar-top button.pr{padding:6px 10px!important;font-size:.75rem!important}}.g2>*,.g3>*,.g4>*{min-width:0}.kpi .l{overflow-wrap:break-word}h1,h2,h3{overflow-wrap:break-word;hyphens:auto}@media(max-width:560px){#persona td{white-space:normal!important;font-size:.84rem}#persona .card{padding:14px}}@media(max-width:560px){.bar-top .wrap{gap:6px;padding:0 10px}.bar-top button.pr{font-size:0!important;padding:6px 10px!important}.bar-top button.pr::after{content:"PDF";font-size:.75rem}}</style>
+<style>.tm{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-weight:600}</style>
+</head>
+<body>
+
+<div class="bar-top"><div class="wrap">
+  <a href="index.html" style="color:#fff;text-decoration:none"><b>Hypotheek<span>onderzoek</span>.nl<sup class="tm">™</sup></b></a>
+  <span class="stamp">Sample · fictitious figures</span>
+  <span style="display:flex;gap:8px;align-items:center"><a href="index.html" class="btn home" style="display:inline-block;padding:7px 14px;border-radius:999px;font-weight:700;font-size:.85rem;text-decoration:none;margin:0">Home</a><button class="pr" id="pr" type="button">Print / PDF</button></span>
+</div></div>
+
+<div class="cover"><div class="wrap">
+  <div class="ey">Sample report · Mortgage-related term life insurance</div>
+  <h1>Term life insurer Y<br><em>Q3 2026</em></h1>
+  <p>This report shows what Hypotheekonderzoek.nl<sup class="tm">™</sup> can produce for a term life insurer: position, conversion within the advice process, link with the mortgage, distribution, customer profile, product, premium, underwriting and growth opportunities. Every figure is set against the market and against an anonymous peer group.</p>
+  <div class="meta">
+    <div><b>Period</b>Jan to Oct 2026, focus on Q3</div>
+    <div><b>Source</b>Term life insurance (ORV) quotes, applications and policies in the Blinqx network</div>
+    <div><b>Peer group</b>5 term life insurers (anonymous)</div>
+    <div><b>Coverage</b>1.240 advisory firms · 3.910 advisers · 21.700 term life quotes · 6.850 term life applications (fictitious)</div>
+  </div>
+  <div class="warn"><b>Please note: all figures, parties and firms in this report are fictitious.</b> They only illustrate which analyses are possible and say nothing about actual insurers, lenders or advisory firms.</div>
+</div></div>
+
+<div class="wrap" style="padding-top:28px"><h3>Contents</h3><ol class="toc" id="toc"></ol></div>
+
+<section class="ch" id="o1"><div class="wrap">
+  <span class="chn"><i>1</i> Executive summary</span>
+  <h2>Your position at a glance</h2>
+  <div class="g4" id="kpis"></div>
+  <div class="find"><h3>Five key findings</h3><ol>
+    <li>Your <b>share of term life applications rose</b> from 15,8% to 18,1%, mainly among first-time buyers.</li>
+    <li><b>Single applicants and seniors</b> often see you in their quotes, but rarely choose you. Your premium there sits in the most expensive quartile.</li>
+    <li>On mortgages from <b>mortgage fund managers (regiepartijen)</b> your share is twice as high as with the major banks.</li>
+    <li>The <b>sum insured averages 72% of the loan amount</b>. For single applicants it is 52%, which points to a risk of underinsurance.</li>
+    <li>From application to policy takes 9,4 working days with you, against 7,1 in the market. Advisers name <b>underwriting speed</b> as the main area for improvement.</li>
+  </ol></div>
+</div></section>
+
+<section class="ch" id="o2"><div class="wrap">
+  <span class="chn"><i>2</i> Market position</span>
+  <h2>Share of term life applications</h2>
+  <p class="lead">Your share of all term life applications in the network, per month, compared with the peer group median. The share is weighted: your applications divided by the total in the period.</p>
+  <div class="card"><h3>Market share per month</h3><div id="c_trend"></div></div>
+  <div class="g3" style="margin-top:14px">
+    <div class="card"><h3>Per quarter</h3><div class="tw" id="t_q"></div></div>
+    <div class="card"><h3>Per region (Q3)</h3><p class="sub">Index 100 = equal to your national share</p><div class="tw" id="t_reg"></div></div>
+    <div class="card"><h3>Per segment (Q3)</h3><div class="tw" id="t_seg"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o3"><div class="wrap">
+  <span class="chn"><i>3</i> Conversion in the advice process</span>
+  <h2>From premium quote to application to policy</h2>
+  <div class="g2">
+    <div class="card"><h3>Funnel Q3: you versus the market</h3><p class="sub">Per 100 term life quotes in which you appear</p><div id="c_funnel"></div></div>
+    <div class="card"><h3>Conversion per segment</h3><p class="sub">From quote to application</p><div class="tw" id="t_conv"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>How often is term life insurance advised alongside a mortgage?</h3><p class="sub">Share of mortgage applications with term life advice, per customer type</p><div id="c_orvrate"></div>
+    <div class="ins"><b>Insight:</b> 54% of mortgage applications in the network come without term life cover. For single applicants this is 69%. That is the largest untapped market.</div></div>
+</div></section>
+
+<section class="ch" id="o4"><div class="wrap">
+  <span class="chn"><i>4</i> Why the application does not come to you</span>
+  <h2>Premium, underwriting or terms?</h2>
+  <p class="lead">We compare the term life quotes in which you appeared with the insurer that was chosen. This gives an indication of the reason. We do not show which insurer received the application.</p>
+  <div class="g2">
+    <div class="card"><h3>Indicative reason for losing out</h3><div id="c_reason"></div></div>
+    <div class="card"><h3>Your premium in the most expensive quartile</h3><p class="sub">Share of quotes in which your premium falls in the most expensive quartile of the insurers quoted</p><div id="c_dear"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o5"><div class="wrap">
+  <span class="chn"><i>5</i> Link with the mortgage</span>
+  <h2>Your share per type of lender</h2>
+  <p class="lead">With which mortgages are you chosen as the term life insurer? Each group of lenders consists of at least five parties. We do not show figures per individual lender.</p>
+  <div class="g2">
+    <div class="card"><h3>Your term life share per type of lender</h3><div id="c_lender"></div></div>
+    <div class="card"><h3>Links</h3><div class="tw" id="t_koppel"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o6"><div class="wrap">
+  <span class="chn"><i>6</i> Distribution</span>
+  <h2>Your position with advisory firms</h2>
+  <div class="g2">
+    <div class="card"><h3>Top 10 advisory firms (Q3)</h3><div class="tw" id="t_off"></div></div>
+    <div class="card"><h3>Concentration</h3><div id="c_conc"></div><h3 style="margin-top:16px">Risers and fallers</h3><div class="tw" id="t_mov"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o7"><div class="wrap">
+  <span class="chn"><i>7</i> Customer profile</span>
+  <h2>Who insures with you?</h2>
+  <div class="card"><h3>Customer profile at a glance</h3><p class="sub">Your average insured person compared with the peer group and the market</p><div class="g3" id="persona"></div></div>
+  <div class="card" style="margin-top:14px"><h3>Per customer type</h3><p class="sub">Share, age, sum insured and coverage: you, with the market in brackets</p><div class="tw" id="t_type"></div></div>
+  <div class="g2" style="margin-top:14px">
+    <div class="card"><h3>Age of insured person(s) at inception</h3><div id="c_age"></div></div>
+    <div class="card"><h3>One or two insured persons</h3><div id="c_cov"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o8"><div class="wrap">
+  <span class="chn"><i>8</i> Product</span>
+  <h2>What is being insured</h2>
+  <div class="g2">
+    <div class="card"><h3>Type of cover</h3><div id="c_dekk"></div></div>
+    <div class="card"><h3>Sum insured</h3><div id="c_bedr"></div></div>
+    <div class="card"><h3>Term</h3><div id="c_lt"></div></div>
+    <div class="card"><h3>Sum insured as a share of the loan amount</h3><p class="sub">A low coverage ratio may indicate underinsurance</p><div id="c_dg"></div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o9"><div class="wrap">
+  <span class="chn"><i>9</i> Premium</span>
+  <h2>Your premium against the market range</h2>
+  <p class="lead">Monthly premium for standard profiles, based on the premium quotes in the advice software, reference date 30 September 2026. Shown only as a range and after the fact, without premiums of individual competitors.</p>
+  <div class="card"><div class="legend"><span><i style="background:#cfd6e1"></i>Lowest – highest</span><span><i style="background:#8a97ab"></i>25% – 75%</span><span><i style="background:#1e2533"></i>Median</span><span><i style="background:#e0a800"></i>Your premium</span></div><div id="c_prem"></div></div>
+</div></section>
+
+<section class="ch" id="o10"><div class="wrap">
+  <span class="chn"><i>10</i> Underwriting &amp; lead time</span>
+  <h2>From application to policy</h2>
+  <div class="g2">
+    <div class="card"><h3>Lead time</h3><p class="sub">Median in working days: you, with the market in brackets</p><div class="tw" id="t_dl"></div></div>
+    <div class="card"><h3>Outcome of the application</h3><div id="c_acc"></div><div class="note">Aggregated only. We do not process health data; we only look at the process outcome as recorded in the file.</div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="o11"><div class="wrap">
+  <span class="chn"><i>11</i> Views of advisers and customers</span>
+  <h2>NPS and ratings</h2>
+  <div class="g4" id="npskpi"></div>
+  <div class="card" style="margin-top:14px"><h3>Rating per topic by advisers</h3><p class="sub">Scores from 1 to 10, you versus the market</p><div id="c_score"></div></div>
+</div></section>
+
+<section class="ch" id="o12"><div class="wrap">
+  <span class="chn"><i>12</i> Growth opportunities</span>
+  <h2>Where is your room for growth?</h2>
+  <div class="card tw"><table id="t_grow"></table></div>
+</div></section>
+
+<section class="ch" id="o13"><div class="wrap">
+  <span class="chn"><i>13</i> Benchmark</span>
+  <h2>Scorecard against the peer group</h2>
+  <div class="card tw"><table class="sc" id="t_sc"></table></div>
+</div></section>
+
+<section class="ch" id="o14"><div class="wrap">
+  <span class="chn"><i>14</i> Methodology &amp; competition law</span>
+  <h2>How the figures are compiled</h2>
+  <div class="g2">
+    <div class="card"><h3>Source and definitions</h3><ul style="margin:6px 0 0;padding-left:18px;color:var(--mut)"><li>Term life quotes, applications and policies recorded in the mortgage advice software and Blinqx Connect CRM</li><li>Market share is your term life applications divided by all term life applications in the same period</li><li>Premiums are taken from the premium quotes for standard profiles</li><li>See the full <a href="methodologie.html">methodology</a></li></ul></div>
+    <div class="card"><h3>Privacy and competition law</h3><ul style="margin:6px 0 0;padding-left:18px;color:var(--mut)"><li>Aggregated figures only; segments with fewer than 25 observations are not shown</li><li>No health data or other special categories of personal data</li><li>Peer groups of at least 5 parties, without names</li><li>Premiums only as a range and after the fact</li></ul></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><b>Hypotheekonderzoek.nl<sup class="tm">™</sup></b> · a Blinqx initiative · <b>Sample report with fictitious figures</b>, not intended for decision-making. · <a href="voorbeeldrapport.html" style="color:#ffcc00">Sample report for lenders</a></div></footer>
+
+<script>
+(function(){
+"use strict";
+const nl=(v,d=1)=>v.toLocaleString('nl-NL',{minimumFractionDigits:d,maximumFractionDigits:d});
+const P=(v,d=1)=>nl(v,d)+'%';
+const PP=v=>(v>=0?'+':'−')+nl(Math.abs(v),1)+' pp';
+const $=id=>document.getElementById(id);
+const NAVY='#1e2533',MKT='#9aa6b8',Y='#e0a800';
+const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'];
+
+// TOC
+$('toc').innerHTML=[...document.querySelectorAll('section.ch')].map(s=>`<li><a href="#${s.id}">${s.querySelector('.chn').textContent.replace(/^\s*\d+\s*/,'')}</a></li>`).join('');
+
+// generic line chart
+function line(series,labels,opt={}){
+  const W=760,H=240,L=44,R=14,T=12,B=28;const all=series.flatMap(s=>s.v);const mx=Math.ceil(Math.max(...all)*1.15),mn=opt.min??0;
+  const x=i=>L+i*(W-L-R)/(labels.length-1),y=v=>T+(H-T-B)*(1-(v-mn)/(mx-mn));
+  let g='';for(let k=0;k<=4;k++){const v=mn+(mx-mn)*k/4;g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#e1e6ee"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="#5b6678">${nl(v,opt.dec??0)}${opt.u??'%'}</text>`;}
+  const xl=labels.map((m,i)=>`<text x="${x(i)}" y="${H-8}" text-anchor="middle" font-size="11" fill="#5b6678">${m}</text>`).join('');
+  const ps=series.map(s=>`<path d="${s.v.map((v,i)=>(i?'L':'M')+x(i)+','+y(v)).join('')}" fill="none" stroke="${s.c}" stroke-width="${s.w||2.5}" ${s.dash?'stroke-dasharray="5 4"':''}/>`+s.v.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="${s.c}"><title>${labels[i]}: ${nl(v,1)}${opt.u??'%'}</title></circle>`).join('')).join('');
+  const lg=`<div class="legend">${series.map(s=>`<span><i style="background:${s.c}"></i>${s.n}</span>`).join('')}</div>`;
+  return lg+`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img">${g}${ps}${xl}</svg>`;
+}
+// paired horizontal bars you vs market
+function pair(cats,me,mk,u='%',dec=0,L=118,W=440){
+  const mx=Math.max(...me,...mk),rh=30,H=cats.length*rh+4;
+  let s='';cats.forEach((c,i)=>{const y=i*rh+4,a=(W-L-46)*me[i]/mx,b=(W-L-46)*mk[i]/mx;
+   s+=`<text x="0" y="${y+14}" font-size="12" fill="#1b2535">${c}</text><rect x="${L}" y="${y+2}" width="${a}" height="11" rx="3" fill="${NAVY}"/><rect x="${L}" y="${y+15}" width="${b}" height="8" rx="3" fill="${MKT}"/><text x="${L+a+5}" y="${y+12}" font-size="11" font-weight="700" fill="#1b2535">${nl(me[i],dec)}${u}</text><text x="${L+b+5}" y="${y+23}" font-size="10" fill="#5b6678">${nl(mk[i],dec)}${u}</text>`;});
+  return `<div class="legend"><span><i style="background:${NAVY}"></i>You</span><span><i style="background:${MKT}"></i>Market</span></div><svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W*1.35}px">${s}</svg>`;
+}
+// single bars
+function bars(cats,vals,u='%',col=NAVY){
+  const mx=Math.max(...vals),W=480,L=200,rh=26,H=cats.length*rh+4;let s='';
+  cats.forEach((c,i)=>{const y=i*rh+4,a=(W-L-46)*vals[i]/mx;s+=`<text x="0" y="${y+14}" font-size="12" fill="#1b2535">${c}</text><rect x="${L}" y="${y+3}" width="${a}" height="14" rx="3" fill="${col}"/><text x="${L+a+5}" y="${y+14}" font-size="11" font-weight="700" fill="#1b2535">${nl(vals[i],0)}${u}</text>`;});
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-width:${W*1.35}px">${s}</svg>`;
+}
+// split bar
+function split(parts,mkt){
+  const row=(lbl,vals)=>`<div style="display:grid;grid-template-columns:56px 1fr;gap:8px;align-items:center;margin-bottom:6px;font-size:.84rem;color:#5b6678"><span>${lbl}</span><div style="display:flex;height:28px;border-radius:7px;overflow:hidden;font-size:.78rem;font-weight:700">${vals.map((v,i)=>`<div style="width:${v}%;background:${parts[i][1]};color:${parts[i][2]||'#fff'};display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden">${v>=12?parts[i][0]+' '+nl(v,0)+'%':''}</div>`).join('')}</div></div>`;
+  return row('You',parts.map(p=>p[3]))+row('Market',mkt)+`<div class="legend" style="margin-top:4px">${parts.map(p=>`<span><i style="background:${p[1]}"></i>${p[0]}</span>`).join('')}</div>`;
+}
+const tbl=(head,rows,rc=[])=>`<table><thead><tr>${head.map((h,i)=>`<th class="${rc.includes(i)?'r':''}">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>`<td class="${rc.includes(i)?'r':''}">${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+const idx=v=>`<span class="pill ${v>=110?'g':v<=90?'r':'n'}">${v}</span>`;
+const dlt=v=>`<span class="${v>0?'pos':v<0?'neg':''}">${PP(v)}</span>`;
+
+// KPIs
+(function(){const k=(l,v,x)=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${x}</div></div>`;
+ $('kpis').innerHTML=k('Share of term life applications Q3',P(17.4),'<span class="pos">+1,1 pp</span> vs Q2')+k('Conversion quote → application','29%','<span class="pos">+3 pp</span> vs market (26%)')+k('Application → policy','84%','<span class="neg">−4 pp</span> vs market (88%)')+k('Avg. sum insured','72%','of the loan amount (market 68%)');})();
+// 2
+$('c_trend').innerHTML=line([{n:'Your share of term life applications',c:NAVY,v:[15.8,16.1,15.9,16.4,16.6,16.9,17.0,17.3,17.8,18.1]},{n:'Peer group median',c:Y,dash:1,w:2,v:[14.2,14.0,14.3,14.1,14.4,14.2,14.5,14.3,14.6,14.4]}],M,{dec:0,min:10});
+$('t_q').innerHTML=tbl(['Quarter','Share','Δ'],[['Q1',P(15.9),'–'],['Q2',P(16.3),dlt(0.4)],['Q3',P(17.4),dlt(1.1)],['Oct',P(18.1),dlt(0.7)]],[1,2]);
+$('t_reg').innerHTML=tbl(['Region','Share','Index'],[['North',P(15.1),idx(87)],['East',P(19.8),idx(114)],['Central',P(17.9),idx(103)],['Randstad',P(16.2),idx(93)],['South',P(19.0),idx(109)]],[1,2]);
+$('t_seg').innerHTML=tbl(['Segment','You','Δ market'],[['First-time buyers',P(23.1),dlt(5.2)],['Next-time buyers',P(16.8),dlt(0.6)],['Remortgagers',P(14.2),dlt(-1.8)],['Single applicants',P(9.7),dlt(-4.9)],['Seniors 60+',P(6.3),dlt(-5.6)]],[1,2]);
+// 3
+(function(){const W=440,H=200;const st=[['Quote',100,100],['Application',29,26],['Policy',24.4,22.9]];let s='';
+ st.forEach((r,i)=>{const y=i*64+6,wm=(W-160)*r[1]/100,wk=(W-160)*r[2]/100;s+=`<text x="0" y="${y+18}" font-size="13" font-weight="700" fill="#1b2535">${r[0]}</text><rect x="110" y="${y}" width="${wm}" height="24" rx="5" fill="${NAVY}"/><text x="${110+wm+6}" y="${y+17}" font-size="12" font-weight="700">${nl(r[1],i==2?1:0)}</text><rect x="110" y="${y+28}" width="${wk}" height="14" rx="4" fill="${MKT}"/><text x="${110+wk+6}" y="${y+40}" font-size="11" fill="#5b6678">${nl(r[2],i==2?1:0)}</text>`;});
+ $('c_funnel').innerHTML=`<div class="legend"><span><i style="background:${NAVY}"></i>You</span><span><i style="background:${MKT}"></i>Market</span></div><svg viewBox="0 0 ${W} ${H}" width="100%">${s}</svg>`;})();
+$('t_conv').innerHTML=tbl(['Segment','You','Market','Δ'],[['First-time buyers','37%','28%',dlt(9)],['Next-time buyers','29%','27%',dlt(2)],['Remortgagers','22%','25%',dlt(-3)],['Single applicants','15%','24%',dlt(-9)],['Seniors 60+','11%','21%',dlt(-10)]],[1,2,3]);
+$('c_orvrate').innerHTML=bars(['First-time buyer','Cohabiting','Next-time buyer','Remortgager','Single','Senior (60+)'],[50,49,41,33,31,14])+'<div class="note">Market: all term life providers combined.</div>';
+// 4
+$('c_reason').innerHTML=bars(['Premium','Underwriting / health declaration','Terms and conditions','Link with lender','Process / lead time'],[41,19,12,17,11]);
+$('c_dear').innerHTML=bars(['Seniors 60+','Single applicants','Remortgagers','Next-time buyers','First-time buyers'],[48,39,27,18,9],'%','#8a97ab');
+// 5
+$('c_lender').innerHTML=bars(['Major banks incl. subsidiaries','Mortgage fund managers','Insurers','Other banks'],[11.2,22.6,14.9,19.3])+'<div class="note">Your average share is 17,4%.</div>';
+$('t_koppel').innerHTML=tbl(['Characteristic','You','Market'],[['Term life via the same party as the mortgage','9%','14%'],['Term life with assignment to the lender','63%','58%'],['Term life required by the lender','21%','24%'],['Term life with an NHG mortgage','47%','44%']],[1,2]);
+// 6
+const off=[['Advisory firm 04',28.4,163],['Advisory firm 17',26.1,150],['Advisory firm 09',24.8,143],['Advisory firm 22',21.0,121],['Advisory firm 13',18.7,107],['Advisory firm 01',16.2,93],['Advisory firm 30',13.9,80],['Advisory firm 08',11.4,66],['Advisory firm 25',9.6,55],['Advisory firm 14',7.1,41]];
+$('t_off').innerHTML=tbl(['Firm','','Your share','Index'],off.map(o=>[o[0],`<div class="mini"><span style="width:${o[1]/28.4*100}%"></span></div>`,P(o[1]),idx(o[2])]),[2,3]);
+$('c_conc').innerHTML=pair(['Top 3 firms','Top 10 firms','Top 25 firms'],[12,29,49],[9,23,42]);
+$('t_mov').innerHTML=tbl(['Firm','Q2','Q3','Δ'],[['Advisory firm 22',P(16.4),P(21.0),dlt(4.6)],['Advisory firm 13',P(15.2),P(18.7),dlt(3.5)],['Advisory firm 08',P(15.0),P(11.4),dlt(-3.6)],['Advisory firm 14',P(9.9),P(7.1),dlt(-2.8)]],[1,2,3]);
+// 7
+(function(){const pc=(t,sub,items,hl)=>`<div class="card" style="${hl?'border:2px solid #e0a800;background:#fff':''}"><div class="kpi"><div class="l">${sub}</div><div class="v" style="font-size:1.25rem">${t}</div></div><table style="margin-top:8px">${items.map(i=>`<tr><td>${i[0]}</td><td class="r" style="white-space:nowrap"><b>${i[1]}</b></td></tr>`).join('')}</table></div>`;
+ $('persona').innerHTML=pc('Cohabiting first-time buyer','You',[['Most common type','First-time buyer (44%)'],['Avg. age at inception','34,1 years'],['Cohabiting / single','82% / 18%'],['Male / female (insured person 1)','56% / 44%'],['Two insured persons','71%'],['Avg. sum insured','€ 289.000'],['Coverage ratio (sum / loan amount)','72%'],['Annuity decreasing','58%'],['Avg. term','27,6 years'],['Avg. monthly premium','€ 21,40']],1)+
+ pc('Cohabiting first-time buyer','Peer group (median)',[['Most common type','First-time buyer (38%)'],['Avg. age at inception','36,0 years'],['Cohabiting / single','77% / 23%'],['Male / female (insured person 1)','58% / 42%'],['Two insured persons','66%'],['Avg. sum insured','€ 276.000'],['Coverage ratio (sum / loan amount)','69%'],['Annuity decreasing','52%'],['Avg. term','26,1 years'],['Avg. monthly premium','€ 23,10']])+
+ pc('First-time or next-time buyer','Market',[['Most common type','First-time buyer (36%)'],['Avg. age at inception','37,2 years'],['Cohabiting / single','74% / 26%'],['Male / female (insured person 1)','59% / 41%'],['Two insured persons','63%'],['Avg. sum insured','€ 271.000'],['Coverage ratio (sum / loan amount)','68%'],['Annuity decreasing','49%'],['Avg. term','25,4 years'],['Avg. monthly premium','€ 24,60']]);})();
+(function(){const eur=v=>'€ '+v.toLocaleString('nl-NL');const c=(u,m,f)=>`<span style="white-space:nowrap"><b>${f(u)}</b> <span style="color:#5b6678;font-size:.8rem">(${f(m)})</span></span>`;const pc=v=>v+'%';const yr=v=>nl(v,1);
+ const R=[['Single',18,26,36.9,38.4,182000,194000,52,55],['Cohabiting',82,74,33.6,36.8,312000,300000,75,71],['Male (insured person 1)',56,59,34.8,37.9,296000,280000,73,69],['Female (insured person 1)',44,41,33.2,36.3,280000,259000,71,67],['First-time buyer',44,36,30.4,31.6,301000,288000,78,72],['Next-time buyer',31,32,40.2,41.8,298000,295000,63,60],['Remortgager',15,19,44.9,45.6,246000,252000,61,62],['Business owner / self-employed',7,9,39.8,41.0,322000,309000,66,64],['Senior (60+)',3,4,63.1,63.9,121000,138000,38,41]];
+ $('t_type').innerHTML='<table><thead><tr><th>Customer type</th><th class="r">Share</th><th class="r">Avg. age</th><th class="r">Avg. sum insured</th><th class="r">Coverage ratio</th></tr></thead><tbody>'+R.map(r=>`<tr><td>${r[0]}</td><td class="r">${c(r[1],r[2],pc)}</td><td class="r">${c(r[3],r[4],yr)}</td><td class="r">${c(r[5],r[6],eur)}</td><td class="r">${c(r[7],r[8],pc)}</td></tr>`).join('')+'</tbody></table>';})();
+$('c_age').innerHTML=pair(['< 30','30–39','40–49','50–59','60+'],[33,41,16,7,3],[25,38,21,11,5]);
+$('c_cov').innerHTML=split([['Two insured persons','#1e2533','#fff',71],['One insured person',Y,'#1e2533',29]],[63,37]);
+// 8
+$('c_dekk').innerHTML=pair(['Level','Annuity decreasing','Linear decreasing'],[31,58,11],[38,49,13]);
+$('c_bedr').innerHTML=pair(['< € 150.000','€ 150.000 – 250.000','€ 250.000 – 350.000','€ 350.000 – 500.000','> € 500.000'],[11,27,34,21,7],[14,29,31,19,7]);
+$('c_lt').innerHTML=pair(['≤ 10 years','10 – 20 years','20 – 25 years','25 – 30 years'],[6,14,19,61],[9,17,21,53]);
+$('c_dg').innerHTML=pair(['< 50%','50 – 75%','75 – 100%','100%'],[14,31,29,26],[18,33,27,22]);
+// 9 premium range
+(function(){const rows=[['Age 30 · € 250.000 · 30 yrs · level',11.2,12.4,13.6,14.9,17.8,12.1],['Age 30 · € 300.000 · 30 yrs · annuity decreasing',7.9,8.6,9.4,10.3,12.6,8.4],['Age 40 · € 300.000 · 25 yrs · annuity decreasing',13.8,15.1,16.4,17.9,21.3,16.0],['Age 50 · € 200.000 · 15 yrs · level',21.4,23.6,25.9,28.1,33.2,29.4],['Age 60 · € 150.000 · 10 yrs · level',38.6,42.9,46.1,50.3,58.7,54.8]];
+ const W=760,L=280,R=70,rh=40,H=rows.length*rh+28,mn=5,mx=60,x=v=>L+(W-L-R)*(v-mn)/(mx-mn);let s='';
+ for(let v=10;v<=60;v+=10)s+=`<line x1="${x(v)}" x2="${x(v)}" y1="0" y2="${H-22}" stroke="#eef1f5"/><text x="${x(v)}" y="${H-6}" text-anchor="middle" font-size="10" fill="#5b6678">€ ${v}</text>`;
+ rows.forEach((r,i)=>{const y=i*rh+8;const q=r[6]<=r[2]?'pos':r[6]>=r[4]?'neg':'';s+=`<text x="0" y="${y+15}" font-size="11.5" fill="#1b2535">${r[0]}</text><rect x="${x(r[1])}" y="${y+6}" width="${x(r[5])-x(r[1])}" height="10" rx="5" fill="#cfd6e1"/><rect x="${x(r[2])}" y="${y+3}" width="${x(r[4])-x(r[2])}" height="16" rx="4" fill="#8a97ab"/><rect x="${x(r[3])-1.5}" y="${y}" width="3" height="22" fill="${NAVY}"/><circle cx="${x(r[6])}" cy="${y+11}" r="7" fill="${Y}" stroke="#fff" stroke-width="2"/><text x="${W-R+8}" y="${y+15}" font-size="12" font-weight="700" fill="${q=='pos'?'#1f8a5b':q=='neg'?'#c0392b':'#1b2535'}">€ ${nl(r[6],2)}</text>`;});
+ $('c_prem').innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="100%">${s}</svg><div class="ins"><b>Insight:</b> for young insured persons with decreasing cover you are in the cheapest quartile. From age 50 you are in the most expensive quartile. This explains your low share among seniors and remortgagers.</div><div class="note">Standard profile: non-smoker, monthly premium, one insured person. The premium is an example and not a quotation.</div>`;})();
+// 10
+$('t_dl').innerHTML=tbl(['Step','You','Market'],[['Quote → application','2,9','3,2'],['Application → acceptance','7,6','5,4'],['Acceptance → policy','1,8','1,7'],['<b>Application → policy</b>','<b>9,4</b>','<b>7,1</b>']],[1,2]);
+$('c_acc').innerHTML=bars(['Accepted immediately','Accepted after additional questions','Accepted on modified terms','Not proceeded or withdrawn'],[71,17,4,8],'%');
+// 11
+(function(){const k=(l,v,d)=>`<div class="card kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${d}</div></div>`;
+ $('npskpi').innerHTML=k('Adviser NPS','+12','<span class="neg">−6</span> vs group (+18)')+k('Customer NPS','+26','<span class="pos">+2</span> vs group (+24)')+k('Adviser responses','388','from 181 firms')+k('Customer responses','1.210','response rate 21%');})();
+$('c_score').innerHTML=pair(['Underwriting speed','Clarity of underwriting','Premium','Terms and conditions','Digital application process','Adviser support','Payout on death (reputation)','Overall rating'],[6.4,7.0,7.8,7.4,6.9,7.2,8.0,7.3],[7.3,7.2,7.4,7.3,7.4,7.3,7.8,7.4],'',1,240,640);
+// 12
+$('t_grow').innerHTML='<thead><tr><th>Target group</th><th class="r">Mortgages without term life</th><th class="r">Your share</th><th>Opportunity</th></tr></thead><tbody>'+[['Single applicants with children','58%',P(8.1),'g'],['Single applicants without children','74%',P(9.4),'n'],['Business owners and self-employed','47%',P(12.6),'g'],['Seniors 60+ with a mortgage','86%',P(6.3),'g'],['Blended families','41%',P(15.2),'n'],['Remortgagers without existing term life cover','52%',P(14.2),'g']].map(r=>`<tr><td>${r[0]}</td><td class="r">${r[1]}</td><td class="r">${r[2]}</td><td><span class="pill ${r[3]}">${r[3]=='g'?'high':'medium'}</span></td></tr>`).join('')+'</tbody>';
+// 13
+const sc=[['Share of term life applications',P(17.4),P(14.4),1],['Conversion quote → application','29%','26%',1],['Application → policy','84%','88%',4],['Lead time application → policy','9,4 d','7,1 d',4],['Premium position < 40 years (percentile)','P20','P50',1],['Premium position ≥ 50 years (percentile)','P85','P50',4],['Coverage ratio','72%','69%',2],['Adviser NPS','+12','+18',3],['Concentration top 10 firms','29%','25%',3]];
+$('t_sc').innerHTML='<thead><tr><th>Indicator</th><th>You</th><th>Group median</th><th>Quartile</th></tr></thead><tbody>'+sc.map(r=>`<tr><td>${r[0]}</td><td><b>${r[1]}</b></td><td>${r[2]}</td><td><span class="pill ${r[3]==1?'g':r[3]==4?'r':'n'}">${r[3]}</span></td></tr>`).join('')+'</tbody>';
+
+// print via window.open (also works in iframes)
+$('pr').addEventListener('click',()=>{
+  const w=window.open('','_blank');if(!w){alert('Please allow pop-ups to print.');return;}
+  w.document.write('<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Sample report term life insurer Y Q3 2026</title>'+document.querySelector('style').outerHTML+'<style>.bar-top button{display:none}.bar-top{position:static}@page{size:A4;margin:12mm}</style></head><body>'+document.body.innerHTML.replace(/<script[\s\S]*<\/script>/,'')+'</body></html>');
+  w.document.close();setTimeout(()=>{try{w.focus();w.print();}catch(e){}},500);
+});
+})();
+</script>
+</body>
+</html>
