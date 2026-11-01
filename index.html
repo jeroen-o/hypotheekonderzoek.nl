@@ -107,6 +107,10 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 @media(max-width:960px){.offer{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.offer{grid-template-columns:1fr}}
 .offer .card h3{margin:.3em 0}
+.offer .card{display:flex;flex-direction:column}
+.offer .card ul{margin-bottom:16px}
+.offer-btn{margin-top:auto;align-self:flex-start}
+.offer .card .tag{align-self:flex-start}
 .offer ul{padding-left:18px;margin:.6em 0 0;color:var(--muted)}
 .offer li{margin:.25em 0}
 .offer .card.hl{border:2px solid var(--orange)}
@@ -135,6 +139,16 @@ footer a{color:#ffcc00}
 .faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
 .faq summary{cursor:pointer;font-weight:700;color:var(--navy)}
 .faq details p{margin:.6em 0 0;color:var(--muted)}
+.oform{max-width:900px;margin:0 auto 8px;text-align:left;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);border-radius:var(--r);padding:24px}
+.ogrid{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin-bottom:12px}
+@media(max-width:640px){.ogrid{grid-template-columns:1fr}}
+.ogrid label{display:flex;flex-direction:column;gap:5px;font-size:.85rem;font-weight:600;color:#e3e9f2}
+.ogrid .full{grid-column:1/-1}
+.ogrid input,.ogrid select,.ogrid textarea{font:inherit;font-weight:400;padding:10px 12px;border-radius:10px;border:1px solid #4a5468;background:#fff;color:var(--ink);width:100%}
+.ogrid .chk{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400}
+.ogrid .chk input{width:auto;margin-top:3px}
+.ogrid .chk a{color:#ffcc00}
+.oerr{color:#ffb4a8;font-weight:600;min-height:1.2em;margin:0 0 8px;text-align:left}
 /* EBA */
 @media(min-width:700px){.eba td:first-child{white-space:nowrap}}
 .eba td:first-child{font-weight:600;color:var(--navy)}
@@ -169,7 +183,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <a href="#aanbod">Aanbod</a>
       <a href="regelgeving.html">Regelgeving</a>
       <a href="#monitor">Monitor</a>
-      <a href="#contact" class="btn">Offerte aanvragen</a>
+      <a href="#offerte" class="btn">Offerte aanvragen</a>
     </nav>
   </div>
 </header>
@@ -374,6 +388,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Uw tien belangrijkste adviespraktijken</li>
           <li>Een samenvatting in één rapport, plus een presentatie van een uur</li>
         </ul>
+        <a class="btn offer-btn" href="#offerte" data-product="Positiescan">Offerte aanvragen</a>
       </div>
       <div class="card">
         <span class="tag">Eenmalig</span>
@@ -386,6 +401,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Renteposities tegenover de markt, op basis van gestructureerde rentestaten</li>
           <li>Methodologische verantwoording</li>
         </ul>
+        <a class="btn offer-btn" href="#offerte" data-product="Marktrapport">Offerte aanvragen</a>
       </div>
       <div class="card hl">
         <span class="tag">Doorlopend</span>
@@ -399,6 +415,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Prognose van uw instroom en uitstaande pijplijn</li>
           <li>"Vraag het de data": een AI-analist in uw dashboard</li>
         </ul>
+        <a class="btn offer-btn" href="#offerte" data-product="Inzicht-abonnement">Offerte aanvragen</a>
       </div>
       <div class="card">
         <span class="tag">Benchmark</span>
@@ -410,6 +427,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Uw sterke punten en uw groeiruimte per segment en regio</li>
           <li>Een anonieme groep van minstens vijf partijen, zonder concurrenten bij naam</li>
         </ul>
+        <a class="btn offer-btn" href="#offerte" data-product="Benchmarkonderzoek">Offerte aanvragen</a>
       </div>
       <div class="card">
         <span class="tag">Maatwerk</span>
@@ -422,6 +440,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Kwalitatief onderzoek onder adviseurs en consumenten</li>
           <li>Verrijking met open data van onder meer CBS, bijvoorbeeld het vermogen en de overwaarde van huishoudens per leeftijdsklasse en huishoudtype</li>
         </ul>
+        <a class="btn offer-btn" href="#offerte" data-product="Onderzoek op maat">Offerte aanvragen</a>
       </div>
       <div class="card">
         <span class="tag">AI</span>
@@ -432,6 +451,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Uitlegbaar: welke factoren het verschil veroorzaken</li>
           <li>Ondersteunt EBA § 54–55 en de AI Act</li>
         </ul>
+        <a class="btn offer-btn" href="#offerte" data-product="Bias- en fairnessbenchmark">Offerte aanvragen</a>
       </div>
       <div class="card">
         <span class="tag">Onderzoek</span>
@@ -442,6 +462,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Wat adviseurs het meest waarderen en wat beter kan</li>
           <li>Alleen per groep gerapporteerd, nooit per individuele adviseur</li>
         </ul>
+        <a class="btn offer-btn" href="#offerte" data-product="Adviseursenquête">Offerte aanvragen</a>
       </div>
       <div class="card">
         <span class="tag">Adviespraktijken</span>
@@ -454,6 +475,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Prestaties per adviseur en per vestiging</li>
           <li>Uw kantoor naast het marktgemiddelde in het netwerk</li>
         </ul>
+        <a class="btn offer-btn" href="#offerte" data-product="Adviseursabonnement">Offerte aanvragen</a>
       </div>
     </div>
   </div>
@@ -587,7 +609,32 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <div class="wrap">
     <h2>Inzicht in uw positie kopen?</h2>
     <p>Vraag een offerte aan voor een eenmalig rapport, doorlopend inzicht of onderzoek op maat. Dan bespreken we welke inzichten en welke periode u nodig heeft.</p>
-    <h3 style="margin:0 0 16px;font-size:1rem;color:#ffcc00;letter-spacing:.08em;text-transform:uppercase">Voor meer informatie</h3>
+    <form id="offerte" class="oform" novalidate>
+      <h3 style="margin:0 0 4px;font-size:1.2rem;color:#fff">Offerte of informatie aanvragen</h3>
+      <p style="margin:0 0 16px;color:#d5deeb;font-size:.92rem">Vul het formulier in. Uw e-mailprogramma opent een bericht aan ons met uw gegevens; u verstuurt het zelf.</p>
+      <div class="ogrid">
+        <label>Waarvoor wilt u een offerte?*<select name="product" required>
+          <option value="">Kies een product</option>
+          <option>Positiescan</option><option>Marktrapport</option><option>Inzicht-abonnement</option><option>Benchmarkonderzoek</option><option>Onderzoek op maat</option><option>Bias- en fairnessbenchmark</option><option>Adviseursenquête</option><option>Adviseursabonnement</option>
+          <option>Deelname onderzoek Bieden met zekerheid</option><option>Whitepaper of Hypotheekmonitor</option><option>Algemene vraag</option>
+        </select></label>
+        <label>Type organisatie*<select name="type" required>
+          <option value="">Kies</option><option>Geldverstrekker</option><option>ORV-verzekeraar</option><option>Garantiepartij</option><option>Adviespraktijk</option><option>Makelaar</option><option>Anders</option>
+        </select></label>
+        <label>Naam*<input name="naam" required autocomplete="name"></label>
+        <label>Organisatie*<input name="organisatie" required autocomplete="organization"></label>
+        <label>Functie<input name="functie" autocomplete="organization-title"></label>
+        <label>E-mailadres*<input name="email" type="email" required autocomplete="email"></label>
+        <label>Telefoonnummer<input name="telefoon" type="tel" autocomplete="tel"></label>
+        <label>Gewenste startdatum<input name="start" type="month"></label>
+        <label class="full">Uw vraag of toelichting<textarea name="bericht" rows="4" placeholder="Bijvoorbeeld welke periode, segmenten of regio's u wilt onderzoeken"></textarea></label>
+        <label class="full chk"><input type="checkbox" name="akkoord" required> Ik ga akkoord met de verwerking van mijn gegevens volgens de <a href="privacy.html">privacyverklaring</a>.*</label>
+      </div>
+      <p class="oerr" id="oerr" role="alert"></p>
+      <button class="btn" type="submit">Offerteaanvraag versturen</button>
+      <p style="margin:10px 0 0;font-size:.8rem;color:#b9c5d6">Werkt het niet? Mail ons direct via <a href="mailto:jeroen.oversteegen@blinqx.tech" style="color:#ffcc00">jeroen.oversteegen@blinqx.tech</a>.</p>
+    </form>
+    <h3 style="margin:36px 0 16px;font-size:1rem;color:#ffcc00;letter-spacing:.08em;text-transform:uppercase">Of neem direct contact op</h3>
     <div class="people">
       <div class="person"><h3>Jos van Driesum</h3><a href="mailto:jos.van.driesum@blinqx.tech?subject=Offerte%20hypotheekonderzoek.nl">jos.van.driesum@blinqx.tech</a><a href="tel:+31644081447">06 44 081 447</a></div>
       <div class="person"><h3>Dennes Roes</h3><a href="mailto:dennes.roes@blinqx.tech?subject=Offerte%20hypotheekonderzoek.nl">dennes.roes@blinqx.tech</a><a href="tel:+31651117893">06 51 117 893</a></div>
@@ -611,5 +658,28 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   </div>
 </footer>
 
+<script>
+(function(){
+  var f=document.getElementById('offerte'); if(!f) return;
+  document.querySelectorAll('.offer-btn').forEach(function(b){
+    b.addEventListener('click',function(){var sel=f.elements.product; sel.value=b.getAttribute('data-product');});
+  });
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); var el=f.elements, err=document.getElementById('oerr'), miss=[];
+    ['product','type','naam','organisatie','email'].forEach(function(n){ if(!el[n].value.trim()) miss.push(el[n].closest('label').firstChild.textContent.replace('*','').trim()); });
+    if(el.email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.email.value)) miss.push('een geldig e-mailadres');
+    if(!el.akkoord.checked) miss.push('akkoord met de privacyverklaring');
+    if(miss.length){ err.textContent='Vul nog in: '+miss.join(', ')+'.'; return; }
+    err.textContent='';
+    var body=['Offerteaanvraag via hypotheekonderzoek.nl','',
+      'Product: '+el.product.value,'Type organisatie: '+el.type.value,'Naam: '+el.naam.value,'Organisatie: '+el.organisatie.value,
+      'Functie: '+(el.functie.value||'-'),'E-mail: '+el.email.value,'Telefoon: '+(el.telefoon.value||'-'),'Gewenste start: '+(el.start.value||'-'),'',
+      'Toelichting:',el.bericht.value||'-','','Akkoord privacyverklaring: ja'].join('\n');
+    var subj='Offerteaanvraag '+el.product.value+' - '+el.organisatie.value;
+    window.location.href='mailto:jeroen.oversteegen@blinqx.tech?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+    err.style.color='#bfe8d3'; err.textContent='Uw e-mailprogramma wordt geopend. Verstuur het bericht om de aanvraag af te ronden.';
+  });
+})();
+</script>
 </body>
 </html>
