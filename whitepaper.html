@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESG-data voor uw hypotheekportefeuille</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 26 28%22%3E%3Cpath d=%22M13 0l13 7v14l-13 7L0 21V7z%22 fill=%22%23ffcc00%22/%3E%3Cpath d=%22M11 12l6 9h-3.4l-6-9z%22 fill=%22%231e2533%22/%3E%3C/svg%3E">
+<link rel="canonical" href="https://hypotheekonderzoek.nl/whitepaper.html">
+<meta name="theme-color" content="#1e2533">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="hypotheekonderzoek.nl">
+<meta property="og:title" content="ESG-data voor uw hypotheekportefeuille | hypotheekonderzoek.nl">
+<meta property="og:description" content="Whitepaper: welke ESG-gegevens toezichthouders en Europese regels van geldverstrekkers vragen, en hoe u uw hypotheekportefeuille vergelijkt met de markt.">
+<meta property="og:url" content="https://hypotheekonderzoek.nl/whitepaper.html">
+<meta property="og:image" content="https://jeroen-o.github.io/hypotheekonderzoek.nl/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jeroen-o.github.io/hypotheekonderzoek.nl/og.png">
+
+<meta name="description" content="Whitepaper: welke ESG-gegevens toezichthouders en Europese regels van geldverstrekkers vragen, en hoe u uw hypotheekportefeuille vergelijkt met de markt.">
+<style>
+:root{
+  --navy:#1e2533; --navy-2:#2b3345; --orange:#ffcc00; --orange-soft:#fff5cc;
+  --ink:#1b2535; --muted:#5b6678; --line:#e1e6ee; --bg:#f5f7fa; --card:#fff;
+  --pos:#1f8a5b; --neg:#c0392b; --c2:#8da9c4;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+a{color:var(--navy-2)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+header.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:10}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font-weight:800;letter-spacing:-.01em;font-size:1.1rem;color:#fff;text-decoration:none}
+.logo span{color:var(--orange)}
+nav a{color:#cfd8e6;text-decoration:none;margin-left:20px;font-size:.92rem}
+nav a:hover{color:#fff}
+nav{white-space:nowrap}
+nav a:not(.btn){margin-left:14px;font-size:.88rem}
+.logo{white-space:nowrap}
+@media(max-width:1240px){nav a:not(.btn){display:none}}
+@media(max-width:400px){header.top .btn{padding:7px 10px!important;font-size:.76rem!important}.logo{font-size:.88rem!important}}
+@media(max-width:480px){header.top .btn{padding:8px 12px;font-size:.82rem;margin-left:8px}header.top .wrap{gap:8px}.logo{font-size:.98rem}.logo svg{width:20px;height:22px;margin-right:6px!important}}
+.btn{display:inline-block;background:var(--orange);color:var(--navy) !important;padding:10px 18px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:.95rem}
+.btn.ghost{background:transparent;border:1.5px solid currentColor}
+.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:72px 0 88px}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7a5c00}
+.hero .eyebrow,#contact .eyebrow,.kern .eyebrow{color:var(--orange)}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--orange);color:var(--navy);padding:10px 16px;border-radius:8px;font-weight:700}
+.skip:focus{left:16px}
+:focus-visible{outline:3px solid #e0a800;outline-offset:2px;border-radius:4px}
+.hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;margin:.4em 0 .35em;letter-spacing:-.02em;max-width:820px}
+.hero p.lead{font-size:1.15rem;color:#d5deeb;max-width:680px;margin:0 0 28px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .ctas .ghost{color:#fff !important}
+.aud{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-48px}
+@media(max-width:1000px){.aud{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.aud{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.aud .card{box-shadow:0 8px 28px rgba(30,37,51,.10)}
+.aud h3{margin:.2em 0 .3em;font-size:1.1rem}
+.aud p{margin:0;color:var(--muted);font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--orange-soft);color:#6b5200;padding:3px 9px;border-radius:999px}
+section{padding:72px 0}
+section h2{font-size:clamp(1.6rem,3.4vw,2.2rem);letter-spacing:-.015em;margin:.25em 0 .4em;line-height:1.15}
+section p.intro{color:var(--muted);max-width:720px;margin:0 0 32px;font-size:1.05rem}
+.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.grid6{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid6{grid-template-columns:1fr}}
+.feat .num{width:34px;height:34px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;margin-bottom:10px}
+.feat h3{margin:0 0 .3em;font-size:1.05rem}
+.feat p{margin:0;color:var(--muted);font-size:.94rem}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th{text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);padding:8px 6px}
+td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.tablewrap{overflow-x:auto}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1000px){.cats{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cats{grid-template-columns:1fr}}
+.cat{border-top:4px solid var(--orange)}
+.cat h3{margin:0 0 .5em;font-size:1.02rem}
+.cat ul{margin:0;padding-left:18px;color:var(--muted);font-size:.9rem}
+.cat li{margin:.3em 0}
+.cat.wide{grid-column:1/-1}
+.cats.q{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1000px){.cats.q{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cats.q{grid-template-columns:1fr}}
+.cat.wide ul{columns:2;column-gap:32px}
+@media(max-width:760px){.cat.wide ul{columns:1}}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap}
+.flow .step{flex:1 1 120px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center;font-weight:700;color:var(--navy);display:flex;flex-direction:column;justify-content:center}
+.flow .step small{display:block;font-weight:500;color:var(--muted);font-size:.78rem;margin-top:4px}
+.flow .step.hl{background:var(--orange);border-color:var(--orange)}
+.flow .step.hl small{color:var(--navy)}
+.flow .arr{align-self:center;color:var(--muted);font-size:1.3rem}
+@media(max-width:760px){.flow{flex-direction:column}.flow .arr{transform:rotate(90deg)}}
+/* offer */
+.offer{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1180px){.offer{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:1000px){.offer{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.offer{grid-template-columns:1fr}}
+@media(max-width:960px){.offer{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.offer{grid-template-columns:1fr}}
+.offer .card h3{margin:.3em 0}
+.offer ul{padding-left:18px;margin:.6em 0 0;color:var(--muted)}
+.offer li{margin:.25em 0}
+.offer .card.hl{border:2px solid var(--orange)}
+
+.checks{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:760px){.checks{grid-template-columns:1fr}}
+.checks li{padding-left:28px;position:relative;font-weight:600}
+.checks li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:var(--orange)}
+.checks li::after{content:"";position:absolute;left:6px;top:7px;width:5px;height:9px;border:solid var(--navy);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.wp{display:grid;grid-template-columns:1.6fr 1fr;gap:28px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px;border-top:4px solid var(--orange)}
+@media(max-width:860px){.wp{grid-template-columns:1fr;padding:22px}}
+.wp-cta{background:var(--orange-soft);border-radius:12px;padding:22px;align-self:start}
+.checks.one{grid-template-columns:1fr}
+.checks.one li{font-weight:500;color:var(--ink)}
+.mission{margin-top:48px;text-align:center}
+.mission p{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;letter-spacing:-.015em;color:var(--navy);margin:.3em auto 0;max-width:820px;line-height:1.25}
+.kern{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;background:var(--navy);color:#fff;border-radius:var(--r);padding:28px;margin-bottom:16px}
+@media(max-width:860px){.kern{grid-template-columns:1fr}}
+.kern h3{margin:.4em 0 .3em;font-size:1.4rem;color:#fff}
+.kern p{margin:0;color:#d5deeb}
+.funnel{display:flex;flex-direction:column;gap:8px;align-items:center}
+.funnel>div{background:var(--orange);color:var(--navy);font-weight:800;text-align:center;padding:12px;border-radius:10px}
+.funnel small{display:block;font-weight:500;font-size:.78rem}
+.funnel .f1{width:100%}.funnel .f2{width:78%}.funnel .f3{width:56%}
+footer a{color:#ffcc00}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700;color:var(--navy)}
+.faq details p{margin:.6em 0 0;color:var(--muted)}
+/* EBA */
+@media(min-width:700px){.eba td:first-child{white-space:nowrap}}
+.eba td:first-child{font-weight:600;color:var(--navy)}
+.callout{border-left:4px solid var(--orange);background:#fff;padding:14px 18px;border-radius:0 10px 10px 0;margin-top:18px;font-size:.92rem;color:var(--muted)}
+.method{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.method{grid-template-columns:1fr}}
+.method h3{margin:0 0 .3em;font-size:1.02rem}
+.method p{margin:0;color:var(--muted);font-size:.93rem}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto;text-align:left}
+@media(max-width:760px){.people{grid-template-columns:1fr}}
+.person{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:20px}
+.person h3{margin:0 0 8px;font-size:1.05rem;color:#fff}
+.person a{display:block;color:#d5deeb;text-decoration:none;font-size:.92rem;margin-top:4px;word-break:break-all}
+.person a:hover{color:#ffcc00}
+footer{background:var(--navy);color:#b9c5d6;padding:40px 0;font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+#contact{background:var(--navy-2);color:#fff;text-align:center}
+#contact p{color:#d5deeb;max-width:640px;margin:0 auto 24px}
+</style>
+<style>
+.doc{max-width:820px;margin:0 auto;padding:40px 16px 64px}
+.doc h2{margin-top:1.8em;font-size:1.45rem}
+.doc h3{margin:1.4em 0 .3em;font-size:1.08rem}
+.doc p,.doc li{color:#2c3647}
+.doc table{margin:12px 0}
+.doc .box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:16px 0}
+.doc .ph{background:var(--orange-soft);padding:0 4px;border-radius:4px}
+.doc .toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.doc .toc ol{margin:6px 0 0;padding-left:20px}
+.doc .src{font-size:.88rem;color:var(--muted)}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.team{grid-template-columns:1fr!important}}
+.team .card{text-align:center}
+#werkwijze .card{text-align:left}
+.team .av{width:72px;height:72px;border-radius:50%;background:var(--orange-soft);display:grid;place-items:center;margin:0 auto 10px;font-weight:800;color:var(--navy);font-size:1.3rem}
+@media print{header.top,footer,.skip{display:none}.doc{padding:0}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Naar de inhoud</a>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="hypotheekonderzoek.nl, een activiteit van Blinqx"><svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true" style="vertical-align:-7px;margin-right:8px"><path d="M13 0l13 7v14l-13 7L0 21V7z" fill="#ffcc00"/><path d="M11 12l6 9h-3.4l-6-9z" fill="#1e2533"/></svg>hypotheek<span>onderzoek</span>.nl</a>
+    <nav>
+      <a href="index.html#vragen">Uw vragen</a>
+      <a href="index.html#bron">Onze data</a>
+      <a href="index.html#rapportages">Rapportages</a>
+      <a href="index.html#rente">Rentedata</a>
+      <a href="index.html#aanbod">Aanbod</a>
+      <a href="regelgeving.html">Regelgeving</a>
+      <a href="index.html#monitor">Monitor</a>
+      <a href="index.html#contact" class="btn">Offerte aanvragen</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="hero" style="padding:56px 0 64px">
+  <div class="wrap">
+    <span class="eyebrow">Whitepaper · november 2026</span>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem)">ESG-data voor uw hypotheekportefeuille</h1>
+    <p class="lead" style="margin:0">Een praktische gids voor risk-, finance- en duurzaamheidsteams van geldverstrekkers. Welke ESG-gegevens vragen toezichthouders en Europese regels, en hoe vergelijkt u uw portefeuille met de markt?</p>
+  </div>
+</div>
+
+<article class="doc">
+  <div class="toc"><strong>Inhoud</strong><ol>
+    <li><a href="#w1">Samenvatting</a></li>
+    <li><a href="#w2">Waarom ESG-data over hypotheken nu belangrijk is</a></li>
+    <li><a href="#w3">Het kader: wat er van u gevraagd wordt</a></li>
+    <li><a href="#w4">E: energielabels en klimaatrisico</a></li>
+    <li><a href="#w5">S: toegankelijke en eerlijke kredietverlening</a></li>
+    <li><a href="#w6">G: datakwaliteit, herleidbaarheid en governance</a></li>
+    <li><a href="#w7">Marktreferentiedata naast uw eigen portefeuille</a></li>
+    <li><a href="#w8">Checklist voor uw organisatie</a></li>
+    <li><a href="#w9">Bronnen</a></li>
+  </ol></div>
+
+  <h2 id="w1">1. Samenvatting</h2>
+  <p>Hypotheken zijn voor de meeste Nederlandse geldverstrekkers de grootste activapost. Daardoor bepaalt het onderpand, de woning, voor een groot deel het ESG-profiel van de balans. Europese en Nederlandse regels vragen steeds nadrukkelijker om dat profiel te meten, te beheren en erover te rapporteren.</p>
+  <ul>
+    <li><b>Environmental:</b> energie-efficiëntie en klimaatrisico van het onderpand. Het energielabel is daarvoor het belangrijkste en tegelijk een onvolmaakt gegeven.</li>
+    <li><b>Social:</b> de toegankelijkheid van krediet voor starters, alleenstaanden, senioren en andere groepen, en het voorkomen van vertekening in acceptatie en modellen.</li>
+    <li><b>Governance:</b> herleidbare data, vastgelegde definities en een aantoonbare monitoring.</li>
+  </ul>
+  <p>Uw eigen portefeuilledata vertelt u <em>waar u staat</em>. Pas een vergelijking met de markt vertelt u <em>of dat goed of slecht is</em>. In deze whitepaper leest u welke gegevens ertoe doen en hoe u marktreferentiedata inzet.</p>
+
+  <h2 id="w2">2. Waarom ESG-data over hypotheken nu belangrijk is</h2>
+  <p>Drie ontwikkelingen komen samen:</p>
+  <ol>
+    <li><b>Prudentieel toezicht.</b> De EBA-richtlijnen voor kredietverlening en monitoring vragen sinds 30 juni 2021 dat instellingen ESG-factoren meenemen in hun risicobereidheid, hun kredietbeleid en de waardering van onderpand.</li>
+    <li><b>Openbaarmaking.</b> Grote en beursgenoteerde instellingen rapporteren elk halfjaar ESG-templates, waaronder door vastgoed gedekte leningen naar energie-efficiëntie.</li>
+    <li><b>Nationale dataverzameling.</b> Met de Wet rapportage hypotheekmarkt DNB gaan banken, verzekeraars, pensioenfondsen en beleggingsinstellingen gegevens per lening aan DNB rapporteren, waaronder het energielabel.</li>
+  </ol>
+  <p>Daarnaast is het energielabel zichtbaar verbonden met het kredietrisico. Het Kadaster meldt dat de gemiddelde loan-to-value bij woningen met label A of beter in het tweede halfjaar van 2025 85,1% was, tegen 89,5% bij label D of slechter.</p>
+
+  <h2 id="w3">3. Het kader: wat er van u gevraagd wordt</h2>
+  <div class="tablewrap"><table class="eba">
+    <thead><tr><th>Kader</th><th>Wat het vraagt</th><th>Relevante data</th></tr></thead>
+    <tbody>
+      <tr><td>EBA/GL/2020/06 § 56–57</td><td>ESG-factoren en klimaatrisico (fysiek en transitie) meenemen in risicobereidheid en kredietbeleid</td><td>Energielabel, regio, onderpandkenmerken</td></tr>
+      <tr><td>EBA/GL/2020/06 § 58–59</td><td>Voor duurzame kredietverlening: criteria vastleggen en kwalitatieve en, waar relevant, kwantitatieve doelen stellen</td><td>Aandeel duurzame financiering, energiebesparende maatregelen</td></tr>
+      <tr><td>EBA/GL/2020/06 § 208</td><td>Bij de waardering van onderpand rekening houden met ESG-factoren, zoals de energie-efficiëntie van gebouwen</td><td>Energielabel, taxatie</td></tr>
+      <tr><td>EBA/GL/2020/06 § 249</td><td>Kredietrisico aggregeren naar portefeuilles, producten en segmenten, en concentraties herkennen</td><td>Segmenten naar label, regio en klantprofiel</td></tr>
+      <tr><td>EBA/GL/2020/06 § 54–55</td><td>Bij geautomatiseerde modellen vertekening opsporen en voorkomen</td><td>Acceptatie en conversie per groep</td></tr>
+      <tr><td>Pillar 3 ESG (CRR)</td><td>Halfjaarlijkse templates voor grote en beursgenoteerde instellingen. D 02.00: door vastgoed gedekte leningen naar energie-efficiëntie. D 05.00: blootstelling aan fysiek klimaatrisico.</td><td>Energielabel, energieverbruik, locatie</td></tr>
+      <tr><td>CRD VI en EBA-richtsnoeren voor ESG-risicobeheer</td><td>ESG-risico's systematisch identificeren, meten, beheren en monitoren, ook op portefeuilleniveau</td><td>Alle bovenstaande, met trends</td></tr>
+      <tr><td>Wet rapportage hypotheekmarkt DNB</td><td>Periodieke rapportage per lening aan DNB, waaronder het energielabel. De precieze gegevensset volgt in een AMvB.</td><td>Lening-, onderpand- en leningnemerkenmerken</td></tr>
+      <tr><td>EU-taxonomie / SFDR</td><td>Rapportage over duurzame activa, en duurzaamheidsinformatie bij financiële producten zoals hypotheekfondsen</td><td>Energielabel, aandeel energiezuinige woningen</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Dit overzicht is vereenvoudigd en geen juridisch advies. Welke verplichtingen precies gelden, hangt af van het type instelling, de omvang en de ingangsdata.</p>
+
+  <h2 id="w4">4. E: energielabels en klimaatrisico</h2>
+  <h3>Het energielabel: onmisbaar, maar onvolmaakt</h3>
+  <p>Het energielabel is het meest gebruikte gegeven voor de energie-efficiëntie van woningen, en het enige dat op grote schaal per lening beschikbaar is. Het heeft wel beperkingen:</p>
+  <ul>
+    <li><b>Label is geen verbruik.</b> Onderzoek van het CBS met PCAF (2020) liet zien dat het werkelijke energieverbruik binnen één labelklasse sterk kan verschillen. CO₂-schattingen op basis van labels zijn daarom altijd indicatief.</li>
+    <li><b>Ontbrekende en verouderde labels.</b> Niet elke woning heeft een geregistreerd label, en een label kan dateren van vóór een verbouwing.</li>
+    <li><b>Momentopname.</b> Het label bij afsluiten zegt niets over latere verduurzaming. Vastleggen of een klant energiebesparende maatregelen financiert, maakt de ontwikkeling zichtbaar.</li>
+  </ul>
+  <h3>Wat u minimaal wilt weten</h3>
+  <ul>
+    <li>De verdeling van uw nieuwe productie naar labelklasse, en de trend per kwartaal</li>
+    <li>Het aandeel label A of beter tegenover de markt</li>
+    <li>Hoe vaak energiebesparende maatregelen worden meegefinancierd, per labelgroep</li>
+    <li>De samenhang tussen label en risico, zoals LTV en verhouding lening/inkomen per labelgroep</li>
+    <li>Een indicatieve gefinancierde CO₂-uitstoot volgens de PCAF-methode</li>
+  </ul>
+  <h3>Fysiek klimaatrisico</h3>
+  <p>Template D 05.00 vraagt naar blootstelling aan fysieke klimaatrisico's. Voor woninghypotheken gaat het in Nederland vooral om overstroming, wateroverlast en funderingsproblemen door droogte. Daarvoor koppelt u de locatie van het onderpand aan externe risicokaarten. De verdeling van uw instroom per regio is daarbij een eerste, eenvoudige stap.</p>
+
+  <h2 id="w5">5. S: toegankelijke en eerlijke kredietverlening</h2>
+  <p>De S in ESG krijgt bij hypotheken vaak minder aandacht, maar is wel relevant voor toezicht en reputatie.</p>
+  <ul>
+    <li><b>Toegankelijkheid.</b> Bereikt u starters, alleenstaanden, senioren, ondernemers en flexwerkers net zo goed als de markt? Een structureel lager aandeel kan wijzen op te strenge of onduidelijke acceptatie.</li>
+    <li><b>Kwetsbare groepen.</b> Het CPB (2023) concludeert dat huiseigenaren gemiddeld weerbaarder zijn geworden, maar dat starters, jongeren en mensen met een lager inkomen of weinig vermogen kwetsbaar blijven.</li>
+    <li><b>Vertekening.</b> De EBA vraagt instellingen die geautomatiseerde modellen gebruiken om vertekening op te sporen en te voorkomen. Een verschil in conversie tussen bijvoorbeeld mannen en vrouwen, of tussen leeftijdsgroepen, is geen bewijs van discriminatie. Het is wel een signaal om acceptatiecriteria en modellen te toetsen.</li>
+    <li><b>Aflossingsvrije hypotheken.</b> Volgens de AFM is meer dan de helft van de hypotheekschuld aflossingsvrij en lopen veel van die hypotheken af tussen 2035 en 2040. De AFM verwacht dat aanbieders klanten met een risico activeren en dat blijven monitoren.</li>
+  </ul>
+
+  <h2 id="w6">6. G: datakwaliteit, herleidbaarheid en governance</h2>
+  <p>De EBA vraagt een data-infrastructuur die granulair genoeg is om kredietrisico per lening te volgen, inclusief de criteria die bij het afsluiten zijn toegepast (§ 60–61). Voor ESG-data betekent dat:</p>
+  <ul>
+    <li>vastgelegde definities, bijvoorbeeld welke labelbron, welke peildatum en hoe u met ontbrekende labels omgaat;</li>
+    <li>versiebeheer en een audit trail voor gerapporteerde cijfers;</li>
+    <li>periodieke controle van de datakwaliteit, zoals volledigheid, plausibiliteit en consistentie tussen rapportages;</li>
+    <li>een vaste eigenaar per kengetal, en rapportage aan het bestuur.</li>
+  </ul>
+
+  <h2 id="w7">7. Marktreferentiedata naast uw eigen portefeuille</h2>
+  <p>Uw eigen data beantwoordt de vraag hoe groen of hoe toegankelijk uw portefeuille is. De vraag of dat goed is, kunt u alleen beantwoorden met een referentie. Marktreferentiedata helpt op vier manieren:</p>
+  <ol>
+    <li><b>Duiding.</b> Is 50% label A of beter in uw nieuwe productie veel of weinig? Dat hangt af van wat er in de markt wordt gefinancierd.</li>
+    <li><b>Doelen stellen.</b> De EBA vraagt bij duurzame kredietverlening om kwalitatieve en waar relevant kwantitatieve doelen (§ 59). Een marktreferentie maakt een doel realistisch en toetsbaar.</li>
+    <li><b>Vroeg signaleren.</b> Wie de berekeningen en aanvragen in het advies volgt, ziet verschuivingen eerder dan in de eigen portefeuille.</li>
+    <li><b>Verantwoording.</b> Een onafhankelijke referentie versterkt uw rapportage aan bestuur, auditor en toezichthouder.</li>
+  </ol>
+  <div class="box"><b>Waar hypotheekonderzoek.nl helpt</b><br>Wij leveren geaggregeerde referentiedata uit het hypotheekadvies: de energielabels, de financiering van energiebesparende maatregelen en het klantprofiel van de instroom, steeds voor uw eigen positie tegenover de markt of een anonieme vergelijkingsgroep. <a href="voorbeeldrapport.html#s9">Bekijk het hoofdstuk ESG in het voorbeeldrapport</a>.</div>
+
+  <h2 id="w8">8. Checklist voor uw organisatie</h2>
+  <ol>
+    <li>Leggen wij voor elke nieuwe lening het energielabel vast, met bron en datum?</li>
+    <li>Weten wij hoe groot het aandeel ontbrekende labels is, en hoe we dat behandelen?</li>
+    <li>Rapporteren wij de labelverdeling van de nieuwe productie elk kwartaal aan het bestuur?</li>
+    <li>Vergelijken wij die verdeling met de markt?</li>
+    <li>Leggen wij vast of de klant energiebesparende maatregelen meefinanciert?</li>
+    <li>Kennen wij de blootstelling van onze portefeuille aan overstroming en funderingsrisico?</li>
+    <li>Monitoren wij de toegankelijkheid voor starters, alleenstaanden en senioren tegenover de markt?</li>
+    <li>Toetsen wij acceptatie en modellen periodiek op vertekening?</li>
+    <li>Hebben wij doelen voor duurzame kredietverlening, en volgen wij die?</li>
+    <li>Zijn onze ESG-definities en -bronnen vastgelegd en herleidbaar?</li>
+  </ol>
+
+  <h2 id="w9">9. Bronnen</h2>
+  <ul class="src">
+    <li>EBA, <a href="https://www.eba.europa.eu/activities/single-rulebook/regulatory-activities/credit-risk/guidelines-loan-origination-and-monitoring" target="_blank" rel="noopener">Guidelines on loan origination and monitoring (EBA/GL/2020/06)</a>, 29 mei 2020</li>
+    <li>ECB/EBA, rapportagevereisten ESG-templates (D 01.00 – D 10.00), reporting framework 4.2</li>
+    <li>Eerste Kamer, <a href="https://www.eerstekamer.nl/wetsvoorstel/36846_wet_rapportage" target="_blank" rel="noopener">Wet rapportage hypotheekmarkt DNB (36 846)</a></li>
+    <li>CBS, <a href="https://www.cbs.nl/nl-nl/longread/diversen/2020/inzicht-in-co2-uitstoot-van-particuliere-hypotheekportefeuilles" target="_blank" rel="noopener">Inzicht in CO₂-uitstoot van particuliere hypotheekportefeuilles</a>, 2020</li>
+    <li>Kadaster, <a href="https://www.kadaster.nl/-/hypotheekmarkt-2e-halfjaar-2025-bijna-100-miljard-aan-hypotheken-verstrekt-1" target="_blank" rel="noopener">Hypotheekmarkt 2e halfjaar 2025</a>, 12 februari 2026</li>
+    <li>CPB, Ontwikkelingen op de woningmarkt en financiële risico's, mei 2023</li>
+    <li>AFM, <a href="https://www.afm.nl/nl-nl/sector/kredietaanbieders/hypothecair-krediet/oud-aflossingsvrije-hypotheek" target="_blank" rel="noopener">Aflossingsvrije hypotheek</a></li>
+  </ul>
+  <p class="src">Deze whitepaper is informatief en geen juridisch of regelgevend advies. De naleving van de genoemde kaders blijft de verantwoordelijkheid van de instelling zelf.</p>
+  <p><a class="btn" href="index.html#contact">Bespreek uw ESG-data met ons</a></p>
+</article>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div><strong style="color:#fff">hypotheekonderzoek.nl</strong><br>Marktinformatie voor geldverstrekkers en overige productaanbieders<br>Een activiteit van <strong style="color:#ffcc00">Blinqx</strong></div>
+    <div class="colofon">
+      <strong style="color:#fff">Colofon</strong><br>
+      Blinqx [juridische entiteit] · [vestigingsadres]<br>
+      KvK [nummer] · btw [nummer]<br>
+      <a href="privacy.html">Privacyverklaring</a> · <a href="index.html#methode">Methode &amp; mededinging</a> · <a href="regelgeving.html">Regelgeving</a> · <a href="whitepaper.html">Whitepaper</a> · <a href="voorbeeldrapport.html">Voorbeeldrapport</a> · <a href="methodologie.html">Methodologie</a> · <a href="over-ons.html">Over ons</a><br>
+      <span style="font-size:.8rem">Deze site is geen juridisch of regelgevend advies.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
