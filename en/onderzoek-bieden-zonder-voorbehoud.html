@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<style id="gate-css">html.locked body>*:not(#gate){display:none!important}html.locked body{background:#1e2533!important}#gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:linear-gradient(160deg,#1e2533,#2b3345);padding:16px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}#gate form{width:100%;max-width:380px;background:#fff;border-radius:16px;padding:28px;box-shadow:0 20px 50px rgba(0,0,0,.3);color:#1b2535}#gate .gl{display:flex;align-items:center;gap:10px;font-size:1.1rem;margin-bottom:18px}#gate .gl span{color:#e0a800}#gate .tm{font-size:.55em;vertical-align:super;line-height:0}#gate h1{font-size:1.35rem;margin:0 0 6px}#gate p{margin:0 0 14px;color:#5b6678;font-size:.92rem}#gate label{display:block;font-size:.8rem;font-weight:700;color:#5b6678;margin-bottom:6px}#gate input{width:100%;font:inherit;padding:11px 12px;border:1px solid #cfd6e1;border-radius:10px;margin-bottom:12px;box-sizing:border-box}#gate button{width:100%;font:inherit;font-weight:700;background:#ffcc00;color:#1e2533;border:0;border-radius:999px;padding:11px;cursor:pointer}#gateerr{color:#c0392b!important;font-weight:600;min-height:1.2em;margin:10px 0 0!important}</style>
+<script src="../gate.js"></script>
+
+<title>Bidding without conditions</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 26 28%22%3E%3Cpath d=%22M13 0l13 7v14l-13 7L0 21V7z%22 fill=%22%23ffcc00%22/%3E%3Cpath d=%22M11 12l6 9h-3.4l-6-9z%22 fill=%22%231e2533%22/%3E%3C/svg%3E">
+<link rel="canonical" href="https://hypotheekonderzoek.nl/en/onderzoek-bieden-zonder-voorbehoud.html">
+<meta name="theme-color" content="#1e2533">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Hypotheekonderzoek.nl">
+<meta property="og:title" content="Bidding without conditions | Hypotheekonderzoek.nl">
+<meta property="og:description" content="Independent impact study: does a mortgage with a certificate for bidding without a financing condition complete more often and faster, and what does source validation with the Procesversneller add?">
+<meta property="og:url" content="https://hypotheekonderzoek.nl/en/onderzoek-bieden-zonder-voorbehoud.html">
+<meta property="og:image" content="https://hypotheekonderzoek.nl/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hypotheekonderzoek.nl/og.png">
+
+<meta name="description" content="Independent impact study: does a mortgage with a certificate for bidding without a financing condition complete more often and faster, and what does source validation with the Procesversneller add?">
+<style>
+:root{
+  --navy:#1e2533; --navy-2:#2b3345; --orange:#ffcc00; --orange-soft:#fff5cc;
+  --ink:#1b2535; --muted:#5b6678; --line:#e1e6ee; --bg:#f5f7fa; --card:#fff;
+  --pos:#1f8a5b; --neg:#c0392b; --c2:#8da9c4;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+a{color:var(--navy-2)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+header.top{background:var(--navy);color:#fff;position:sticky;top:0;z-index:10}
+header.top .wrap{position:relative;display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font-weight:800;letter-spacing:-.01em;font-size:1.1rem;color:#fff;text-decoration:none}
+.logo span{color:var(--orange)}
+nav a{color:#cfd8e6;text-decoration:none;margin-left:20px;font-size:.92rem}
+nav a:hover{color:#fff}
+nav{white-space:nowrap}
+nav a:not(.btn){margin-left:14px;font-size:.88rem}
+.logo{white-space:nowrap}
+@media(max-width:1320px){nav a:not(.btn){display:none}}
+@media(max-width:400px){header.top .btn{padding:7px 10px!important;font-size:.76rem!important}.logo{font-size:.88rem!important}}
+@media(max-width:480px){header.top .btn{padding:8px 12px;font-size:.82rem;margin-left:8px}header.top .wrap{gap:8px}.logo{font-size:.98rem}.logo svg{width:20px;height:22px;margin-right:6px!important}}
+.btn{display:inline-block;background:var(--orange);color:var(--navy) !important;padding:10px 18px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:.95rem}
+.btn.ghost{background:transparent;border:1.5px solid currentColor}
+.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:72px 0 88px}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7a5c00}
+.hero .eyebrow,#contact .eyebrow,.kern .eyebrow{color:var(--orange)}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--orange);color:var(--navy);padding:10px 16px;border-radius:8px;font-weight:700}
+.skip:focus{left:16px}
+:focus-visible{outline:3px solid #e0a800;outline-offset:2px;border-radius:4px}
+.hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;margin:.4em 0 .35em;letter-spacing:-.02em;max-width:820px}
+.hero p.lead{font-size:1.15rem;color:#d5deeb;max-width:680px;margin:0 0 28px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .ctas .ghost{color:#fff !important}
+.aud{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-48px}
+@media(max-width:1000px){.aud{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.aud{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.aud .card{box-shadow:0 8px 28px rgba(30,37,51,.10)}
+.aud h3{margin:.2em 0 .3em;font-size:1.1rem}
+.aud p{margin:0;color:var(--muted);font-size:.95rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--orange-soft);color:#6b5200;padding:3px 9px;border-radius:999px}
+section{padding:72px 0}
+section h2{font-size:clamp(1.6rem,3.4vw,2.2rem);letter-spacing:-.015em;margin:.25em 0 .4em;line-height:1.15}
+section p.intro{color:var(--muted);max-width:720px;margin:0 0 32px;font-size:1.05rem}
+.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.grid6{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid6{grid-template-columns:1fr}}
+.feat .num{width:34px;height:34px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;margin-bottom:10px}
+.feat h3{margin:0 0 .3em;font-size:1.05rem}
+.feat p{margin:0;color:var(--muted);font-size:.94rem}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th{text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);padding:8px 6px}
+td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.tablewrap{overflow-x:auto}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1000px){.cats{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cats{grid-template-columns:1fr}}
+.cat{border-top:4px solid var(--orange)}
+.cat h3{margin:0 0 .5em;font-size:1.02rem}
+.cat ul{margin:0;padding-left:18px;color:var(--muted);font-size:.9rem}
+.cat li{margin:.3em 0}
+.cat.wide{grid-column:1/-1}
+.cats.q{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1000px){.cats.q{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cats.q{grid-template-columns:1fr}}
+.cat.wide ul{columns:2;column-gap:32px}
+@media(max-width:760px){.cat.wide ul{columns:1}}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap}
+.flow .step{flex:1 1 120px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center;font-weight:700;color:var(--navy);display:flex;flex-direction:column;justify-content:center}
+.flow .step small{display:block;font-weight:500;color:var(--muted);font-size:.78rem;margin-top:4px}
+.flow .step.hl{background:var(--orange);border-color:var(--orange)}
+.flow .step.hl small{color:var(--navy)}
+.flow .arr{align-self:center;color:var(--muted);font-size:1.3rem}
+@media(max-width:760px){.flow{flex-direction:column}.flow .arr{transform:rotate(90deg)}}
+/* offer */
+.offer{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1180px){.offer{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:1000px){.offer{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.offer{grid-template-columns:1fr}}
+@media(max-width:960px){.offer{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.offer{grid-template-columns:1fr}}
+.offer .card h3{margin:.3em 0}
+.offer .card{display:flex;flex-direction:column}
+.offer .card ul{margin-bottom:16px}
+.offer-btn{margin-top:auto;align-self:flex-start}
+.offer .card .tag{align-self:flex-start}
+.offer ul{padding-left:18px;margin:.6em 0 0;color:var(--muted)}
+.offer li{margin:.25em 0}
+.offer .card.hl{border:2px solid var(--orange)}
+
+.checks{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:760px){.checks{grid-template-columns:1fr}}
+.checks li{padding-left:28px;position:relative;font-weight:600}
+.checks li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:var(--orange)}
+.checks li::after{content:"";position:absolute;left:6px;top:7px;width:5px;height:9px;border:solid var(--navy);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.wp{display:grid;grid-template-columns:1.6fr 1fr;gap:28px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px;border-top:4px solid var(--orange)}
+@media(max-width:860px){.wp{grid-template-columns:1fr;padding:22px}}
+.wp-cta{background:var(--orange-soft);border-radius:12px;padding:22px;align-self:start}
+.checks.one{grid-template-columns:1fr}
+.checks.one li{font-weight:500;color:var(--ink)}
+.mission{margin-top:48px;text-align:center}
+.mission p{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;letter-spacing:-.015em;color:var(--navy);margin:.3em auto 0;max-width:820px;line-height:1.25}
+.kern{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;background:var(--navy);color:#fff;border-radius:var(--r);padding:28px;margin-bottom:16px}
+@media(max-width:860px){.kern{grid-template-columns:1fr}}
+.kern h3{margin:.4em 0 .3em;font-size:1.4rem;color:#fff}
+.kern p{margin:0;color:#d5deeb}
+.funnel{display:flex;flex-direction:column;gap:8px;align-items:center}
+.funnel>div{background:var(--orange);color:var(--navy);font-weight:800;text-align:center;padding:12px;border-radius:10px}
+.funnel small{display:block;font-weight:500;font-size:.78rem}
+.funnel .f1{width:100%}.funnel .f2{width:78%}.funnel .f3{width:56%}
+footer a{color:#ffcc00}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700;color:var(--navy)}
+.faq details p{margin:.6em 0 0;color:var(--muted)}
+.oform{max-width:900px;margin:0 auto 8px;text-align:left;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);border-radius:var(--r);padding:24px}
+.ogrid{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin-bottom:12px}
+@media(max-width:640px){.ogrid{grid-template-columns:1fr}}
+.ogrid label{display:flex;flex-direction:column;gap:5px;font-size:.85rem;font-weight:600;color:#e3e9f2}
+.ogrid .full{grid-column:1/-1}
+.ogrid input,.ogrid select,.ogrid textarea{font:inherit;font-weight:400;padding:10px 12px;border-radius:10px;border:1px solid #4a5468;background:#fff;color:var(--ink);width:100%}
+.ogrid .chk{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400}
+.ogrid .chk input{width:auto;margin-top:3px}
+.ogrid .chk a{color:#ffcc00}
+.oerr{color:#ffb4a8;font-weight:600;min-height:1.2em;margin:0 0 8px;text-align:left}
+/* EBA */
+@media(min-width:700px){.eba td:first-child{white-space:nowrap}}
+.eba td:first-child{font-weight:600;color:var(--navy)}
+.callout{border-left:4px solid var(--orange);background:#fff;padding:14px 18px;border-radius:0 10px 10px 0;margin-top:18px;font-size:.92rem;color:var(--muted)}
+.method{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.method{grid-template-columns:1fr}}
+.method h3{margin:0 0 .3em;font-size:1.02rem}
+.method p{margin:0;color:var(--muted);font-size:.93rem}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto;text-align:left}
+@media(max-width:760px){.people{grid-template-columns:1fr}}
+.person{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:20px}
+.person h3{margin:0 0 8px;font-size:1.05rem;color:#fff}
+.person a{display:block;color:#d5deeb;text-decoration:none;font-size:.92rem;margin-top:4px;word-break:break-all}
+.person a:hover{color:#ffcc00}
+footer{background:var(--navy);color:#b9c5d6;padding:40px 0;font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+#contact{background:var(--navy-2);color:#fff;text-align:center}
+#contact p{color:#d5deeb;max-width:640px;margin:0 auto 24px}
+</style>
+<style id="homebtn">html{scroll-padding-top:68px}.btn.home{background:transparent;color:#fff!important;border:1.5px solid rgba(255,255,255,.45);margin-left:12px}.btn.home:hover{border-color:#ffcc00;color:#ffcc00!important}@media(max-width:480px){.btn.home{padding:7px 10px!important;font-size:.76rem!important;margin-left:6px!important}}@media(max-width:560px){header.top .logo{font-size:0!important}header.top .logo svg{margin-right:0!important;width:26px!important;height:28px!important}header.top .wrap{gap:6px}.bar-top .stamp{font-size:.58rem!important;padding:3px 6px!important;letter-spacing:.04em}.bar-top .btn.home{padding:6px 10px!important;font-size:.75rem!important}.bar-top button.pr{padding:6px 10px!important;font-size:.75rem!important}}@media(max-width:560px){header.top .logo{font-size:0!important}header.top .logo svg{margin-right:0!important;width:26px!important;height:28px!important}header.top .wrap{gap:6px}.bar-top .stamp{font-size:.58rem!important;padding:3px 6px!important;letter-spacing:.04em}.bar-top .btn.home{padding:6px 10px!important;font-size:.75rem!important}.bar-top button.pr{padding:6px 10px!important;font-size:.75rem!important}}h1,h2,h3{overflow-wrap:break-word;hyphens:auto}.wp>div,.ogrid>*,.cats>*,.grid6>*,.offer>*,.aud>*{min-width:0}@media(max-width:860px){.wp{grid-template-columns:minmax(0,1fr)!important}}@media(max-width:640px){.ogrid{grid-template-columns:minmax(0,1fr)!important}}.menu-btn{display:none;background:transparent;border:1.5px solid rgba(255,255,255,.45);color:#fff;border-radius:999px;padding:8px 12px;font:inherit;font-weight:700;font-size:.85rem;cursor:pointer;margin-left:8px}@media(max-width:1320px){.menu-btn{display:inline-block}header.top nav.open .mlinks{display:flex}}.mlinks{display:contents}@media(max-width:1320px){.mlinks{display:none;position:absolute;top:60px;right:0;left:0;flex-direction:column;background:#1e2533;border-top:1px solid #2b3345;padding:8px 16px 16px;box-shadow:0 12px 24px rgba(0,0,0,.25)}header.top nav .mlinks a{display:block!important;margin:0!important;padding:12px 4px;border-bottom:1px solid #2b3345;font-size:1rem!important;color:#e3e9f2}}@media(max-width:480px){.menu-btn{padding:7px 10px;font-size:.76rem;margin-left:6px}}@media(max-width:380px){.menu-btn{font-size:0!important;padding:6px 10px!important}.menu-btn::before{content:"☰";font-size:1rem}header.top .btn:not(.home){font-size:.72rem!important;padding:7px 9px!important}.btn.home{padding:6px 8px!important}}</style>
+<style>
+h1,h2,h3{overflow-wrap:anywhere;hyphens:auto}
+.doc{max-width:820px;margin:0 auto;padding:40px 16px 64px}
+.doc h2{margin-top:1.8em;font-size:1.45rem}
+.doc h3{margin:1.4em 0 .3em;font-size:1.08rem}
+.doc p,.doc li{color:#2c3647}
+.doc table{margin:12px 0}
+.doc .box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:16px 0}
+.doc .ph{background:var(--orange-soft);padding:0 4px;border-radius:4px}
+.doc .toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.doc .toc ol{margin:6px 0 0;padding-left:20px}
+.doc .src{font-size:.88rem;color:var(--muted)}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.team{grid-template-columns:1fr!important}}
+.team .card{text-align:center}
+#werkwijze .card{text-align:left}
+.team .av{width:72px;height:72px;border-radius:50%;object-fit:cover;background:var(--orange-soft);display:grid;place-items:center;margin:0 auto 10px;font-weight:800;color:var(--navy);font-size:1.3rem}
+@media print{header.top,footer,.skip{display:none}.doc{padding:0}}
+</style>
+<style>.tm{font-size:.55em;vertical-align:super;line-height:0;margin-left:1px;font-weight:600}</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Hypotheekonderzoek.nl, a Blinqx business"><svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true" style="vertical-align:-7px;margin-right:8px"><path d="M13 0l13 7v14l-13 7L0 21V7z" fill="#ffcc00"/><path d="M11 12l6 9h-3.4l-6-9z" fill="#1e2533"/></svg>Hypotheek<span>onderzoek</span>.nl<sup class="tm">™</sup></a>
+    <nav>
+      <span class="mlinks">
+      <a href="index.html#vragen">Your questions</a>
+      <a href="index.html#onderzoeksvraag">Ask your question</a>
+      <a href="index.html#bron">Our data</a>
+      <a href="index.html#rapportages">Reports</a>
+      <a href="index.html#rente">Interest rate data</a>
+      <a href="index.html#aanbod">Services</a>
+      <a href="regelgeving.html">Regulation</a>
+      <a href="index.html#monitor">Monitor</a>
+      </span>
+      <a href="index.html" class="btn home" aria-label="Go to the homepage">Home</a>
+      <a href="index.html#offerte" class="btn">Request a quote</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-label="Open menu">☰ Menu</button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div class="hero" style="padding:56px 0 64px">
+  <div class="wrap">
+    <span class="eyebrow">Research · 2026–2027</span>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem)">Bidding without a financing condition: does the mortgage complete more often and faster?</h1>
+    <p class="lead" style="margin:0">An independent impact study of certificate and guarantee products for bidding without a financing condition (financieringsvoorbehoud), and of the role of source validation. What does it deliver for the buyer, seller, estate agent, mortgage adviser and mortgage lender?</p>
+  </div>
+</div>
+
+<article class="doc">
+  <div class="toc"><strong>Contents</strong><ol>
+    <li><a href="#z1">Background</a></li><li><a href="#z2">How these products work</a></li><li><a href="#z3">Research questions</a></li><li><a href="#z4">What we compare</a></li><li><a href="#z5">What we measure</a></li><li><a href="#z6">Source validation</a></li><li><a href="#z7">Benefits per party</a></li><li><a href="#z8">Research design and phasing</a></li><li><a href="#z9">Conditions</a></li>
+  </ol></div>
+
+  <h2 id="z1">1. Background</h2>
+  <p>In a tight housing market, many buyers bid without a financing condition (financieringsvoorbehoud) to make their offer more attractive. That is risky. If the mortgage then falls through, the buyer may owe the penalty set out in the purchase agreement, often 10% of the purchase price.</p>
+  <p>There are products that limit this risk. The feasibility of the mortgage and the value of the property are assessed in advance, the buyer receives a certificate stating a maximum bid amount, and a guarantee covers the risk if the mortgage is nevertheless declined within the terms. Examples in the Dutch market are <a href="https://www.bnpparibascardif.nl/voor-adviseurs/garantiestelling/biedenmetzekerheid" target="_blank" rel="noopener">Bieden met Zekerheid from BNP Paribas Cardif</a> and <a href="https://nationalewaarborg.nl/adviseur/producten/bankgarantiezeker/" target="_blank" rel="noopener">BankGarantieZeker from Nationale Waarborg</a>.</p>
+  <p>What has not yet been measured independently: <b>does a mortgage with such a certificate complete more often and faster, and does the process run more smoothly than without one?</b> We are investigating this using data from mortgage advice.</p>
+  <p class="src">Hypotheekonderzoek.nl<sup class="tm">™</sup> is not a provider or distributor of these products. The research is independent, and we do not compare individual providers with one another.</p>
+
+  <h2 id="z2">2. How these products work</h2>
+  <p>The products differ by provider, but share a similar structure:</p>
+  <div class="tablewrap"><table class="eba">
+    <thead><tr><th>Step</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td>1. Upfront assessment</td><td>The mortgage adviser assesses the feasibility and affordability of the mortgage. This is followed by a valuation or an estimate of the property value.</td></tr>
+      <tr><td>2. Certificate</td><td>The buyer receives a certificate stating the maximum amount for which they can responsibly bid. It often applies to a single property and for a limited period.</td></tr>
+      <tr><td>3. Unconditional bid</td><td>The buyer bids without a financing condition, up to the maximum amount on the certificate.</td></tr>
+      <tr><td>4. Guarantee after purchase</td><td>After the purchase agreement has been signed and the cooling-off period has passed, the guarantee or bank guarantee is arranged.</td></tr>
+      <tr><td>5. Cover if declined</td><td>If the mortgage is nevertheless declined within the terms, the provider covers the risk, up to a maximum of 10% of the purchase price or the agreed guarantee amount.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="src">Terms and costs differ by provider and change over time. Please consult the provider for the current terms.</p>
+
+  <h2 id="z3">3. Research questions</h2>
+  <p><b>Main question:</b> does a mortgage with a certificate for bidding without a financing condition complete more often and faster than without one? Does the process run better, with higher conversion, more applications that are first time right and less drop-out? And what does source validation add?</p>
+  <ol>
+    <li><b>Completion:</b> how often does an accepted bid lead to completion, with and without a certificate?</li>
+    <li><b>Conversion:</b> how does the number of calculations relate to applications, binding offers and completions, with and without a certificate?</li>
+    <li><b>First time right:</b> how often is the mortgage application accepted at the first attempt, without additional questions, requests for further documents or recalculation?</li>
+    <li><b>Lead time:</b> how many working days does each step take, from calculation to completion?</li>
+    <li><b>Variance:</b> how large is the difference between the amount on the certificate, the maximum mortgage at the first calculation and the final mortgage?</li>
+    <li><b>Who uses it:</b> for which customer types, regions and price brackets are certificates used, and who falls outside the terms, such as self-employed people or flexible workers?</li>
+    <li><b>Experience:</b> how do buyers, sellers, estate agents and advisers experience the certainty provided by a certificate?</li>
+    <li><b>Source validation:</b> does the process run even better if income and financial obligations have been validated at source in advance using the Procesversneller (process accelerator)? And does it matter how long before the bid this took place, within the 90-day validity period?</li>
+  </ol>
+
+  <h2 id="z4">4. What we compare</h2>
+  <div class="tablewrap"><table class="eba">
+    <thead><tr><th>Group</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td>A. With certificate</td><td>Bid without a financing condition, with a certificate or guarantee product</td></tr>
+      <tr><td>B. With condition</td><td>Bid with a financing condition, without a certificate</td></tr>
+      <tr><td>C. No condition and no certificate</td><td>Bid without a financing condition and without cover: the group with the highest risk for the buyer</td></tr>
+      <tr><td>A+ and B+</td><td>The same groups, but with borrowing capacity validated at source in advance using the Procesversneller</td></tr>
+    </tbody>
+  </table></div>
+  <p>We control for customer type, income, LTV, region, price bracket, mortgage lender and period. This way we measure the effect of the product itself, not the difference in the customers who use it.</p>
+  <div class="box"><b>Fully measurable per case</b><br>All groups can be determined directly from the case files in eBlinqx, because each case records:
+    <ul style="margin:8px 0 0">
+      <li>whether a certificate for bidding without a condition was used</li>
+      <li>whether the bid was made with or without a financing condition</li>
+      <li>whether and when source data was retrieved using the Procesversneller</li>
+      <li>which items come from the source: income, pension, financial obligations and property ownership</li>
+      <li>the dates of calculation, application, binding offer and completion</li>
+    </ul>
+    No assumptions or links to external sources are therefore needed to form the groups.</div>
+
+  <h2 id="z5">5. What we measure</h2>
+  <div class="tablewrap"><table class="eba">
+    <thead><tr><th>Metric</th><th>Definition</th></tr></thead>
+    <tbody>
+      <tr><td>Completion ratio</td><td>The share of accepted bids that lead to completion</td></tr>
+      <tr><td>Conversion</td><td>The share that reaches the next step: calculation → application → binding offer → completion</td></tr>
+      <tr><td>First time right</td><td>The share of applications accepted at the first attempt, without additional questions, requests for further documents or recalculation</td></tr>
+      <tr><td>Lead time</td><td>The number of working days per step and in total</td></tr>
+      <tr><td>Decline after purchase</td><td>The share of purchase agreements where the mortgage is subsequently declined</td></tr>
+      <tr><td>Variance in borrowing capacity</td><td>The difference between the certificate amount, the first calculation and the final mortgage</td></tr>
+      <tr><td>Reach</td><td>The share of purchases with a certificate, by customer type, region and price bracket</td></tr>
+      <tr><td>Validation rate</td><td>The share of required data validated at source, per item (income, pension, financial obligations, property ownership) and per case</td></tr>
+      <tr><td>Procesversneller usage</td><td>The share of cases in which source data was retrieved using the Procesversneller, and how many days before the bid or application</td></tr>
+      <tr><td>Perceived certainty</td><td>How confident the buyer, seller, estate agent and adviser felt about the bid</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="z6">6. Source validation</h2>
+  <p>The upfront assessment is only as reliable as the data it is based on. If income, financial obligations and property ownership are retrieved directly from the source, with the customer's consent, the final mortgage deviates less from the certificate. The aim is 100% source validation.</p>
+  <div class="box"><b>The Procesversneller in eBlinqx</b><br>In the Blinqx advice software, customers can use DigiD (Dutch government login) to retrieve their data from official sources. The adviser loads this validated source data into the mortgage fact-find and the financial plan in a few clicks. The source data remains usable for an application for 90 days. Because this happens in the same software as the calculation, the application and the completion, eBlinqx records per case <b>when</b> the source data was retrieved and <b>which items</b> come from the source, such as income, pension and financial obligations. This allows us to measure both the effect of the Procesversneller and the validation rate per item and per customer type, as well as how many days before the bid or application validation took place. <a href="https://support-eblinqx-connect.nl/procesversneller/index.html" target="_blank" rel="noopener">More about the Procesversneller</a></div>
+  <div class="tablewrap"><table class="eba">
+    <thead><tr><th>Data item</th><th>Examples of sources</th><th>Source validation</th></tr></thead>
+    <tbody>
+      <tr><td>Employment income</td><td>UWV (Dutch employee insurance agency) employment history statement, Belastingdienst (Dutch Tax Administration)</td><td>Largely possible</td></tr>
+      <tr><td>Pension and AOW (state pension)</td><td>Pensioenregister (Dutch pension register), Belastingdienst</td><td>Largely possible</td></tr>
+      <tr><td>Self-employed income</td><td>Income tax return, annual accounts</td><td>Partly possible</td></tr>
+      <tr><td>Existing credit and financial obligations</td><td>Credit registration (BKR), Belastingdienst</td><td>Partly possible</td></tr>
+      <tr><td>Own home and property ownership</td><td>Kadaster (Dutch Land Registry), WOZ register (municipal property valuation)</td><td>Largely possible</td></tr>
+      <tr><td>Collateral</td><td>Valuation or appraisal, energy label register, WOZ</td><td>Largely possible</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="z7">7. Benefits per party</h2>
+  <div class="team" style="grid-template-columns:repeat(2,1fr)" id="werkwijze">
+    <div class="card cat"><h3>Buyer</h3><ul><li>Makes a stronger bid, with less risk of the 10% penalty</li><li>Knows reliably in advance how much they can borrow</li><li>A faster process through to completion</li></ul></div>
+    <div class="card cat"><h3>Seller</h3><ul><li>More certainty that the sale will go through</li><li>Less risk of the agreement being dissolved</li><li>A more predictable transfer</li></ul></div>
+    <div class="card cat"><h3>Estate agent</h3><ul><li>Can better assess the feasibility of bids</li><li>More purchase agreements that go through</li><li>Objective substantiation to present to the seller</li></ul></div>
+    <div class="card cat"><h3>Mortgage adviser</h3><ul><li>Insight into which product works best for which customer type</li><li>Higher conversion and more applications that are first time right</li><li>Fewer recalculations and less work on the case file</li></ul></div>
+    <div class="card cat"><h3>Mortgage lender</h3><ul><li>Insight into the quality of inflow with a certificate</li><li>Less drop-out and shorter lead times</li><li>Substantiation for underwriting policy and partnerships</li></ul></div>
+    <div class="card cat"><h3>Certificate and guarantee providers</h3><ul><li>An independent, aggregated impact assessment of their product</li><li>Insight into groups that currently fall outside the terms</li><li>Insight into reach by region and price bracket</li></ul></div>
+  </div>
+
+  <h2 id="z8">8. Research design and phasing</h2>
+  <div class="tablewrap"><table class="eba">
+    <thead><tr><th>Phase</th><th>Content</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>A. Quantitative</td><td>Comparing case files in the mortgage advice software and Blinqx Connect CRM: with and without a certificate, with and without a condition, with and without source validation</td><td>Effect on completion, conversion, first time right and lead time</td></tr>
+      <tr><td>B. Qualitative</td><td>Surveys and interviews with buyers, sellers, estate agents, advisers, mortgage lenders and providers</td><td>Experience, barriers and groups that fall outside the terms</td></tr>
+      <tr><td>C. Pilot</td><td>A working method with source validation before the certificate application, in a number of regions, compared with a control group</td><td>Impact assessment of 100% source validation</td></tr>
+      <tr><td>Publication</td><td>Public report with aggregated results and recommendations</td><td>Report "Bidding without conditions"</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="z9">9. Conditions</h2>
+  <ul>
+    <li><b>Independent.</b> We report the effect of the product category. We do not compare providers by name, unless they choose to do so themselves in their own impact assessment.</li>
+    <li><b>No advice to bid without a condition.</b> Bidding without a financing condition remains the buyer's choice and carries risks. A certificate provides cover only within the provider's terms. The research also examines whether buyers feel pressured to waive their financing condition.</li>
+    <li><b>Data minimisation.</b> The seller and estate agent are not shown any of the buyer's income or asset data.</li>
+    <li><b>Consent.</b> Source data is retrieved only with the customer's explicit consent, and a customer survey is conducted only with consent.</li>
+    <li><b>Aggregated.</b> All results are reported in aggregated form, in line with our <a href="methodologie.html">methodology</a>.</li>
+  </ul>
+  <p>We are looking for advisory firms, estate agents, mortgage lenders and certificate and guarantee providers who would like to take part or contribute their views.</p>
+  <p><a class="btn" href="index.html#offerte">Take part in the research</a></p>
+</article>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div><strong style="color:#fff">Hypotheekonderzoek.nl<sup class="tm">™</sup></strong><br>Market intelligence for mortgage lenders and other product providers<br>A <strong style="color:#ffcc00">Blinqx</strong> business</div>
+    <div class="colofon">
+      <strong style="color:#fff">Colophon</strong><br>
+      Blinqx (including Blinqx Verzekering &amp; Hypotheek and the eBlinqx cloud platform)<br>Hullenbergweg 109, 1101 CL Amsterdam<br>
+      Chamber of Commerce (KvK) no. 84045132<br>
+      <a href="privacy.html">Privacy statement</a> · <a href="index.html#methode">Method &amp; competition</a> · <a href="regelgeving.html">Regulation</a> · <a href="whitepaper.html">Whitepaper</a> · <a href="voorbeeldrapport.html">Sample report</a> · <a href="voorbeeldrapport-orv.html">Sample report: term life insurance (ORV)</a> · <a href="methodologie.html">Methodology</a> · <a href="over-ons.html">About us</a> · <a href="onderzoek-bieden-zonder-voorbehoud.html">Bidding without conditions</a> · <a href="ai-onderzoek.html">AI research</a><br>
+      <span style="font-size:.8rem">This site does not constitute legal or regulatory advice.</span>
+    </div>
+  </div>
+</footer>
+<script>(function(){var b=document.querySelector(".menu-btn"),n=document.querySelector("header.top nav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o)});n.querySelectorAll(".mlinks a").forEach(function(a){a.addEventListener("click",function(){n.classList.remove("open");b.setAttribute("aria-expanded","false")})})})();</script>
+</body>
+</html>
