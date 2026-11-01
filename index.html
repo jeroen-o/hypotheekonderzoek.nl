@@ -41,7 +41,7 @@ nav a:hover{color:#fff}
 nav{white-space:nowrap}
 nav a:not(.btn){margin-left:14px;font-size:.88rem}
 .logo{white-space:nowrap}
-@media(max-width:1240px){nav a:not(.btn){display:none}}
+@media(max-width:1320px){nav a:not(.btn){display:none}}
 @media(max-width:400px){header.top .btn{padding:7px 10px!important;font-size:.76rem!important}.logo{font-size:.88rem!important}}
 @media(max-width:480px){header.top .btn{padding:8px 12px;font-size:.82rem;margin-left:8px}header.top .wrap{gap:8px}.logo{font-size:.98rem}.logo svg{width:20px;height:22px;margin-right:6px!important}}
 .btn{display:inline-block;background:var(--orange);color:var(--navy) !important;padding:10px 18px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:.95rem}
@@ -177,6 +177,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <a class="logo" href="#" aria-label="hypotheekonderzoek.nl, een activiteit van Blinqx"><svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true" style="vertical-align:-7px;margin-right:8px"><path d="M13 0l13 7v14l-13 7L0 21V7z" fill="#ffcc00"/><path d="M11 12l6 9h-3.4l-6-9z" fill="#1e2533"/></svg>hypotheek<span>onderzoek</span>.nl</a>
     <nav>
       <a href="#vragen">Uw vragen</a>
+      <a href="#onderzoeksvraag">Stel uw vraag</a>
       <a href="#bron">Onze data</a>
       <a href="#rapportages">Rapportages</a>
       <a href="#rente">Rentedata</a>
@@ -267,7 +268,32 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <li>Hoeveel van mijn aanvragen komt van een paar kantoren, en hoe kwetsbaar maakt mij dat?</li>
       </ul></div>
     </div>
-    <p style="margin:20px 0 0"><a class="btn" href="#contact">Stel uw vraag</a></p>
+    <p style="margin:20px 0 0"><a class="btn" href="#onderzoeksvraag">Stel uw eigen onderzoeksvraag</a></p>
+  </div>
+</section>
+
+<section id="onderzoeksvraag" style="background:var(--navy);color:#fff">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--orange)">Uw onderzoeksvraag</span>
+    <h2 style="color:#fff">Stel uw vraag: wat zou u willen onderzoeken?</h2>
+    <p class="intro" style="color:#d5deeb">Heeft u een vraag over de hypotheekmarkt, uw positie, uw klanten of uw distributie die nog niemand voor u heeft beantwoord? Leg hem aan ons voor. Ons onderzoeksteam laat u binnen vijf werkdagen weten of en hoe we hem kunnen beantwoorden.</p>
+    <form id="vraagform" class="oform" novalidate style="margin:0">
+      <div class="ogrid">
+        <label class="full">Uw onderzoeksvraag*<textarea name="vraag" rows="4" required placeholder="Bijvoorbeeld: waarom kiezen adviseurs bij ondernemers minder vaak voor ons, en welke voorwaarden maken het verschil?"></textarea></label>
+        <label>Onderwerp<select name="onderwerp">
+          <option>Marktpositie en distributie</option><option>Klantprofiel en doelgroepen</option><option>Rente en voorwaarden</option><option>Conversie, uitval en doorlooptijd</option><option>ESG en regelgeving</option><option>Verzekeringen en ORV</option><option>Bieden zonder voorbehoud</option><option>AI en data</option><option>Anders</option>
+        </select></label>
+        <label>Wanneer wilt u antwoord?<select name="termijn"><option>Geen haast</option><option>Binnen een kwartaal</option><option>Binnen een maand</option><option>Zo snel mogelijk</option></select></label>
+        <label>Naam*<input name="naam" required autocomplete="name"></label>
+        <label>Organisatie*<input name="organisatie" required autocomplete="organization"></label>
+        <label>E-mailadres*<input name="email" type="email" required autocomplete="email"></label>
+        <label>Type organisatie<select name="type"><option>Geldverstrekker</option><option>ORV-verzekeraar</option><option>Garantiepartij</option><option>Adviespraktijk</option><option>Makelaar</option><option>Anders</option></select></label>
+        <label class="full chk"><input type="checkbox" name="publiek"> Mijn vraag mag, zonder naam van mijn organisatie, worden gebruikt voor de openbare Hypotheekmonitor.</label>
+        <label class="full chk"><input type="checkbox" name="akkoord" required> Ik ga akkoord met de verwerking van mijn gegevens volgens de <a href="privacy.html">privacyverklaring</a>.*</label>
+      </div>
+      <p class="oerr" id="verr" role="alert"></p>
+      <button class="btn" type="submit">Onderzoeksvraag versturen</button>
+    </form>
   </div>
 </section>
 
@@ -486,20 +512,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="wp">
       <div>
         <span class="eyebrow">Lopend onderzoek</span>
-        <h2 style="margin-top:.2em">Naar 100% validatie door de bron: bieden met zekerheid</h2>
-        <p style="color:var(--muted);margin:0 0 16px">Wat als de financieringsruimte al vóór het bieden met brondata is gevalideerd? Wij onderzoeken wat dat oplevert voor koper en verkoper, en voor makelaar, hypotheekadviseur en geldverstrekker. Denk aan zekerheid bij het bod, een hogere conversie, meer aanvragen die first time right zijn, minder ontbindingen en kortere doorlooptijden.</p>
+        <h2 style="margin-top:.2em">Bieden zonder financieringsvoorbehoud: gaat de hypotheek vaker en sneller door?</h2>
+        <p style="color:var(--muted);margin:0 0 16px">Steeds meer kopers bieden zonder voorbehoud, met een certificaat en een garantiestelling als vangnet. Wij meten onafhankelijk wat dat oplevert, en wat validatie door de bron daaraan toevoegt.</p>
         <ul class="checks one">
-          <li>Hoeveel van de dossiers is nu al door de bron gevalideerd, per type klant?</li>
-          <li>Hoeveel minder wijkt de financieringsruimte af tussen de eerste berekening en het bindende aanbod?</li>
-          <li>Verhoogt bieden met zekerheid de conversie van bod en berekening naar passering?</li>
-          <li>Hoeveel meer aanvragen zijn first time right: in één keer geaccepteerd, zonder aanvullende vragen?</li>
-          <li>Hoeveel sneller en zekerder verloopt het traject tot de passering?</li>
+          <li>Gaat een hypotheek met een certificaat vaker en sneller door dan zonder?</li>
+          <li>Hoeveel hoger zijn de conversie en het aandeel aanvragen dat first time right is?</li>
+          <li>Wat voegt 100% validatie door de bron toe, en welke klanten vallen nu buiten de voorwaarden?</li>
         </ul>
       </div>
       <div class="wp-cta">
-        <p style="margin:0 0 12px;font-weight:700;color:var(--navy)">Pilotpartners gezocht</p>
-        <a class="btn" href="onderzoek-bieden-met-zekerheid.html" style="margin-bottom:10px">Bekijk de onderzoeksopzet</a>
-        <p style="margin:12px 0 0;font-size:.8rem;color:var(--muted)">Voor adviespraktijken, makelaars en geldverstrekkers die willen deelnemen of meedenken.</p>
+        <p style="margin:0 0 12px;font-weight:700;color:var(--navy)">Deelnemers gezocht</p>
+        <a class="btn" href="onderzoek-bieden-zonder-voorbehoud.html" style="margin-bottom:10px">Bekijk de onderzoeksopzet</a>
+        <p style="margin:12px 0 0;font-size:.8rem;color:var(--muted)">Voor adviespraktijken, makelaars, geldverstrekkers en aanbieders van certificaten en garanties.</p>
       </div>
     </div>
   </div>
@@ -616,7 +640,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <label>Waarvoor wilt u een offerte?*<select name="product" required>
           <option value="">Kies een product</option>
           <option>Positiescan</option><option>Marktrapport</option><option>Inzicht-abonnement</option><option>Benchmarkonderzoek</option><option>Onderzoek op maat</option><option>Bias- en fairnessbenchmark</option><option>Adviseursenquête</option><option>Adviseursabonnement</option>
-          <option>Deelname onderzoek Bieden met zekerheid</option><option>Whitepaper of Hypotheekmonitor</option><option>Algemene vraag</option>
+          <option>Deelname onderzoek Bieden zonder voorbehoud</option><option>Whitepaper of Hypotheekmonitor</option><option>Algemene vraag</option>
         </select></label>
         <label>Type organisatie*<select name="type" required>
           <option value="">Kies</option><option>Geldverstrekker</option><option>ORV-verzekeraar</option><option>Garantiepartij</option><option>Adviespraktijk</option><option>Makelaar</option><option>Anders</option>
@@ -652,7 +676,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <strong style="color:#fff">Colofon</strong><br>
       Blinqx (waaronder Blinqx Verzekering &amp; Hypotheek en het cloudplatform eBlinqx)<br>Hullenbergweg 109, 1101 CL Amsterdam<br>
       KvK 84045132<br>
-      <a href="privacy.html">Privacyverklaring</a> · <a href="#methode">Methode &amp; mededinging</a> · <a href="regelgeving.html">Regelgeving</a> · <a href="whitepaper.html">Whitepaper</a> · <a href="voorbeeldrapport.html">Voorbeeldrapport</a> · <a href="voorbeeldrapport-orv.html">Voorbeeldrapport ORV</a> · <a href="methodologie.html">Methodologie</a> · <a href="over-ons.html">Over ons</a> · <a href="onderzoek-bieden-met-zekerheid.html">Bieden met zekerheid</a> · <a href="ai-onderzoek.html">AI-onderzoek</a><br>
+      <a href="privacy.html">Privacyverklaring</a> · <a href="#methode">Methode &amp; mededinging</a> · <a href="regelgeving.html">Regelgeving</a> · <a href="whitepaper.html">Whitepaper</a> · <a href="voorbeeldrapport.html">Voorbeeldrapport</a> · <a href="voorbeeldrapport-orv.html">Voorbeeldrapport ORV</a> · <a href="methodologie.html">Methodologie</a> · <a href="over-ons.html">Over ons</a> · <a href="onderzoek-bieden-zonder-voorbehoud.html">Bieden zonder voorbehoud</a> · <a href="ai-onderzoek.html">AI-onderzoek</a><br>
       <span style="font-size:.8rem">Deze site is geen juridisch of regelgevend advies.</span>
     </div>
   </div>
@@ -678,6 +702,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     var subj='Offerteaanvraag '+el.product.value+' - '+el.organisatie.value;
     window.location.href='mailto:jeroen.oversteegen@blinqx.tech?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
     err.style.color='#bfe8d3'; err.textContent='Uw e-mailprogramma wordt geopend. Verstuur het bericht om de aanvraag af te ronden.';
+  });
+})();
+</script>
+<script>
+(function(){
+  var f=document.getElementById('vraagform'); if(!f) return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); var el=f.elements, err=document.getElementById('verr'), miss=[];
+    if(!el.vraag.value.trim()) miss.push('uw onderzoeksvraag');
+    if(!el.naam.value.trim()) miss.push('naam');
+    if(!el.organisatie.value.trim()) miss.push('organisatie');
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.email.value)) miss.push('een geldig e-mailadres');
+    if(!el.akkoord.checked) miss.push('akkoord met de privacyverklaring');
+    if(miss.length){ err.style.color='#ffb4a8'; err.textContent='Vul nog in: '+miss.join(', ')+'.'; return; }
+    var body=['Onderzoeksvraag via hypotheekonderzoek.nl','','Vraag:',el.vraag.value,'','Onderwerp: '+el.onderwerp.value,'Gewenste termijn: '+el.termijn.value,
+      'Naam: '+el.naam.value,'Organisatie: '+el.organisatie.value,'Type organisatie: '+el.type.value,'E-mail: '+el.email.value,
+      'Mag geanonimiseerd in de Hypotheekmonitor: '+(el.publiek.checked?'ja':'nee'),'Akkoord privacyverklaring: ja'].join('\n');
+    window.location.href='mailto:jeroen.oversteegen@blinqx.tech?subject='+encodeURIComponent('Onderzoeksvraag: '+el.onderwerp.value+' - '+el.organisatie.value)+'&body='+encodeURIComponent(body);
+    err.style.color='#bfe8d3'; err.textContent='Uw e-mailprogramma wordt geopend. Verstuur het bericht om uw vraag in te dienen.';
   });
 })();
 </script>
