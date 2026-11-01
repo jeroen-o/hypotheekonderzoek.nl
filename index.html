@@ -49,43 +49,6 @@ section p.intro{color:var(--muted);max-width:720px;margin:0 0 32px;font-size:1.0
 .feat h3{margin:0 0 .3em;font-size:1.05rem}
 .feat p{margin:0;color:var(--muted);font-size:.94rem}
 
-/* dashboard */
-#demo{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.demo-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin-bottom:18px}
-.field label{display:block;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
-select{font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;min-width:200px;color:var(--ink)}
-.seg{display:inline-flex;flex-wrap:wrap;max-width:100%;border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.seg button{font:inherit;flex:1 1 auto;border:0;background:#fff;padding:9px 14px;cursor:pointer;color:var(--muted)}
-.seg button.on{background:var(--navy);color:#fff}
-.demo-note{font-size:.85rem;background:var(--orange-soft);border-radius:10px;padding:10px 14px;margin-bottom:20px;color:#5c4600}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
-@media(max-width:860px){.kpis{grid-template-columns:1fr 1fr}}
-.kpi{background:var(--bg);border-radius:12px;padding:16px}
-.kpi .v{font-size:1.75rem;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
-.kpi .l{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
-.kpi .d{font-size:.85rem;margin-top:2px}
-.pos{color:var(--pos)} .neg{color:var(--neg)}
-.panels{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media(max-width:860px){.panels{grid-template-columns:1fr}}
-.panel{border:1px solid var(--line);border-radius:12px;padding:18px;min-width:0}
-.panel h4{margin:0 0 2px;font-size:1rem}
-.panel .sub{font-size:.84rem;color:var(--muted);margin:0 0 12px}
-.panel.wide{grid-column:1/-1}
-svg text{font-family:inherit}
-.legend{display:flex;gap:16px;font-size:.82rem;color:var(--muted);margin-bottom:6px;flex-wrap:wrap}
-.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-table{width:100%;border-collapse:collapse;font-size:.9rem}
-th{text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);padding:8px 6px}
-td{padding:8px 6px;border-bottom:1px solid var(--line)}
-td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
-.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;min-width:60px}
-.bar>span{display:block;height:100%;background:var(--navy)}
-.tablewrap{overflow-x:auto}
-.split{display:flex;height:34px;border-radius:8px;overflow:hidden;font-size:.82rem;font-weight:600;color:#fff}
-.split>div{color:#fff;display:flex;align-items:center;justify-content:center;white-space:nowrap}
-.splitrow{display:grid;grid-template-columns:92px 1fr;gap:10px;align-items:center;margin-bottom:8px;font-size:.85rem;color:var(--muted)}
-.insight{font-size:.88rem;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
-
 /* offer */
 .offer{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:960px){.offer{grid-template-columns:1fr 1fr}}
@@ -122,11 +85,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <nav>
       <a href="#inzichten">Inzichten</a>
       <a href="#rente">Rentedata</a>
-      <a href="#demo">Demo</a>
-      <a href="#aanbod">Aanbod</a>
+            <a href="#aanbod">Aanbod</a>
       <a href="#esg">ESG</a>
       <a href="#eba">EBA-richtlijnen</a>
-      <a href="#contact" class="btn">Demo aanvragen</a>
+      <a href="#contact" class="btn">Offerte aanvragen</a>
     </nav>
   </div>
 </header>
@@ -137,8 +99,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <h1>Zie waar u staat in de hypotheekmarkt: per maand, per adviespraktijk en per klantprofiel.</h1>
     <p class="lead">Hypotheekonderzoek.nl is het onderzoeksbureau van Blinqx, met een grote dataset aan hypotheek- en verzekeringsaanvragen uit het intermediaire kanaal. Wij maken daar stuurinformatie van: een eenmalig rapport, doorlopend inzicht of onderzoek op maat, inclusief data voor uw ESG-rapportage.</p>
     <div class="ctas">
-      <a href="#demo" class="btn">Bekijk de demo</a>
-      <a href="#aanbod" class="btn ghost">Rapport of doorlopend</a>
+      <a href="#aanbod" class="btn">Bekijk het aanbod</a>
+      <a href="#contact" class="btn ghost">Neem contact op</a>
     </div>
   </div>
 </div>
@@ -155,7 +117,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <div class="wrap">
     <span class="eyebrow">Wat u ziet</span>
     <h2>Zes inzichten per partij, altijd afgezet tegen de markt</h2>
-    <p class="intro">Elk inzicht is beschikbaar voor een hypotheekverstrekker, een ORV-verzekeraar en een garantiepartij. Bij elk cijfer ziet u ook het marktgemiddelde en het verschil daarmee.</p>
+    <p class="intro">Elk inzicht kunt u afnemen als hypotheekverstrekker, ORV-verzekeraar of garantiepartij. Bij elk cijfer ziet u ook het marktgemiddelde en het verschil daarmee.</p>
     <div class="grid6">
       <div class="card feat"><div class="num">1</div><h3>Marktaandeel</h3><p>Per maand, kwartaal en jaar tot nu toe. Het gewogen aandeel is uw aanvragen gedeeld door het totaal, inclusief positie en trend.</p></div>
       <div class="card feat"><div class="num">2</div><h3>Aandeel per adviespraktijk</h3><p>Uw aandeel bij elk intermediair kantoor. Zo ziet u waar u oververtegenwoordigd bent en waar groeiruimte zit.</p></div>
@@ -189,87 +151,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   </div>
 </section>
 
-<section id="demo">
-  <div class="wrap">
-    <span class="eyebrow">Interactieve demo</span>
-    <h2>Zo ziet doorlopend inzicht eruit</h2>
-    <div class="demo-note"><strong>Voorbeelddata.</strong> De partijen, kantoren en cijfers in deze demo zijn fictief en willekeurig gegenereerd. Ze zeggen niets over werkelijke partijen.</div>
-
-    <div class="demo-bar">
-      <div class="field">
-        <label>Type partij</label>
-        <div class="seg" id="typeSeg">
-          <button data-t="bank" class="on">Geldverstrekker</button>
-          <button data-t="orv">ORV-verzekeraar</button>
-          <button data-t="gar">Garantiepartij</button>
-        </div>
-      </div>
-      <div class="field">
-        <label for="party">Partij</label>
-        <select id="party"></select>
-      </div>
-      <div class="field">
-        <label for="period">Periode</label>
-        <select id="period">
-          <option value="ytd">Jan t/m okt 2026</option>
-          <option value="q1">Q1 2026</option>
-          <option value="q2">Q2 2026</option>
-          <option value="q3">Q3 2026</option>
-          <option value="m9">Oktober 2026</option>
-        </select>
-      </div>
-      <div class="field" style="margin-left:auto">
-        <button class="btn" id="printBtn" type="button">Rapport afdrukken</button>
-      </div>
-    </div>
-
-    <div id="dash">
-      <div class="kpis" id="kpis"></div>
-      <div class="panels">
-        <div class="panel wide">
-          <h4>Marktaandeel per maand</h4>
-          <p class="sub">Gewogen aandeel van de aanvragen per maand, met uw gemiddelde over de periode</p>
-          <div id="trend"></div>
-        </div>
-        <div class="panel wide">
-          <h4>Aandeel per adviespraktijk</h4>
-          <p class="sub">De tien grootste kantoren in uw categorie. "Index" is uw aandeel bij het kantoor ten opzichte van uw marktaandeel (100 = gelijk).</p>
-          <div class="tablewrap" id="offices"></div>
-        </div>
-        <div class="panel">
-          <h4>Leeftijd hoofdaanvrager</h4>
-          <p class="sub">Verdeling over leeftijdsklassen, u tegenover de markt</p>
-          <div id="age"></div>
-        </div>
-        <div class="panel">
-          <h4>Energielabel onderpand</h4>
-          <p class="sub">Aandeel per labelklasse, u tegenover de markt</p>
-          <div id="label"></div>
-        </div>
-        <div class="panel">
-          <h4>Man / vrouw</h4>
-          <p class="sub">Geslacht van de hoofdaanvrager</p>
-          <div id="gender"></div>
-        </div>
-        <div class="panel">
-          <h4>Samenwonend / alleenstaand</h4>
-          <p class="sub">Aanvragen met twee aanvragers tegenover aanvragen met één</p>
-          <div id="house"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="aanbod">
   <div class="wrap">
     <span class="eyebrow">Aanbod</span>
     <h2>Eenmalig rapport, doorlopend inzicht of onderzoek op maat</h2>
-    <p class="intro">U kunt beginnen met een rapport voor een vraag die nu speelt, of kiezen voor een maandelijks bijgewerkt dashboard waarmee u uw positie en portefeuille blijft volgen.</p>
+    <p class="intro">Alle inzichten zijn als product te koop. U kunt beginnen met een rapport voor een vraag die nu speelt, of kiezen voor een maandelijks bijgewerkt dashboard waarmee u uw positie en portefeuille blijft volgen.</p>
     <div class="offer">
       <div class="card">
         <span class="tag">Eenmalig</span>
-        <h3>Marktrapport</h3>
+        <h3>Marktrapport</h3><div style="font-size:1.9rem;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin:.2em 0 .1em">€ 96.000</div>
         <p style="color:var(--muted);margin:0">Een momentopname over een periode die u kiest, als PDF-rapport met toelichting.</p>
         <ul>
           <li>Marktaandeel per maand, kwartaal en periode</li>
@@ -281,7 +171,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       </div>
       <div class="card hl">
         <span class="tag">Doorlopend</span>
-        <h3>Inzicht-abonnement</h3>
+        <h3>Inzicht-abonnement</h3><div style="font-size:1.9rem;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin:.2em 0 .1em">€ 136.000</div>
         <p style="color:var(--muted);margin:0">Een dashboard dat elke maand wordt bijgewerkt, met alerts bij duidelijke verschuivingen.</p>
         <ul>
           <li>Alles uit het marktrapport, elke maand bijgewerkt</li>
@@ -292,7 +182,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       </div>
       <div class="card">
         <span class="tag">Maatwerk</span>
-        <h3>Onderzoek op maat</h3>
+        <h3>Onderzoek op maat</h3><div style="font-size:1.9rem;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin:.2em 0 .1em">Op aanvraag</div>
         <p style="color:var(--muted);margin:0">Ons onderzoeksteam beantwoordt uw specifieke vraag met onze data, eventueel aangevuld met eigen onderzoek.</p>
         <ul>
           <li>Analyses voor uw ESG- en klimaatrisicorapportage</li>
@@ -377,198 +267,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <section id="contact">
   <div class="wrap">
-    <h2>Benieuwd naar uw positie?</h2>
-    <p>Vraag een demo aan met uw eigen cijfers. We laten zien wat een eenmalig rapport of doorlopend inzicht u oplevert.</p>
-    <a class="btn" href="mailto:info@hypotheekonderzoek.nl?subject=Demo%20hypotheekonderzoek.nl">Demo aanvragen</a>
+    <h2>Inzicht in uw positie kopen?</h2>
+    <p>Vraag een offerte aan voor een eenmalig rapport, doorlopend inzicht of onderzoek op maat. Dan bespreken we welke inzichten en welke periode u nodig heeft.</p>
+    <a class="btn" href="mailto:info@hypotheekonderzoek.nl?subject=Offerte%20hypotheekonderzoek.nl">Offerte aanvragen</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
     <div><strong style="color:#fff">hypotheekonderzoek.nl</strong><br>Een activiteit van <strong style="color:#ffcc00">Blinqx</strong></div>
-    <div>De cijfers in de demo zijn fictief. Deze site is geen juridisch of regelgevend advies.</div>
+    <div>Deze site is geen juridisch of regelgevend advies.</div>
   </div>
 </footer>
 
-<script>
-(function(){
-"use strict";
-// ---------- helpers ----------
-const nl = (v,d=1)=>v.toLocaleString('nl-NL',{minimumFractionDigits:d,maximumFractionDigits:d});
-const pct = (v,d=1)=>nl(v*100,d)+'%';
-const pp  = v=>(v>=0?'+':'−')+nl(Math.abs(v*100),1)+' pp';
-function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
-const norm = a=>{const s=a.reduce((x,y)=>x+y,0);return a.map(x=>x/s);};
-const esc = s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-
-const MONTHS=['Jan','Feb','Mrt','Apr','Mei','Jun','Jul','Aug','Sep','Okt'];
-const PERIODS={ytd:[0,10],q1:[0,3],q2:[3,6],q3:[6,9],m9:[9,10]};
-const AGE=['< 30','30–39','40–49','50–59','60+'];
-const LABELS=['A+ en hoger','A','B','C','D','E–G'];
-const TYPES={
-  bank:{n:12,prefix:'Geldverstrekker',seed:11,unit:'hypotheekaanvragen'},
-  orv:{n:8,prefix:'ORV-verzekeraar',seed:23,unit:'ORV-aanvragen'},
-  gar:{n:5,prefix:'Garantiepartij',seed:37,unit:'aanvragen met garantie'}
-};
-const OFFICES=20;
-
-// ---------- synthetic data model ----------
-// Volumes per party x month x office, plus per-party profile mixes.
-function build(type){
-  const T=TYPES[type], r=rng(T.seed);
-  const officeW=norm(Array.from({length:OFFICES},()=>Math.pow(r(),1.6)+.05));
-  const monthVol=MONTHS.map((_,i)=>1000*(0.8+0.4*r()+i*0.02));
-  const parties=[];
-  for(let p=0;p<T.n;p++){
-    const base=Math.pow(r(),1.3)*(p<3?2.2:1)+.08;
-    const drift=(r()-.5)*.06;
-    const officeAff=officeW.map(()=>0.35+r()*1.3);
-    const ageShift=(r()-.5)*1.4, single=0.34+(r()-.5)*.16, female=0.38+(r()-.5)*.14, green=(r()-.5)*1.2;
-    parties.push({name:T.prefix+' '+String.fromCharCode(65+p),base,drift,officeAff,ageShift,single,female,green,noise:MONTHS.map(()=>0.85+r()*.3)});
-  }
-  // volumes[p][m][o]
-  const vol=parties.map(P=>MONTHS.map((_,m)=>officeW.map((w,o)=>monthVol[m]*w*P.base*Math.max(.2,1+P.drift*(m-4.5))*P.noise[m]*P.officeAff[o])));
-  // profile mixes
-  const ageBase=[.24,.34,.2,.13,.09], labBase=[.24,.26,.14,.14,.1,.12];
-  parties.forEach(P=>{
-    P.age=norm(ageBase.map((v,i)=>v*Math.exp(P.ageShift*(i-1.6)*.35)));
-    P.lab=norm(labBase.map((v,i)=>v*Math.exp(-P.green*(i-2.5)*.22)));
-    P.avgAge=P.age.reduce((s,v,i)=>s+v*[26,34.5,44.5,54.5,64][i],0);
-  });
-  return {parties,vol};
-}
-const DATA={bank:build('bank'),orv:build('orv'),gar:build('gar')};
-
-// ---------- state ----------
-let state={type:'bank',party:0,period:'ytd'};
-const $=id=>document.getElementById(id);
-
-function fillParties(){
-  const ps=DATA[state.type].parties;
-  $('party').innerHTML=ps.map((p,i)=>`<option value="${i}">${esc(p.name)}</option>`).join('');
-  $('party').value=state.party;
-}
-
-function sum3(a){let s=0;a.forEach(x=>x.forEach(y=>s+=y));return s;}
-
-function compute(){
-  const D=DATA[state.type], [m0,m1]=PERIODS[state.period];
-  const n=D.parties.length;
-  const tot=D.parties.map((_,p)=>{let s=0;for(let m=m0;m<m1;m++)D.vol[p][m].forEach(v=>s+=v);return s;});
-  const T=tot.reduce((a,b)=>a+b,0);
-  const shares=tot.map(v=>v/T);
-  const rank=[...shares].sort((a,b)=>b-a).indexOf(shares[state.party])+1;
-  // monthly shares
-  const monthly=MONTHS.map((_,m)=>{const t=D.parties.map((_,p)=>D.vol[p][m].reduce((a,b)=>a+b,0));const s=t.reduce((a,b)=>a+b,0);return t[state.party]/s;});
-  // previous comparable period share
-  const len=m1-m0, pm0=m0-len, pm1=m0;
-  let prev=null;
-  if(pm0>=0){const t=D.parties.map((_,p)=>{let s=0;for(let m=pm0;m<pm1;m++)D.vol[p][m].forEach(v=>s+=v);return s;});prev=t[state.party]/t.reduce((a,b)=>a+b,0);}
-  // offices
-  const off=[];
-  for(let o=0;o<OFFICES;o++){
-    let all=0,mine=0;
-    for(let p=0;p<n;p++)for(let m=m0;m<m1;m++){all+=D.vol[p][m][o];if(p===state.party)mine+=D.vol[p][m][o];}
-    off.push({o,all,share:mine/all});
-  }
-  off.sort((a,b)=>b.all-a.all);
-  // market profile = volume-weighted mix
-  const w=shares;
-  const mkt=k=>D.parties[0][k].map((_,i)=>D.parties.reduce((s,P,p)=>s+P[k][i]*w[p],0));
-  const mktScalar=k=>D.parties.reduce((s,P,p)=>s+P[k]*w[p],0);
-  return {P:D.parties[state.party],share:shares[state.party],rank,n,monthly,prev,off:off.slice(0,10),
-    mAge:mkt('age'),mLab:mkt('lab'),mAvgAge:mktScalar('avgAge'),mSingle:mktScalar('single'),mFemale:mktScalar('female'),m0,m1};
-}
-
-// ---------- render ----------
-function kpi(l,v,d){return `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="d">${d||'&nbsp;'}</div></div>`;}
-function delta(v,invert){if(v==null)return '';const cls=Math.abs(v)<0.0005?'':(v>0)!==!!invert?'pos':'neg';return `<span class="${cls}">${pp(v)}</span>`;}
-
-function render(){
-  const R=compute(), P=R.P;
-  const ageDiff=P.avgAge-R.mAvgAge;
-  $('kpis').innerHTML=
-    kpi('Marktaandeel',pct(R.share,2),R.prev!=null?delta(R.share-R.prev)+' t.o.v. vorige periode':'')+
-    kpi('Positie','#'+R.rank+' <span style="font-size:1rem;color:var(--muted);font-weight:600">van '+R.n+'</span>','')+
-    kpi('Gem. leeftijd',nl(P.avgAge,1)+' jr',(ageDiff>=0?'+':'−')+nl(Math.abs(ageDiff),1)+' jr t.o.v. markt ('+nl(R.mAvgAge,1)+')')+
-    kpi('Alleenstaand',pct(P.single,0),delta(P.single-R.mSingle).replace('pos','').replace('neg','')+' t.o.v. markt');
-
-  $('trend').innerHTML=lineChart(R.monthly,R.m0,R.m1,R.share);
-  $('offices').innerHTML=officeTable(R);
-  $('age').innerHTML=bars(AGE,P.age,R.mAge)+`<div class="insight">Gemiddelde leeftijd <strong>${nl(P.avgAge,1)}</strong> jaar, tegen <strong>${nl(R.mAvgAge,1)}</strong> in de markt.</div>`;
-  const greenP=P.lab[0]+P.lab[1], greenM=R.mLab[0]+R.mLab[1];
-  $('label').innerHTML=bars(LABELS,P.lab,R.mLab)+`<div class="insight">Label A of beter: <strong>${pct(greenP,0)}</strong> (markt ${pct(greenM,0)}, ${pp(greenP-greenM)}).</div>`;
-  $('gender').innerHTML=split([['Man',1-P.female,'var(--navy)'],['Vrouw',P.female,'#e0a800']],[1-R.mFemale,R.mFemale])+
-    `<div class="insight">Aandeel vrouwelijke hoofdaanvragers wijkt ${pp(P.female-R.mFemale)} af van de markt.${Math.abs(P.female-R.mFemale)>0.04?' <strong>Dat is een opvallend verschil.</strong> Onderzoek of het voortkomt uit uw productaanbod, uw distributie of uw acceptatie.':''}</div>`;
-  $('house').innerHTML=split([['Samenwonend',1-P.single,'var(--navy)'],['Alleenstaand',P.single,'#e0a800']],[1-R.mSingle,R.mSingle])+
-    `<div class="insight">Alleenstaanden vormen ${pct(P.single,0)} van uw aanvragen, tegen ${pct(R.mSingle,0)} in de markt.</div>`;
-}
-
-function lineChart(vals,m0,m1,avg){
-  const W=720,H=230,L=44,Rr=14,Tp=14,B=30;
-  const mx=Math.max(...vals,avg)*1.18, mn=0;
-  const x=i=>L+i*(W-L-Rr)/(vals.length-1), y=v=>Tp+(H-Tp-B)*(1-(v-mn)/(mx-mn));
-  let g='';
-  for(let k=0;k<=4;k++){const v=mn+(mx-mn)*k/4;g+=`<line x1="${L}" x2="${W-Rr}" y1="${y(v)}" y2="${y(v)}" stroke="#e1e6ee"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="#5b6678">${nl(v*100,0)}%</text>`;}
-  const band=`<rect x="${x(m0)-8}" y="${Tp}" width="${Math.max(16,x(m1-1)-x(m0)+16)}" height="${H-Tp-B}" fill="#fff5cc" opacity=".6" rx="6"/>`;
-  const path=vals.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+','+y(v).toFixed(1)).join('');
-  const dots=vals.map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="3.5" fill="#1e2533"><title>${MONTHS[i]}: ${pct(v,2)}</title></circle>`).join('');
-  const xl=MONTHS.map((m,i)=>`<text x="${x(i)}" y="${H-8}" text-anchor="middle" font-size="11" fill="#5b6678">${m}</text>`).join('');
-  const avgL=`<line x1="${L}" x2="${W-Rr}" y1="${y(avg)}" y2="${y(avg)}" stroke="#e0a800" stroke-dasharray="5 4" stroke-width="1.5"/>`;
-  return `<div class="legend"><span><i style="background:#1e2533"></i>Aandeel per maand</span><span><i style="background:#e0a800"></i>Gemiddelde over de gekozen periode (${pct(avg,2)})</span><span><i style="background:#fff5cc"></i>Gekozen periode</span></div>
-  <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Marktaandeel per maand">${band}${g}${avgL}<path d="${path}" fill="none" stroke="#1e2533" stroke-width="2.5"/>${dots}${xl}</svg>`;
-}
-
-function officeTable(R){
-  const max=Math.max(...R.off.map(o=>o.share));
-  const rows=R.off.map((o,i)=>{
-    const idx=Math.round(o.share/R.share*100);
-    const cls=idx>=115?'pos':idx<=85?'neg':'';
-    return `<tr><td>${i+1}</td><td>Adviespraktijk ${String(o.o+1).padStart(2,'0')}</td><td style="width:38%"><div class="bar"><span style="width:${(o.share/max*100).toFixed(1)}%"></span></div></td><td class="r">${pct(o.share,1)}</td><td class="r ${cls}">${idx}</td></tr>`;
-  }).join('');
-  return `<table><thead><tr><th>#</th><th>Kantoor</th><th></th><th class="r">Uw aandeel</th><th class="r">Index</th></tr></thead><tbody>${rows}</tbody></table>`;
-}
-
-function bars(cats,mine,mkt){
-  const max=Math.max(...mine,...mkt);
-  const W=340,rowH=30,L=88,H=cats.length*rowH+4;
-  let s='';
-  cats.forEach((c,i)=>{
-    const y=i*rowH+4, wm=(W-L-50)*mine[i]/max, wk=(W-L-50)*mkt[i]/max;
-    s+=`<text x="0" y="${y+14}" font-size="12" fill="#1b2535">${c}</text>
-    <rect x="${L}" y="${y+2}" width="${wm}" height="11" rx="3" fill="#1e2533"><title>U: ${pct(mine[i],1)}</title></rect>
-    <rect x="${L}" y="${y+15}" width="${wk}" height="8" rx="3" fill="#8da9c4"><title>Markt: ${pct(mkt[i],1)}</title></rect>
-    <text x="${L+wm+6}" y="${y+12}" font-size="11" fill="#1b2535" font-weight="600">${pct(mine[i],0)}</text>
-    <text x="${L+wk+6}" y="${y+23}" font-size="10" fill="#5b6678">${pct(mkt[i],0)}</text>`;
-  });
-  return `<div class="legend"><span><i style="background:#1e2533"></i>U</span><span><i style="background:#8da9c4"></i>Markt</span></div><svg viewBox="0 0 ${W} ${H}" width="100%">${s}</svg>`;
-}
-
-function split(parts,mkt){
-  const row=(lbl,a,b)=>`<div class="splitrow"><span>${lbl}</span><div class="split"><div style="width:${a*100}%;background:${parts[0][2]}">${parts[0][0]} ${pct(a,0)}</div><div style="width:${b*100}%;background:${parts[1][2]};color:var(--navy)">${parts[1][0]} ${pct(b,0)}</div></div></div>`;
-  return row('U',parts[0][1],parts[1][1])+row('Markt',mkt[0],mkt[1]);
-}
-
-// ---------- events ----------
-$('typeSeg').addEventListener('click',e=>{
-  const b=e.target.closest('button');if(!b)return;
-  [...$('typeSeg').children].forEach(x=>x.classList.toggle('on',x===b));
-  state.type=b.dataset.t;state.party=0;fillParties();render();
-});
-$('party').addEventListener('change',e=>{state.party=+e.target.value;render();});
-$('period').addEventListener('change',e=>{state.period=e.target.value;render();});
-
-// Print via window.open (works inside iframes, e.g. Google Sites)
-$('printBtn').addEventListener('click',()=>{
-  const P=DATA[state.type].parties[state.party];
-  const per=$('period').selectedOptions[0].text;
-  const css=document.querySelector('style').outerHTML;
-  const w=window.open('','_blank');
-  if(!w){alert('Sta pop-ups toe om het rapport af te drukken.');return;}
-  w.document.write(`<!doctype html><html lang="nl"><head><meta charset="utf-8"><title>Rapport ${esc(P.name)} · ${esc(per)}</title>${css}
-  <style>body{background:#fff;padding:24px}.panels{grid-template-columns:1fr 1fr}.panel{break-inside:avoid}.kpis{grid-template-columns:repeat(4,1fr)}@page{size:A4;margin:14mm}</style></head>
-  <body><div class="eyebrow">hypotheekonderzoek.nl · voorbeeldrapport</div><h2 style="margin:.2em 0">${esc(P.name)}: ${esc(per)}</h2>
-  <p style="color:#5b6678;font-size:.85rem">Voorbeelddata: de cijfers zijn fictief.</p>${$('dash').outerHTML}</body></html>`);
+</body></html>`);
   w.document.close();
   w.onload=()=>{w.focus();w.print();};
   setTimeout(()=>{try{w.focus();w.print();}catch(e){}},600);
