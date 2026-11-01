@@ -103,6 +103,15 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 .checks.one li{font-weight:500;color:var(--ink)}
 .mission{margin-top:48px;text-align:center}
 .mission p{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;letter-spacing:-.015em;color:var(--navy);margin:.3em auto 0;max-width:820px;line-height:1.25}
+.kern{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;background:var(--navy);color:#fff;border-radius:var(--r);padding:28px;margin-bottom:16px}
+@media(max-width:860px){.kern{grid-template-columns:1fr}}
+.kern h3{margin:.4em 0 .3em;font-size:1.4rem;color:#fff}
+.kern p{margin:0;color:#d5deeb}
+.funnel{display:flex;flex-direction:column;gap:8px;align-items:center}
+.funnel>div{background:var(--orange);color:var(--navy);font-weight:800;text-align:center;padding:12px;border-radius:10px}
+.funnel small{display:block;font-weight:500;font-size:.78rem}
+.funnel .f1{width:100%}.funnel .f2{width:78%}.funnel .f3{width:56%}
+footer a{color:#ffcc00}
 /* EBA */
 @media(min-width:700px){.eba td:first-child{white-space:nowrap}}
 .eba td:first-child{font-weight:600;color:var(--navy)}
@@ -176,6 +185,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <span class="eyebrow">Wat u ziet</span>
     <h2>Zes inzichten per partij, altijd afgezet tegen de markt</h2>
     <p class="intro">Elk inzicht kunt u afnemen als hypotheekverstrekker, ORV-verzekeraar of garantiepartij. Bij elk cijfer ziet u ook het marktgemiddelde en het verschil daarmee.</p>
+    <div class="kern">
+      <div>
+        <span class="tag">Kerngetal</span>
+        <h3>Conversie in het advies</h3>
+        <p>Een kerngetal dat al bij de berekening begint: hoe vaak u wordt doorgerekend, hoe vaak dat leidt tot een aanvraag, en hoe vaak die aanvraag passeert. Elke maand, voor uw eigen positie en tegenover de markt, per segment en per adviespraktijk.</p>
+      </div>
+      <div class="funnel" aria-label="Berekening, aanvraag, passering">
+        <div class="f1">Berekening<small>u wordt doorgerekend</small></div>
+        <div class="f2">Aanvraag<small>de adviseur kiest u</small></div>
+        <div class="f3">Passering<small>de hypotheek gaat door</small></div>
+      </div>
+    </div>
     <div class="grid6">
       <div class="card feat"><div class="num">1</div><h3>Marktaandeel</h3><p>Per maand, kwartaal en jaar tot nu toe. Het gewogen aandeel is uw aanvragen gedeeld door het totaal, inclusief positie en trend.</p></div>
       <div class="card feat"><div class="num">2</div><h3>Aandeel per adviespraktijk</h3><p>Uw aandeel bij elk intermediair kantoor. Zo ziet u waar u oververtegenwoordigd bent en waar groeiruimte zit.</p></div>
@@ -322,6 +343,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <h2>Voor geldverstrekkers, productaanbieders en adviespraktijken</h2>
     <p class="intro">Alle inzichten zijn als product te koop. U kunt beginnen met een rapport voor een vraag die nu speelt, of kiezen voor een maandelijks bijgewerkt dashboard waarmee u uw positie en portefeuille blijft volgen.</p>
     <div class="offer">
+      <div class="card">
+        <span class="tag">Instap</span>
+        <h3>Positiescan</h3><div style="font-size:1.7rem;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin:.2em 0 .1em;white-space:nowrap">Op aanvraag</div>
+        <p style="color:var(--muted);margin:0">Een compacte eerste meting van uw positie over één kwartaal, met een bespreking van de uitkomsten.</p>
+        <ul>
+          <li>Uw marktaandeel en de trend</li>
+          <li>Uw conversie in het advies: berekening, aanvraag en passering</li>
+          <li>Uw tien belangrijkste adviespraktijken</li>
+          <li>Een samenvatting in één rapport, plus een presentatie van een uur</li>
+        </ul>
+      </div>
       <div class="card">
         <span class="tag">Eenmalig</span>
         <h3>Marktrapport</h3><div style="font-size:1.7rem;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin:.2em 0 .1em;white-space:nowrap">€ 96.000</div><div style="font-size:.85rem;color:var(--muted);margin-bottom:.6em">excl. btw</div>
@@ -499,6 +531,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   </div>
 </section>
 
+<section id="monitor">
+  <div class="wrap">
+    <span class="eyebrow">Hypotheekmonitor</span>
+    <h2>De Hypotheekmonitor: elk kwartaal de trends uit het advies</h2>
+    <p class="intro">Een openbare kwartaalpublicatie met de belangrijkste marktbrede trends uit het hypotheekadvies. Er staan alleen geaggregeerde cijfers in, zonder partijen bij naam en zonder cijfers per aanbieder.</p>
+    <div class="grid6">
+      <div class="card feat"><div class="num">1</div><h3>Vraag in het advies</h3><p>De ontwikkeling van het aantal berekeningen, aanvragen en passeringen, en de verschuiving tussen starters, doorstromers en oversluiters.</p></div>
+      <div class="card feat"><div class="num">2</div><h3>Klant en product</h3><p>Trends in leeftijd, huishouden, LTV, rentevaste periode, aflosvorm en NHG.</p></div>
+      <div class="card feat"><div class="num">3</div><h3>Verduurzaming</h3><p>De ontwikkeling van de energielabels en van de financiering van energiebesparende maatregelen.</p></div>
+    </div>
+    <div class="callout">De eerste editie is in voorbereiding. <a href="mailto:jeroen.oversteegen@blinqx.tech?subject=Aanmelden%20Hypotheekmonitor">Meld u aan</a> om de Hypotheekmonitor te ontvangen zodra hij verschijnt.</div>
+  </div>
+</section>
+
 <section id="whitepaper">
   <div class="wrap">
     <div class="wp">
@@ -516,7 +562,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="wp-cta">
         <p style="margin:0 0 12px;font-weight:700;color:var(--navy)">Gratis te ontvangen per e-mail</p>
         <a class="btn" href="mailto:jeroen.oversteegen@blinqx.tech?subject=Whitepaper%20ESG-data%20hypotheekportefeuille&amp;body=Graag%20ontvang%20ik%20de%20whitepaper%20ESG-data%20voor%20de%20hypotheekportefeuille.%0A%0ANaam%3A%0AOrganisatie%3A%0AFunctie%3A">Vraag de whitepaper aan</a>
-        <p style="margin:12px 0 0;font-size:.8rem;color:var(--muted)">We gebruiken uw gegevens alleen om de whitepaper te sturen en, als u dat wilt, om contact op te nemen over onze rapportages.</p>
+        <p style="margin:12px 0 0;font-size:.8rem;color:var(--muted)">We gebruiken uw gegevens alleen om de whitepaper te sturen en, als u dat wilt, om contact op te nemen over onze rapportages. Zie de <a href="privacy.html">privacyverklaring</a>.</p>
       </div>
     </div>
   </div>
@@ -538,18 +584,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <footer>
   <div class="wrap">
     <div><strong style="color:#fff">hypotheekonderzoek.nl</strong><br>Marktinformatie voor geldverstrekkers en overige productaanbieders<br>Een activiteit van <strong style="color:#ffcc00">Blinqx</strong></div>
-    <div>Deze site is geen juridisch of regelgevend advies.</div>
+    <div class="colofon">
+      <strong style="color:#fff">Colofon</strong><br>
+      Blinqx [juridische entiteit] · [vestigingsadres]<br>
+      KvK [nummer] · btw [nummer]<br>
+      <a href="privacy.html">Privacyverklaring</a> · <a href="#methode">Methode &amp; mededinging</a><br>
+      <span style="font-size:.8rem">Deze site is geen juridisch of regelgevend advies.</span>
+    </div>
   </div>
 </footer>
 
-</body></html>`);
-  w.document.close();
-  w.onload=()=>{w.focus();w.print();};
-  setTimeout(()=>{try{w.focus();w.print();}catch(e){}},600);
-});
-
-fillParties();render();
-})();
-</script>
 </body>
 </html>
