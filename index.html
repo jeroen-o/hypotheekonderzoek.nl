@@ -27,6 +27,8 @@ nav{white-space:nowrap}
 nav a:not(.btn){margin-left:14px;font-size:.88rem}
 .logo{white-space:nowrap}
 @media(max-width:1240px){nav a:not(.btn){display:none}}
+@media(max-width:400px){header.top .btn{padding:7px 10px!important;font-size:.76rem!important}.logo{font-size:.88rem!important}}
+@media(max-width:480px){header.top .btn{padding:8px 12px;font-size:.82rem;margin-left:8px}header.top .wrap{gap:8px}.logo{font-size:.98rem}.logo svg{width:20px;height:22px;margin-right:6px!important}}
 .btn{display:inline-block;background:var(--orange);color:var(--navy) !important;padding:10px 18px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:.95rem}
 .btn.ghost{background:transparent;border:1.5px solid currentColor}
 .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:72px 0 88px}
@@ -35,8 +37,9 @@ nav a:not(.btn){margin-left:14px;font-size:.88rem}
 .hero p.lead{font-size:1.15rem;color:#d5deeb;max-width:680px;margin:0 0 28px}
 .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
 .hero .ctas .ghost{color:#fff !important}
-.aud{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:-48px}
-@media(max-width:860px){.aud{grid-template-columns:1fr}}
+.aud{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-48px}
+@media(max-width:1000px){.aud{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.aud{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
 .aud .card{box-shadow:0 8px 28px rgba(30,37,51,.10)}
 .aud h3{margin:.2em 0 .3em;font-size:1.1rem}
@@ -75,8 +78,7 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 .flow .arr{align-self:center;color:var(--muted);font-size:1.3rem}
 @media(max-width:760px){.flow{flex-direction:column}.flow .arr{transform:rotate(90deg)}}
 /* offer */
-.offer{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media(max-width:1180px){.offer{grid-template-columns:1fr 1fr}}
+.offer{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
 @media(max-width:960px){.offer{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.offer{grid-template-columns:1fr}}
 .offer .card h3{margin:.3em 0}
@@ -152,6 +154,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="card"><span class="tag">Geldverstrekkers</span><h3>Positie en distributie</h3><p>Uw marktaandeel in hypotheekaanvragen, de trend door het jaar en uw aandeel bij elke adviespraktijk.</p></div>
     <div class="card"><span class="tag">ORV-verzekeraars</span><h3>Aandeel in meeverzekerde producten</h3><p>Uw aandeel in overlijdensrisicoverzekeringen bij hypotheekaanvragen, met het klantprofiel per kantoor.</p></div>
     <div class="card"><span class="tag">Garantiepartijen</span><h3>Wie u borgt</h3><p>Hoe een borgings- of garantieportefeuille, zoals die van NHG, is opgebouwd naar leeftijd, huishouden, energielabel en taxatievorm, afgezet tegen de markt.</p></div>
+    <div class="card"><span class="tag">Adviespraktijken</span><h3>Uw kantoor in beeld</h3><p>Trends en prestaties van uw eigen kantoor: aanvragen per maand en per aanbieder, de samenstelling van de leningen, en hoe u zich verhoudt tot de markt.</p></div>
   </div>
 </div>
 
@@ -265,7 +268,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section id="aanbod">
   <div class="wrap">
     <span class="eyebrow">Aanbod</span>
-    <h2>Marktrapport, doorlopend inzicht, benchmarkonderzoek of maatwerk</h2>
+    <h2>Voor geldverstrekkers, productaanbieders en adviespraktijken</h2>
     <p class="intro">Alle inzichten zijn als product te koop. U kunt beginnen met een rapport voor een vraag die nu speelt, of kiezen voor een maandelijks bijgewerkt dashboard waarmee u uw positie en portefeuille blijft volgen.</p>
     <div class="offer">
       <div class="card">
@@ -313,6 +316,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Kwalitatief onderzoek onder adviseurs en consumenten</li>
         </ul>
       </div>
+      <div class="card">
+        <span class="tag">Adviespraktijken</span>
+        <h3>Adviseursabonnement</h3><div style="font-size:1.9rem;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin:.2em 0 .1em">Op aanvraag</div>
+        <p style="color:var(--muted);margin:0">Een statistiekendashboard voor uw kantoor, zodat u trends ziet en uw klanten proactief kunt adviseren.</p>
+        <ul>
+          <li>Aantal aanvragen per maand en per jaar</li>
+          <li>Aantal aanvragen per aanbieder</li>
+          <li>Samenstelling van de leningaanvragen: hypotheekbedrag, LTV, aflosvormen en rentevaste periode</li>
+          <li>Uw kantoor naast het marktgemiddelde in het netwerk</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -323,7 +337,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <h2>Data voor de ESG-rapportage over uw hypotheekportefeuille</h2>
     <p class="intro">Europese regels verplichten geldverstrekkers steeds vaker om duurzaamheids- en klimaatrisico's mee te nemen in hun kredietbeoordeling en risicomanagement, en daarover te rapporteren. Bij hypotheken draait dat vooral om het onderpand: hoe energiezuinig is de woning en welk fysiek klimaatrisico loopt die? Daarvoor is betrouwbare marktreferentiedata nodig.</p>
     <div class="grid6">
-      <div class="card feat"><div class="num">E</div><h3>Environmental</h3><p>De verdeling van de energielabels in uw nieuwe productie tegenover de markt, en de trend daarin. Dat is de basis voor rapportages over de energie-efficiëntie van uw onderpand en voor het transitierisico.</p></div>
+      <div class="card feat"><div class="num">E</div><h3>Environmental</h3><p>De verdeling van de energielabels in uw nieuwe productie tegenover de markt, en de trend daarin. Dat is de basis voor rapportages over de energie-efficiëntie van uw onderpand, voor het transitierisico, en voor een indicatieve schatting van de gefinancierde CO₂-uitstoot (PCAF).</p></div>
       <div class="card feat"><div class="num">S</div><h3>Social</h3><p>De toegankelijkheid van uw krediet voor starters, alleenstaanden, senioren en vrouwen, afgezet tegen de markt. Dat helpt bij de onderbouwing van verantwoorde en niet-discriminerende kredietverlening.</p></div>
       <div class="card feat"><div class="num">G</div><h3>Governance</h3><p>Herleidbare, geaggregeerde data met een vastgelegde methodologie, bruikbaar als externe referentie in uw risicobeheer en uw verantwoording aan toezichthouders.</p></div>
     </div>
@@ -339,6 +353,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       </tbody>
     </table>
     </div>
+    <div class="callout">Een energielabel is een indicatie en geen meting. Onderzoek van het CBS met PCAF (2020) liet zien dat het werkelijke energieverbruik binnen één labelklasse sterk kan verschillen. Daarom presenteren wij CO₂-schattingen op basis van energielabels altijd als indicatief. Bron: <a href="https://www.cbs.nl/nl-nl/longread/diversen/2020/inzicht-in-co2-uitstoot-van-particuliere-hypotheekportefeuilles" target="_blank" rel="noopener">CBS: CO₂-uitstoot van particuliere hypotheekportefeuilles</a>.</div>
     <div class="callout"><strong>Let op:</strong> dit overzicht is een vereenvoudigde weergave en geen juridisch advies. Welke verplichtingen precies gelden, hangt af van het type instelling, de omvang en de ingangsdata van de afzonderlijke regels.</div>
   </div>
 </section>
@@ -394,9 +409,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="card" style="margin-top:16px">
       <span class="tag">AFM</span>
       <h3 style="margin:.4em 0 .3em;font-size:1.1rem">Aflossingsvrije hypotheken: klanten activeren</h3>
-      <p style="margin:0 0 .6em;color:var(--muted)">Volgens de AFM is meer dan de helft van de Nederlandse hypotheekschuld aflossingsvrij, en lopen veel van die hypotheken af tussen 2035 en 2040. De AFM verwacht dat kredietaanbieders klanten met een risico benaderen, monitoren dat ze in de aanpak blijven, en vastleggen welke technieken werken. De eindverantwoordelijkheid ligt bij de aanbieder, die daarbij samenwerkt met adviseurs.</p>
+      <p style="margin:0 0 .6em;color:var(--muted)">Volgens de AFM is meer dan de helft van de Nederlandse hypotheekschuld aflossingsvrij, en lopen veel van die hypotheken af tussen 2035 en 2040. De AFM verwacht dat kredietaanbieders klanten met een risico benaderen, monitoren dat ze in de aanpak blijven, en vastleggen welke technieken werken. De eindverantwoordelijkheid ligt bij de aanbieder, die daarbij samenwerkt met adviseurs. DNB wees in 2016 al op een risicogroep: hypotheekhouders ouder dan 50 met een grotendeels aflossingsvrije hypotheek en een hoge LTV.</p>
       <p style="margin:0 0 .6em;color:var(--muted)"><strong style="color:var(--ink)">Wat hypotheekonderzoek.nl levert:</strong> zicht op wat er in het advies gebeurt met klanten die een aflossingsvrije hypotheek hebben. U ziet hoe vaak zij advies vragen, welke oplossingen worden doorgerekend (aflossen, omzetten, oversluiten, verhogen), naar welke aflosvorm ze overstappen, en hoe dit verschilt per leeftijdsklasse en per adviespraktijk. Zo kunt u meten of uw activatieaanpak in het intermediaire kanaal werkt.</p>
-      <p style="margin:0;font-size:.85rem;color:var(--muted)">Bron: <a href="https://www.afm.nl/nl-nl/sector/kredietaanbieders/hypothecair-krediet/oud-aflossingsvrije-hypotheek" target="_blank" rel="noopener">AFM: aflossingsvrije hypotheek</a>.</p>
+      <p style="margin:0;font-size:.85rem;color:var(--muted)">Bronnen: <a href="https://www.afm.nl/nl-nl/sector/kredietaanbieders/hypothecair-krediet/oud-aflossingsvrije-hypotheek" target="_blank" rel="noopener">AFM: aflossingsvrije hypotheek</a> en <a href="https://www.dnb.nl/algemeen-nieuws/nieuws-2016/bancaire-hypotheekportefeuilles-onder-de-loep/" target="_blank" rel="noopener">DNB: bancaire hypotheekportefeuilles onder de loep (2016)</a>.</p>
     </div>
     <div class="callout"><strong>Let op:</strong> hypotheekonderzoek.nl ondersteunt analyses die de EBA-richtlijnen vragen. Het gebruik ervan maakt een instelling niet automatisch compliant. De naleving en de interpretatie van EBA/GL/2020/06 blijven de verantwoordelijkheid van de instelling zelf. Een verschil tussen mannen en vrouwen is een signaal en geen bewijs van vertekening.</div>
   </div>
