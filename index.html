@@ -54,6 +54,13 @@ table{width:100%;border-collapse:collapse;font-size:.9rem}
 th{text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);padding:8px 6px}
 td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 .tablewrap{overflow-x:auto}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1000px){.cats{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cats{grid-template-columns:1fr}}
+.cat{border-top:4px solid var(--orange)}
+.cat h3{margin:0 0 .5em;font-size:1.02rem}
+.cat ul{margin:0;padding-left:18px;color:var(--muted);font-size:.9rem}
+.cat li{margin:.3em 0}
 /* offer */
 .offer{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:960px){.offer{grid-template-columns:1fr 1fr}}
@@ -95,6 +102,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <a class="logo" href="#" aria-label="hypotheekonderzoek.nl, een activiteit van Blinqx"><svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true" style="vertical-align:-7px;margin-right:8px"><path d="M13 0l13 7v14l-13 7L0 21V7z" fill="#ffcc00"/><path d="M11 12l6 9h-3.4l-6-9z" fill="#1e2533"/></svg>hypotheek<span>onderzoek</span>.nl</a>
     <nav>
       <a href="#inzichten">Inzichten</a>
+      <a href="#rapportages">Rapportages</a>
       <a href="#rente">Rentedata</a>
             <a href="#aanbod">Aanbod</a>
       <a href="#esg">ESG</a>
@@ -120,7 +128,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <div class="aud">
     <div class="card"><span class="tag">Geldverstrekkers</span><h3>Positie en distributie</h3><p>Uw marktaandeel in hypotheekaanvragen, de trend door het jaar en uw aandeel bij elke adviespraktijk.</p></div>
     <div class="card"><span class="tag">ORV-verzekeraars</span><h3>Aandeel in meeverzekerde producten</h3><p>Uw aandeel in overlijdensrisicoverzekeringen bij hypotheekaanvragen, met het klantprofiel per kantoor.</p></div>
-    <div class="card"><span class="tag">Garantiepartijen</span><h3>Wie u borgt</h3><p>Hoe uw bankgarantie- of borgingsportefeuille is opgebouwd naar leeftijd, huishouden en energielabel, afgezet tegen de markt.</p></div>
+    <div class="card"><span class="tag">Garantiepartijen</span><h3>Wie u borgt</h3><p>Hoe een borgings- of garantieportefeuille, zoals die van NHG, is opgebouwd naar leeftijd, huishouden, energielabel en taxatievorm, afgezet tegen de markt.</p></div>
   </div>
 </div>
 
@@ -137,6 +145,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="card feat"><div class="num">5</div><h3>Samenwonend / alleenstaand</h3><p>De huishoudsamenstelling van uw aanvragers: aanvragen met één of met twee aanvragers.</p></div>
       <div class="card feat"><div class="num">6</div><h3>Energielabel</h3><p>De verdeling over de energielabels van de onderpanden. Dat is relevant voor uw ESG- en klimaatrisicobeleid.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="rapportages" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <span class="eyebrow">Overzicht</span>
+    <h2>Onze rapportages bieden inzicht in:</h2>
+    <p class="intro">Banken en andere geldverstrekkers kunnen informatie opvragen op allerlei gebieden. Elk onderwerp kan los worden afgenomen, gecombineerd in een marktrapport, of als onderdeel van doorlopend inzicht.</p>
+    <div class="cats">
+      <div class="card cat"><h3>Markt &amp; positie</h3><ul><li>Marktaandeel per maand, kwartaal en jaar</li><li>Ranglijst en positie tegenover concurrenten als groep</li><li>Trend- en seizoensanalyse</li><li>Regionale spreiding per provincie en regio</li><li>Nieuwkomers en uitvallers in de markt</li></ul></div>
+      <div class="card cat"><h3>Distributie &amp; intermediair</h3><ul><li>Aandeel per adviespraktijk of kantoor</li><li>Index tegenover uw marktaandeel per kantoor</li><li>Stijgers en dalers in uw distributie</li><li>Concentratie: hoe afhankelijk u bent van de grootste kantoren</li><li>Spreiding over ketens en franchiseformules</li></ul></div>
+      <div class="card cat"><h3>Klantprofiel</h3><ul><li>Gemiddelde leeftijd en leeftijdsklassen</li><li>Man / vrouw</li><li>Samenwonend / alleenstaand</li><li>Starters, doorstromers en oversluiters</li><li>Inkomensklassen en type dienstverband (loondienst, ondernemer)</li></ul></div>
+      <div class="card cat"><h3>Hypotheek &amp; product</h3><ul><li>Hoofdsom- en LTV-klassen</li><li>Loan-to-income-klassen</li><li>NHG of zonder NHG, per geldverstrekker</li><li>Aflosvormen en rentevaste periodes</li><li>Verhogingen, oversluitingen en overbruggingen</li></ul></div>
+      <div class="card cat"><h3>Onderpand, taxatie &amp; ESG</h3><ul><li>Verdeling naar energielabel</li><li>Bestaande bouw of nieuwbouw</li><li>Woningtype en bouwjaarklasse</li><li>Woningwaardeklassen</li><li>Taxatievorm: volledige of hybride taxatie</li><li>Hoe vaak een bouwkundig rapport wordt gevraagd</li><li>Budget voor energiebesparende maatregelen</li></ul></div>
+      <div class="card cat"><h3>Rente &amp; voorwaarden</h3><ul><li>Gestructureerde rentestaten van alle aanbieders</li><li>Uw renteposities tegenover de markt</li><li>Historie van rentewijzigingen</li><li>Opslagen en kortingen (LTV, energielabel, NHG)</li><li>Relatie tussen uw renteniveau en uw marktaandeel</li></ul></div>
+      <div class="card cat"><h3>Verzekeringen &amp; bescherming</h3><ul><li>Marktaandeel in ORV-aanvragen</li><li>Hoe vaak een ORV wordt meegesloten bij de hypotheek</li><li>Woonlasten- en inkomensbescherming</li><li>Klassen van verzekerd bedrag</li><li>Klantprofiel per verzekeraar</li></ul></div>
+      <div class="card cat"><h3>Risico &amp; regelgeving</h3><ul><li>Segmentatie voor uw portefeuillemonitoring (EBA/GL/2020/06)</li><li>Referentiedata voor ESG- en Pillar 3-rapportages</li><li>Marktreferentie naast de DNB-hypotheekrapportage</li><li>Signalen van vertekening in uw instroom</li><li>Rapportages voor risicocomité en directie</li></ul></div>
+    </div>
+    <div class="callout">Welke onderwerpen en uitsplitsingen beschikbaar zijn, hangt af van de gegevens die in de aanvragen zijn vastgelegd en van de minimale aantallen per segment. In de offerte stemmen we samen af wat u precies ontvangt.</div>
   </div>
 </section>
 
@@ -256,6 +283,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <p style="margin:0 0 .6em;color:var(--muted)">Met dit wetsvoorstel moeten banken, verzekeraars, pensioenfondsen en beleggingsinstellingen (en hun beheerders) gegevens over hun hypotheekleningen voor woningen en zakelijk vastgoed aan De Nederlandsche Bank rapporteren. Het doel is betrouwbare statistieken en risicobeoordelingen voor de financiële stabiliteit. Welke gegevens precies gerapporteerd moeten worden, komt in een algemene maatregel van bestuur.</p>
       <p style="margin:0 0 .6em;color:var(--muted)"><strong style="color:var(--ink)">Wat hypotheekonderzoek.nl levert:</strong> een onafhankelijke marktreferentie naast uw eigen rapportage. Daarmee kunt u uw portefeuille naar leeftijd, huishouden en energielabel en uw renteposities vergelijken met het intermediaire kanaal.</p>
       <p style="margin:0;font-size:.85rem;color:var(--muted)">Status: aangenomen door de Tweede Kamer op 11 juni 2026 en in behandeling bij de Eerste Kamer (Kamerstuk 36 846). De inwerkingtreding wordt bij koninklijk besluit geregeld. Bron: <a href="https://wetgevingskalender.overheid.nl/Regeling/WGK026610" target="_blank" rel="noopener">Wetgevingskalender</a>.</p>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <span class="tag">Borging</span>
+      <h3 style="margin:.4em 0 .3em;font-size:1.1rem">Nationale Hypotheek Garantie (NHG)</h3>
+      <p style="margin:0 0 .6em;color:var(--muted)">NHG geeft de geldverstrekker zekerheid via een borgtocht. Levert een gedwongen verkoop minder op dan de restschuld, dan kan de geldverstrekker NHG aanspreken. Voorwaarde is dat de NHG-voorwaarden zijn gevolgd op het moment van de offerte. Bij een hybride taxatie is een bouwkundig rapport voor NHG niet verplicht, maar een geldverstrekker mag er wel om vragen als hij het onderpand bouwkundig onderzocht wil hebben.</p>
+      <p style="margin:0 0 .6em;color:var(--muted)"><strong style="color:var(--ink)">Wat hypotheekonderzoek.nl levert:</strong> het NHG-aandeel per geldverstrekker en in de markt, de verdeling tussen volledige en hybride taxaties, hoe vaak een bouwkundig rapport wordt gevraagd, en het profiel van NHG-aanvragers (leeftijd, huishouden, energielabel) tegenover aanvragen zonder NHG.</p>
+      <p style="margin:0;font-size:.85rem;color:var(--muted)">Bronnen: <a href="https://www.nhg.nl/over-nhg/waarborgfondsconstructie/" target="_blank" rel="noopener">NHG: waarborgfondsconstructie</a> en <a href="https://www.nhg.nl/faq/woning-waarde-verbetering/mag-een-geldverstrekker-vragen-om-een-bouwkundig-rapport-bij-het-gebruiken-van-een-hybride-taxatie/" target="_blank" rel="noopener">NHG: bouwkundig rapport bij hybride taxatie</a>.</p>
     </div>
     <div class="callout"><strong>Let op:</strong> hypotheekonderzoek.nl ondersteunt analyses die de EBA-richtlijnen vragen. Het gebruik ervan maakt een instelling niet automatisch compliant. De naleving en de interpretatie van EBA/GL/2020/06 blijven de verantwoordelijkheid van de instelling zelf. Een verschil tussen mannen en vrouwen is een signaal en geen bewijs van vertekening.</div>
   </div>
