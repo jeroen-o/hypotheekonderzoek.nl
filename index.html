@@ -23,7 +23,10 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;h
 .logo span{color:var(--orange)}
 nav a{color:#cfd8e6;text-decoration:none;margin-left:20px;font-size:.92rem}
 nav a:hover{color:#fff}
-@media(max-width:760px){nav a:not(.btn){display:none}}
+nav{white-space:nowrap}
+nav a:not(.btn){margin-left:14px;font-size:.88rem}
+.logo{white-space:nowrap}
+@media(max-width:1240px){nav a:not(.btn){display:none}}
 .btn{display:inline-block;background:var(--orange);color:var(--navy) !important;padding:10px 18px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:.95rem}
 .btn.ghost{background:transparent;border:1.5px solid currentColor}
 .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:72px 0 88px}
@@ -72,7 +75,8 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
 .flow .arr{align-self:center;color:var(--muted);font-size:1.3rem}
 @media(max-width:760px){.flow{flex-direction:column}.flow .arr{transform:rotate(90deg)}}
 /* offer */
-.offer{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.offer{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1180px){.offer{grid-template-columns:1fr 1fr}}
 @media(max-width:960px){.offer{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.offer{grid-template-columns:1fr}}
 .offer .card h3{margin:.3em 0}
@@ -207,7 +211,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     </div>
     <h3 style="margin:32px 0 12px;font-size:1.15rem">Ook rond het hele dossier</h3>
     <div class="cats">
-      <div class="card cat"><h3>Bestaande klanten</h3><ul><li>Hoe vaak actuele hypotheekinformatie wordt opgevraagd</li><li>Wijzigingen in lopende dossiers, zoals verhogingen, rentewijzigingen en aanpassingen</li><li>Waar bestaande klanten blijven en waar ze vertrekken</li></ul></div>
+      <div class="card cat"><h3>Bestaande klanten</h3><ul><li>Hoe vaak actuele hypotheekinformatie wordt opgevraagd</li><li>Wijzigingen in lopende dossiers, zoals verhogingen, rentewijzigingen en aanpassingen</li><li>Waar bestaande klanten blijven en waar ze vertrekken</li><li>Advies aan klanten met een aflossingsvrije hypotheek</li></ul></div>
       <div class="card cat"><h3>Bankgaranties</h3><ul><li>Aantal en aandeel bankgaranties per partij</li><li>Hoe lang het duurt van aankoop tot garantie</li><li>Profiel van kopers met een bankgarantie</li></ul></div>
       <div class="card cat"><h3>Inkomen in loondienst</h3><ul><li>Hoe vaak het inkomen via brondata wordt bepaald</li><li>Verdeling van inkomensklassen per geldverstrekker</li><li>Verschillen tussen berekend en toetsinkomen</li></ul></div>
       <div class="card cat"><h3>Ondernemers</h3><ul><li>Aandeel ondernemers per geldverstrekker</li><li>Gebruik van inkomensverklaringen voor ondernemers</li><li>Welke verstrekkers ondernemers bedienen en welke niet</li></ul></div>
@@ -261,7 +265,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section id="aanbod">
   <div class="wrap">
     <span class="eyebrow">Aanbod</span>
-    <h2>Eenmalig rapport, doorlopend inzicht of onderzoek op maat</h2>
+    <h2>Marktrapport, doorlopend inzicht, benchmarkonderzoek of maatwerk</h2>
     <p class="intro">Alle inzichten zijn als product te koop. U kunt beginnen met een rapport voor een vraag die nu speelt, of kiezen voor een maandelijks bijgewerkt dashboard waarmee u uw positie en portefeuille blijft volgen.</p>
     <div class="offer">
       <div class="card">
@@ -285,6 +289,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <li>Aandeel per adviespraktijk, met signalering van stijgers en dalers</li>
           <li>Segmentvergelijking met de markt over tijd</li>
           <li>Kwartaalrapport voor uw risico- en directierapportage</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">Benchmark</span>
+        <h3>Benchmarkonderzoek</h3><div style="font-size:1.9rem;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin:.2em 0 .1em">Op aanvraag</div>
+        <p style="color:var(--muted);margin:0">Uw prestaties op een aantal kernindicatoren, vergeleken met een anonieme groep vergelijkbare aanbieders en met de totale markt.</p>
+        <ul>
+          <li>U kiest de vergelijkingsgroep, zoals grootbanken, regiepartijen, verzekeraars of nichespelers</li>
+          <li>Kernindicatoren zoals marktaandeel, aandeel per adviespraktijk, klantprofiel, energielabel en ORV</li>
+          <li>Uw sterke punten en uw groeiruimte per segment en regio</li>
+          <li>Een anonieme groep van minstens vijf partijen, zonder concurrenten bij naam</li>
         </ul>
       </div>
       <div class="card">
@@ -375,6 +390,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <p style="margin:0 0 .6em;color:var(--muted)">NHG geeft de geldverstrekker zekerheid via een borgtocht. Levert een gedwongen verkoop minder op dan de restschuld, dan kan de geldverstrekker NHG aanspreken. Voorwaarde is dat de NHG-voorwaarden zijn gevolgd op het moment van de offerte. Bij een hybride taxatie is een bouwkundig rapport voor NHG niet verplicht, maar een geldverstrekker mag er wel om vragen als hij het onderpand bouwkundig onderzocht wil hebben.</p>
       <p style="margin:0 0 .6em;color:var(--muted)"><strong style="color:var(--ink)">Wat hypotheekonderzoek.nl levert:</strong> het NHG-aandeel per geldverstrekker en in de markt, de verdeling tussen volledige en hybride taxaties, hoe vaak een bouwkundig rapport wordt gevraagd, en het profiel van NHG-aanvragers (leeftijd, huishouden, energielabel) tegenover aanvragen zonder NHG.</p>
       <p style="margin:0;font-size:.85rem;color:var(--muted)">Bronnen: <a href="https://www.nhg.nl/over-nhg/waarborgfondsconstructie/" target="_blank" rel="noopener">NHG: waarborgfondsconstructie</a> en <a href="https://www.nhg.nl/faq/woning-waarde-verbetering/mag-een-geldverstrekker-vragen-om-een-bouwkundig-rapport-bij-het-gebruiken-van-een-hybride-taxatie/" target="_blank" rel="noopener">NHG: bouwkundig rapport bij hybride taxatie</a>.</p>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <span class="tag">AFM</span>
+      <h3 style="margin:.4em 0 .3em;font-size:1.1rem">Aflossingsvrije hypotheken: klanten activeren</h3>
+      <p style="margin:0 0 .6em;color:var(--muted)">Volgens de AFM is meer dan de helft van de Nederlandse hypotheekschuld aflossingsvrij, en lopen veel van die hypotheken af tussen 2035 en 2040. De AFM verwacht dat kredietaanbieders klanten met een risico benaderen, monitoren dat ze in de aanpak blijven, en vastleggen welke technieken werken. De eindverantwoordelijkheid ligt bij de aanbieder, die daarbij samenwerkt met adviseurs.</p>
+      <p style="margin:0 0 .6em;color:var(--muted)"><strong style="color:var(--ink)">Wat hypotheekonderzoek.nl levert:</strong> zicht op wat er in het advies gebeurt met klanten die een aflossingsvrije hypotheek hebben. U ziet hoe vaak zij advies vragen, welke oplossingen worden doorgerekend (aflossen, omzetten, oversluiten, verhogen), naar welke aflosvorm ze overstappen, en hoe dit verschilt per leeftijdsklasse en per adviespraktijk. Zo kunt u meten of uw activatieaanpak in het intermediaire kanaal werkt.</p>
+      <p style="margin:0;font-size:.85rem;color:var(--muted)">Bron: <a href="https://www.afm.nl/nl-nl/sector/kredietaanbieders/hypothecair-krediet/oud-aflossingsvrije-hypotheek" target="_blank" rel="noopener">AFM: aflossingsvrije hypotheek</a>.</p>
     </div>
     <div class="callout"><strong>Let op:</strong> hypotheekonderzoek.nl ondersteunt analyses die de EBA-richtlijnen vragen. Het gebruik ervan maakt een instelling niet automatisch compliant. De naleving en de interpretatie van EBA/GL/2020/06 blijven de verantwoordelijkheid van de instelling zelf. Een verschil tussen mannen en vrouwen is een signaal en geen bewijs van vertekening.</div>
   </div>
