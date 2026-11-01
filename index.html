@@ -95,6 +95,11 @@ td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
 .offer li{margin:.25em 0}
 .offer .card.hl{border:2px solid var(--orange)}
 
+.checks{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:760px){.checks{grid-template-columns:1fr}}
+.checks li{padding-left:28px;position:relative;font-weight:600}
+.checks li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:var(--orange)}
+.checks li::after{content:"";position:absolute;left:6px;top:7px;width:5px;height:9px;border:solid var(--navy);border-width:0 2px 2px 0;transform:rotate(45deg)}
 /* EBA */
 @media(min-width:700px){.eba td:first-child{white-space:nowrap}}
 .eba td:first-child{font-weight:600;color:var(--navy)}
@@ -165,8 +170,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <section id="rente" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <span class="eyebrow">Hypotheekrentes &amp; voorwaarden</span>
-    <h2>Van rentestaat-PDF naar gestructureerde data</h2>
-    <p class="intro">Geldverstrekkers publiceren hun rentes en acceptatievoorwaarden vooral in PDF-rentestaten en productvoorwaarden. Hypotheekonderzoek zet die ongestructureerde documenten om in gestructureerde, digitale data, zodat u rentes en voorwaarden over aanbieders en door de tijd heen kunt vergelijken.</p>
+    <h2>Baseer elke beslissing op data</h2>
+    <p class="intro">Zorg voor heldere, overzichtelijke processen en versnel het renteproces. Hypotheekonderzoek zet ongestructureerde data, zoals rentestaten in PDF-bestanden van banken en geldverstrekkers, om in gestructureerde, digitale data. Het is unieke software met uitgebreide analyses en nog veel meer.</p>
+    <div class="card" style="margin-bottom:16px">
+      <h3 style="margin:0 0 .4em;font-size:1.05rem">Ideaal voor geldverstrekkers die…</h3>
+      <ul class="checks">
+        <li>grip willen hebben op het renteproces</li>
+        <li>analyses willen maken op basis van aangekondigde rentes</li>
+        <li>realtime inzicht willen hebben in hun positie</li>
+      </ul>
+    </div>
     <div class="grid6">
       <div class="card feat"><div class="num">1</div><h3>Inlezen</h3><p>We verzamelen de rentestaten en voorwaardendocumenten van banken en geldverstrekkers bij elke wijziging.</p></div>
       <div class="card feat"><div class="num">2</div><h3>Structureren</h3><p>We zetten de documenten om naar één datamodel: rentevaste periode, LTV-klasse, NHG, aflosvorm, energielabelkorting en opslagen.</p></div>
