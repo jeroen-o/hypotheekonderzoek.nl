@@ -172,7 +172,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .team .av{width:72px;height:72px;border-radius:50%;object-fit:cover;background:var(--orange-soft);display:grid;place-items:center;margin:0 auto 10px;font-weight:800;color:var(--navy);font-size:1.3rem}
 @media print{header.top,footer,.skip{display:none}.doc{padding:0}}
 </style>
-<meta name="robots" content="noindex">
 </head>
 <body>
 <a class="skip" href="#main">Naar de inhoud</a>
@@ -194,14 +193,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <main id="main">
 <div class="hero" style="padding:56px 0 64px">
   <div class="wrap">
-    <span class="eyebrow">Methodologie · versie 0.9 (concept)</span>
+    <span class="eyebrow">Methodologie · versie 1.0</span>
     <h1 style="font-size:clamp(1.8rem,4vw,2.6rem)">Zo komen onze cijfers tot stand</h1>
     <p class="lead" style="margin:0">Bron, definities, rekenmethoden, datakwaliteit, privacy, mededinging en beperkingen van de rapportages van hypotheekonderzoek.nl.</p>
   </div>
 </div>
 
 <article class="doc">
-  <p class="box"><b>Concept.</b> Waarden tussen blokhaken <span class="ph">[zo]</span> worden vastgesteld voordat de eerste rapportage wordt geleverd.</p>
+  
   <div class="toc"><strong>Inhoud</strong><ol>
     <li><a href="#m1">Doel en reikwijdte</a></li><li><a href="#m2">Databron</a></li><li><a href="#m3">Definities</a></li><li><a href="#m4">Rekenmethoden</a></li><li><a href="#m5">Datakwaliteit</a></li><li><a href="#m6">Privacy</a></li><li><a href="#m7">Mededinging</a></li><li><a href="#m8">Beperkingen</a></li><li><a href="#m9">Versiebeheer</a></li>
   </ol></div>
@@ -231,10 +230,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <tr><td>Passeringsratio</td><td>Het aantal passeringen gedeeld door het aantal aanvragen in hetzelfde cohort</td></tr>
       <tr><td>Index</td><td>Het aandeel bij een kantoor, in een regio of in een segment, gedeeld door het landelijke aandeel, maal 100</td></tr>
       <tr><td>Starter / doorstromer / oversluiter</td><td>Starter: eerste eigen woning. Doorstromer: aankoop met verkoop van een eigen woning. Oversluiter: nieuwe hypotheek op dezelfde woning bij een andere aanbieder.</td></tr>
-      <tr><td>LTV</td><td>De hypotheeksom gedeeld door de marktwaarde volgens de taxatie, of de koopsom als er geen taxatie is <span class="ph">[vaststellen]</span></td></tr>
+      <tr><td>LTV</td><td>De hypotheeksom gedeeld door de marktwaarde volgens het taxatierapport. Zonder taxatie gebruiken we bij bestaande bouw de koopsom, en bij nieuwbouw de koop- en aanneemsom plus meerwerk. In elk rapport staat welk deel van de LTV-berekeningen op een taxatie is gebaseerd.</td></tr>
       <tr><td>LTI</td><td>De hypotheeksom gedeeld door het toetsinkomen van het huishouden</td></tr>
       <tr><td>Energielabel</td><td>Het geregistreerde label van het onderpand zoals vastgelegd in het dossier</td></tr>
-      <tr><td>Vergelijkingsgroep</td><td>Een anonieme groep van minstens 5 vergelijkbare aanbieders, waarin geen enkele partij meer dan <span class="ph">[25]%</span> van het volume heeft</td></tr>
+      <tr><td>Vergelijkingsgroep</td><td>Een anonieme groep van minstens 5 vergelijkbare aanbieders, waarin geen enkele partij meer dan 25% van het volume heeft</td></tr>
     </tbody>
   </table></div>
 
@@ -244,26 +243,28 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <h3>Indicatieve reden van afvallen</h3>
   <p>Voor berekeningen waarin een aanbieder voorkwam maar die niet tot een aanvraag bij die aanbieder leidden, vergelijken we de rente, de maximale hypotheek en de voorwaarden met die van de aanbieder die wel werd gekozen. Het grootste verschil geldt als indicatieve reden. Dit is een afleiding en geen gemeten reden. Naar welke aanbieder de aanvraag ging, wordt niet gerapporteerd.</p>
   <h3>Verschil in leencapaciteit</h3>
-  <p>Het aandeel berekeningen waarin de maximale hypotheek van de aanbieder meer dan <span class="ph">[2]%</span> onder de mediaan van de doorgerekende aanbieders ligt.</p>
+  <p>Het aandeel berekeningen waarin de maximale hypotheek van de aanbieder meer dan 2% onder de mediaan van de doorgerekende aanbieders ligt.</p>
   <h3>Prognose</h3>
-  <p>De prognose van de eigen instroom is gebaseerd op het historische verband tussen berekeningen, aanvragen en passeringen, met seizoenscorrectie. De bandbreedte geeft het <span class="ph">[80]%</span>-voorspellingsinterval. De methode wordt elk kwartaal getoetst aan de werkelijke uitkomsten (backtesting).</p>
+  <p>De prognose van de eigen instroom is gebaseerd op het historische verband tussen berekeningen, aanvragen en passeringen, met seizoenscorrectie. De bandbreedte geeft het 80%-voorspellingsinterval. De methode wordt elk kwartaal getoetst aan de werkelijke uitkomsten (backtesting).</p>
   <h3>Indicatieve CO₂-uitstoot</h3>
   <p>Volgens de PCAF-methode, met per labelklasse een gemiddelde uitstoot per m². Omdat het werkelijke verbruik binnen een labelklasse sterk kan verschillen, is de uitkomst indicatief.</p>
 
   <h2 id="m5">5. Datakwaliteit</h2>
   <ul>
     <li><b>Ontdubbelen:</b> dubbele berekeningen en aanvragen binnen één dossier worden samengevoegd.</li>
-    <li><b>Plausibiliteit:</b> waarden buiten realistische grenzen worden uitgesloten, bijvoorbeeld een LTV boven <span class="ph">[150]%</span> of een negatieve hoofdsom.</li>
+    <li><b>Plausibiliteit:</b> waarden buiten realistische grenzen worden uitgesloten, bijvoorbeeld een LTV boven 150% of een negatieve hoofdsom.</li>
     <li><b>Ontbrekende waarden:</b> die worden apart gerapporteerd als "onbekend" en niet geïmputeerd, tenzij dat expliciet wordt vermeld.</li>
     <li><b>Consistentie:</b> elke maand controleren we de aansluiting tussen berekeningen, aanvragen en passeringen.</li>
-    <li><b>Herziening:</b> late registraties kunnen eerdere maanden nog wijzigen. Cijfers zijn definitief na <span class="ph">[2]</span> maanden.</li>
+    <li><b>Herziening:</b> late registraties kunnen eerdere maanden nog wijzigen. Cijfers zijn definitief 2 maanden na het einde van de periode. Daarvoor worden ze als voorlopig gemarkeerd.</li>
   </ul>
 
   <h2 id="m6">6. Privacy</h2>
   <ul>
     <li>Rapportages bevatten uitsluitend geaggregeerde gegevens, zonder persoonsgegevens van consumenten of adviseurs.</li>
-    <li>Segmenten met minder dan <span class="ph">[25]</span> waarnemingen worden niet getoond.</li>
-    <li>Het gebruik van dossierdata is vastgelegd in afspraken met de deelnemende adviespraktijken <span class="ph">[beschrijf rolverdeling en grondslag]</span>, op basis van een DPIA.</li>
+    <li>Segmenten met minder dan 25 waarnemingen worden niet getoond.</li>
+    <li>De adviespraktijk is verwerkingsverantwoordelijke voor het klantdossier. Het gebruik van dossierdata voor geaggregeerd marktonderzoek is vastgelegd in een overeenkomst met elke deelnemende adviespraktijk. Daarin staan het doel, de pseudonimisering vóór analyse, de bewaartermijnen en het verbod op heridentificatie.</li>
+    <li>De grondslag is het gerechtvaardigd belang (art. 6 lid 1 sub f AVG), onderbouwd met een belangenafweging en een DPIA. Bijzondere persoonsgegevens, zoals gezondheidsgegevens, gebruiken we niet.</li>
+    <li>Onderliggende gegevens worden gepseudonimiseerd verwerkt en na 5 jaar geanonimiseerd of verwijderd.</li>
     <li>Leeftijd, inkomen en postcode worden alleen in klassen gerapporteerd.</li>
   </ul>
 
@@ -271,7 +272,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <ul>
     <li>Een afnemer ziet alleen zijn eigen positie tegenover de markt of een anonieme vergelijkingsgroep.</li>
     <li>Er worden geen cijfers over individuele concurrenten verstrekt.</li>
-    <li>Rente-informatie komt alleen uit openbare rentestaten en wordt getoond als bandbreedte, met een vertraging van minstens <span class="ph">[4 weken]</span>.</li>
+    <li>Rente-informatie komt alleen uit openbare rentestaten en wordt getoond als bandbreedte, met een vertraging van minstens 4 weken.</li>
     <li>Er wordt geen informatie verstrekt over toekomstige of niet-openbare prijzen, kortingen of acceptatiebeleid.</li>
     <li>Afnemers wisselen via hypotheekonderzoek.nl geen informatie onderling uit.</li>
   </ul>
@@ -287,6 +288,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <h2 id="m9">9. Versiebeheer</h2>
   <div class="tablewrap"><table class="eba"><thead><tr><th>Versie</th><th>Datum</th><th>Wijziging</th></tr></thead><tbody>
     <tr><td>0.9</td><td>november 2026</td><td>Eerste concept</td></tr>
+    <tr><td>1.0</td><td>november 2026</td><td>Alle waarden vastgesteld</td></tr>
   </tbody></table></div>
 </article>
 
